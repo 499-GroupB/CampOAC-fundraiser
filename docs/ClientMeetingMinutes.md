@@ -8,3 +8,8 @@
 
 ---
 
+**26/09/2022 14:00-14:15**
+
+  -Requirements further details
+  
+  -Follow up questions
