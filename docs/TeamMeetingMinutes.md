@@ -18,6 +18,8 @@
   
   -Requirements Report Planning
   
+  ---
+  
 **2022/09/30  11:00-11:30  (everyone attended)**
 
   -IP Agreement discussion
