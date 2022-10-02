@@ -29,3 +29,12 @@
   -Gitstats
   
   -Laying out next meeting topics
+  
+  ---
+  
+ **2022/10/02  14:00-15:00  (everyone attended)**
+ 
+ -Discussed tentative timeline
+ 
+ -Worked on requirements ppt
+
