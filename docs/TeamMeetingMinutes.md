@@ -36,5 +36,5 @@
  
  -Discussed tentative timeline
  
- -Worked on requirements ppt
+ -Worked on requirements power point presentation
 
