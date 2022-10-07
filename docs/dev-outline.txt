@@ -1,0 +1,33 @@
+Tentative outline for developing APP.
+
+Spin up web server <digital-ocean>
+  - Cheapest option, low storage
+  
+Configure server for hosting react app
+  - Install latest stable Node build
+  - Comes with NPM, pull necessary packages
+    - express
+    - create-react-app
+    
+ Create the React app
+  - design a pretty standard landing page
+  
+ Host React app through expresss.js
+  - configure end points and API skeleton as well
+  
+ Create and configure MongoDB
+  - use a team account
+  - ensure canadian location is used
+  - lab out a usable database schema
+ 
+ Implement Mongodb with the react server in the backend
+  - Hook in to express end points and ensure we can read AND write
+ 
+ Implement invoice system
+  - BIG BLACK BOX
+  - ??? to be finalized
+  
+  Implement invoice system and add Square API for payment
+   - Test
+   - Test
+   - Test again
