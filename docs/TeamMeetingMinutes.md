@@ -36,5 +36,12 @@
  
  -Discussed tentative timeline
  
- -Worked on requirements power point presentation
+ -Worked on requirements presentation (slides)
+ 
+ ---
+ 
+**2022/10/09	14:00-15:00 (Michael did not attend)**
+
+-Worked on requirements presentation (slides)
+
 
