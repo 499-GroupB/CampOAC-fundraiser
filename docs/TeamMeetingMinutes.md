@@ -38,3 +38,11 @@
  
  -Worked on requirements power point presentation
 
+ ---
+
+ **2022/10/11  17:15-17:45  (everyone attended)**
+
+ -Fianlizing requirements presentation slides
+
+ -Group rehearsal for requirements presentation
+
