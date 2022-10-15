@@ -7,10 +7,19 @@ Configure server for hosting react app
   - Install latest stable Node build
   - Comes with NPM, pull necessary packages
     - express
-    - create-react-app
-    
+    - create react-dom site
+ 
  Create the React app
+  - decide on standard design language
   - design a pretty standard landing page
+  
+ Create docker container:
+  - Ubuntu LTS
+  - NodeJS
+    - NPM
+  - Express
+  - 
+  - Ready to go
   
  Host React app through expresss.js
   - configure end points and API skeleton as well
