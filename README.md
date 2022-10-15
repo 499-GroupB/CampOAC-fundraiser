@@ -13,6 +13,8 @@ Baillie Stang*
 ## About
  🚧 Under Construction 🚧
 
+## TO DO
+
 ## Tech Stack
 
 Backend
@@ -32,3 +34,10 @@ Frontend
 |--|--|--|
 | React-dom| [18.0.2](https://www.npmjs.com/package/react-dom) | Rendering the website |
 
+## Status
+| Milestone | Requirements | Status|
+|--|--|--|
+| Requirements Completed | Decided on project requirements, ready to begin development | ✔️|
+| Peer Testing #1 | Site is prepared and backend is running, minimal backend interaction | ❌|
+| Peer Testing #2 | Storefront taking shape / mobile friendly. Complete back end integration (API endpoints) Fully functional database | ❌|
+| Deliverable / Handoff | Invoice creation, payment processing, payment security scrutiny| ❌|
