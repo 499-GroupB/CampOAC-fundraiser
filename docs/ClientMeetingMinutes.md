@@ -18,7 +18,7 @@
 
 **17/10/2022 14:00-14:15**
 
-  -Further detail about how tro handle cash purchases
+  -Further detail about how to handle cash purchases
   
   -Discussing colour scheme
 
