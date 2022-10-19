@@ -13,3 +13,15 @@
   -Requirements further details
   
   -Follow up questions
+
+---
+
+**17/10/2022 14:00-14:15**
+
+  -Further detail about how tro handle cash purchases
+  
+  -Discussing colour scheme
+
+  -Changing meeting schedule
+
+---
