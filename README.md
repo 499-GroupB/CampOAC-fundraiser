@@ -1,4 +1,4 @@
-# CampOAC - Group B 
+﻿# CampOAC - Group B 
 ![Version - 0.0.1](https://img.shields.io/badge/version-pending-lightgrey?style=for-the-badge)
 
 Team Links:
@@ -9,6 +9,8 @@ Maintainers: <br />
 Sai Rohith Enumala <br />
 Paul Ranger <br />
 Baillie Stang*
+
+![Camo OAC Logo](https://dq5pwpg1q8ru0.cloudfront.net/2022/02/01/13/47/40/80246f35-cf69-4603-bbcb-8226ff2b0a69/Camp-OAC-Logo-Primary-No-Background.png)
 
 ## About
  🚧 Under Construction 🚧 <br />
