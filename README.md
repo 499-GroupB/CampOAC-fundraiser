@@ -11,7 +11,10 @@ Paul Ranger <br />
 Baillie Stang*
 
 ## About
- 🚧 Under Construction 🚧
+ 🚧 Under Construction 🚧 <br />
+ 
+ We are building a mobile-friendly website to automate the process of obtaining campfire wood for the general public. On the website, the user will choose the location (from a list of available locations) and the desired number of bags of firewood. Then, they will automatically receive an invoice by email that is produced based on pricing and quantity ordered. The website then makes payment or retains an invoice for cash payment upon pick up. The receipt is generated automatically. Users groups include local residents as well as tourists, most people who need a smaller quantity of wood as for larger orders people would be more likely to turn to a bulk supplier.
+
 
 ## TO DO
 
