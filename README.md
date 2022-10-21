@@ -4,10 +4,10 @@
 Team Links:
 [Trello](https://trello.com/b/cUsANV8U/cosc-499-camp-oac-b)
 
-Maintainers:
-*Michael Boulanger
-Sai Rohith Enumala
-Paul Ranger
+Maintainers: <br />
+*Michael Boulanger <br />
+Sai Rohith Enumala <br />
+Paul Ranger <br />
 Baillie Stang*
 
 ## About
