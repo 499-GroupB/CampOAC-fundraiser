@@ -1,9 +1,6 @@
 ﻿# CampOAC - Group B 
 ![Version - 0.0.1](https://img.shields.io/badge/version-pending-lightgrey?style=for-the-badge)
 
-Team Links:
-[Trello](https://trello.com/b/cUsANV8U/cosc-499-camp-oac-b)
-
 Maintainers: <br />
 *Michael Boulanger <br />
 Sai Rohith Enumala <br />
