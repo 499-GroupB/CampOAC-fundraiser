@@ -53,3 +53,17 @@
 
  -Group rehearsal for requirements presentation
 
+ ---
+
+ **2022/10/23	14:00-15:00 (everyone attended)**
+ 
+-Cleaned the repo
+
+-Installed tech stack on local computer
+
+-Dissued our goals for milestone 2
+
+-Opened issues for potential tasks and exploration 
+
+
+
