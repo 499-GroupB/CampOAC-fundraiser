@@ -1,6 +1,12 @@
 ## Available Scripts
 
-In the project directory, you can run:
+
+After accessing project directory
+(assuming in CampOAC-GroupB dir)
+
+`cd front-end`
+
+once in front end directory:
 
 ### `npm start`
 
