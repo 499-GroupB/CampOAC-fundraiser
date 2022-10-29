@@ -1,0 +1,13 @@
+Issues Process
+
+1. Create Issue (Please use this format for bugs. If the issue is not a bug, a short description will suffice.)
+eg)
+Description: The webpage does not work in Firefox. The buttons do not load properly.
+How to recreate issue: Open the webpage in Firefox. Watch as it fails to load properly.
+Potential fix: Add a secondary type of button that works in Firefox and a check for what type of browser is being used.
+
+2. Someone else fixes it
+
+3. The person who created the issue checks if the issue has been fixed
+
+4. Profit?
