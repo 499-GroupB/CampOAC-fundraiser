@@ -65,5 +65,21 @@
 
 -Opened issues for potential tasks and exploration 
 
+---
+
+ **2022/10/30	14:00-15:00 (everyone attended)**
+
+-Weekly Scrum Meeting
+
+-Discussing Upcoming issues and roles
+
+-Finalised our prototype
+
+-Presented Design Drafts
+
+-Chose Design
+
+
+
 
 
