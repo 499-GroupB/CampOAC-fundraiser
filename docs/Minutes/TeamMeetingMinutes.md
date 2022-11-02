@@ -67,17 +67,19 @@
 
 ---
 
- **2022/10/30	14:00-15:00 (everyone attended)**
+ **2022/10/30	14:00-15:15 (everyone attended)**
 
--Weekly Scrum Meeting
+-Weekly scrum meeting
 
--Discussing Upcoming issues and roles
+-Discussed upcoming issues and roles
 
 -Finalised our prototype
 
+-Chose Design
+
 -Presented Design Drafts
 
--Chose Design
+
 
 
 
