@@ -4,9 +4,9 @@
 After accessing project directory
 (assuming in CampOAC-GroupB dir)
 
-`cd front-end`
+`cd react-app`
 
-once in front end directory:
+once in react-app directory:
 
 ### `npm start`
 
