@@ -39,3 +39,13 @@ code {
 .navbar-brand {
   color: #f7a81b!important;
 }
+
+.contact{
+
+  display: flex;
+  
+  justify-content: center;
+  
+
+}
+
