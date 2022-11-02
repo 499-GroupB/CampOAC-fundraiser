@@ -50,7 +50,48 @@ root.render(
     </div>
     <br/><br/><br/>
     <h3 class="pagetext">Want to get in touch?</h3>
-    <p class="pagetext">Don't.</p>
+   
+
+
+
+    
+
+    <br/>
+
+    <div class="contact">
+      
+  <div className="icons">
+    <div className="i">
+      <a href = "https://www.facebook.com/campoac/">
+        
+      
+      <img src= "https://cdn-icons-png.flaticon.com/512/59/59439.png" width= "50" heigth = "50" alt="" className="i" />
+      </a>
+    </div>
+  </div>
+
+  <div className='icons'>
+    <img>
+    </img>
+  </div>
+  <div className="icons">
+    <div className="i">
+      <a href = "https://www.instagram.com/camp_oac/">
+
+      
+      <img src= "https://freeiconshop.com/wp-content/uploads/edd/instagram-new-outline.png" width= "50" heigth = "50"  alt="" className="i" />
+
+      </a>
+    </div>
+  </div>
+  
+</div>
+     
+ 
+    
+    
+    
+    
     <br/><br/><br/>
     <nav class="bottombar navbar fixed-bottom">
       <div class="container-fluid">
