@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pagetext {
+  color: #0067c8;
+}
+
+.topbar {
+  background-color:#17458f;
+  color: #f7a81b;
+}
+
+.bottombar {
+  background-color: #0067c8;
+  color: #f7a81b;
+}
+
+.orderbutton {
+  --bs-btn-bg: #f7a81b!important;
+  --bs-btn-color: #0067c8!important;
+  --bs-btn-hover-color: #17458f!important;
+  --bs-btn-hover-bg: #de8c00!important;
+  --bs-btn-active-color: #f7a81b!important;
+  --bs-btn-active-bg: #0067c8!important;
+  font-size: 200%!important;
+}
+
+.navbar-brand {
+  color: #f7a81b!important;
+}
