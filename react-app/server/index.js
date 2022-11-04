@@ -5,7 +5,7 @@ const path = require("path");
 // configure
 app.use(express.static(path.join(__dirname, "..", "build")));
 
-// Start express and listen on port 5000
+// Start express and listen on port 3000
 app.listen(3000, () => {
     console.log("server started on port 3000");
 });
