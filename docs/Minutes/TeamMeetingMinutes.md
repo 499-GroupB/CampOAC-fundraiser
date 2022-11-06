@@ -80,6 +80,16 @@
 -Presented Design Drafts
 
 
+ 2022/11/06	12:00-12:30 (everyone attended)
+
+Weekly Scrum Meeting.
+
+Tasks are being broken down.
+
+This week's tasks are being assigned to team members.
+
+
+
 
 
 
