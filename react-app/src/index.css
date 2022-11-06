@@ -16,9 +16,17 @@ code {
   color: #0067c8;
 }
 
+.orderpage {
+  display: none;
+}
+
 .topbar {
   background-color:#17458f;
   color: #f7a81b;
+}
+
+.email {
+  width: 400px;
 }
 
 .bottombar {
