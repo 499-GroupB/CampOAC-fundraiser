@@ -1,27 +1,27 @@
 **20/09/2022 14:00-14:20**
 
-  -Introductions
+  * Introductions
   
-  -Discuss initial project specs
+  * Discussed initial project specs
   
-  -Arrange weekly meeting time
+  * Decided weekly meeting time
 
 ---
 
 **26/09/2022 14:00-14:15**
 
-  -Requirements further details
+  * Further details on requirements
   
-  -Follow up questions
+  * Follow up questions
 
 ---
 
 **17/10/2022 14:00-14:15**
 
-  -Further detail about how to handle cash purchases
+  * Further details about how to handle cash purchases
   
-  -Discussing colour scheme
+  * Discussed colour scheme
 
-  -Changing meeting schedule
+  * Changed meeting schedule
 
 ---
