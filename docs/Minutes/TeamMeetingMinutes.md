@@ -1,92 +1,93 @@
 **2022/09/18	16:00-17:00 (everyone attended)**
 
-  -Scheduling client meeting
+  * Scheduled client meeting
   
-  -Deciding team agreement
+  * Decided the team agreement
   
-  -Organizing github repo
+  * Organized github repo
   
-  -Organizing trello
+  * Organized trello
   
   ---
 
 **2022/09/25	14:40-16:30 (everyone attended)**
 
-  -Requirements Breakdown
+  * Requirements Breakdown
   
-  -Client Meeting Questions
+  * Questions for the clients meeting
   
-  -Requirements Report Planning
+  * Requirements Report Planning
   
   ---
   
 **2022/09/30  11:00-11:30  (everyone attended)**
 
-  -IP Agreement discussion
+  * IP Agreement discussion
   
-  -DFD review
+  * DFD review
   
-  -Gitstats
+  * Gitstats
   
-  -Laying out next meeting topics
+  * Layed out next meeting topics
   
   ---
   
  **2022/10/02  14:00-15:00  (everyone attended)**
  
- -Discussed tentative timeline
+ * Discussed tentative timeline
  
- -Worked on requirements presentation (slides)
+ * Worked on requirements presentation (slides)
  
  ---
  
 **2022/10/09	14:00-15:00 (Michael did not attend)**
 
--Worked on requirements presentation (slides)
+* Worked on requirements presentation (slides)
 
 
  ---
 
  **2022/10/11  17:15-17:45  (everyone attended)**
 
- -Fianlizing requirements presentation slides
+ * Finalized requirements presentation slides
 
- -Group rehearsal for requirements presentation
+ * Group rehearsal for requirements presentation
 
  ---
 
  **2022/10/23	14:00-15:00 (everyone attended)**
  
--Cleaned the repo
+* Cleaned the repo
 
--Installed tech stack on local computer
+* Installed tech stack on local computer
 
--Dissued our goals for milestone 2
+* Dissued our goals for milestone 2
 
--Opened issues for potential tasks and exploration 
+* Created issues for potential tasks and exploration 
 
 ---
 
  **2022/10/30	14:00-15:15 (everyone attended)**
 
--Weekly scrum meeting
+* Weekly scrum meeting
 
--Discussed upcoming issues and roles
+* Discussed upcoming issues and roles
 
--Finalised our prototype
+* Finalised our prototype
 
--Chose Design
+* Selected Design
 
--Presented Design Drafts
+* Presented Design Drafts
 
+---
 
- 2022/11/06	12:00-12:30 (everyone attended)
+ **2022/11/06	12:00-12:30 (everyone attended)**
 
-Weekly Scrum Meeting.
+* Weekly scrum meeting
 
-Tasks are being broken down.
+* Tasks are being broken down
 
-This week's tasks are being assigned to team members.
+* This week's tasks are being assigned to team members
 
 
 
