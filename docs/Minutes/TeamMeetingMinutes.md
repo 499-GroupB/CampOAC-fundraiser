@@ -89,6 +89,15 @@
 
 * This week's tasks are being assigned to team members
 
+---
+
+**2022/11/12	14:00-14:30 (everyone attended)**
+
+* Weekly scrum meeting
+
+* Explaining code in development
+
+* Discussing about the prototype.
 
 
 
