@@ -1,0 +1,41 @@
+.navbar {
+    background-color: #17458f;
+    color: white;
+    height: 80px;
+    border-bottom: 2px solid #f1f1f1;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+p.navbar {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+p:hover.navbar {
+    color: gray;
+    transition: 0.3s;
+}
+
+a.navbar {
+    text-decoration: none;
+}
+
+#logo {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 2rem;
+    padding: 15px 0px;
+    text-decoration: none;
+}
+
+#logo:hover {
+    color: gray;
+    transition: 0.1s;
+}
+
