@@ -96,3 +96,15 @@ button:hover {
     border-radius: 25px;
     border: 2px solid #17458f;
 }
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
