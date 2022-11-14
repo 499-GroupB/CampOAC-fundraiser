@@ -9,8 +9,9 @@ const Footer = () => {
             <a href="https://www.facebook.com/campoac/"><FontAwesomeIcon icon={faFacebook} size="lg"></FontAwesomeIcon></a>
             <FontAwesomeIcon icon={faTwitter} size="lg"></FontAwesomeIcon>
             <a href = "https://www.instagram.com/camp_oac/"><FontAwesomeIcon icon={faInstagram} size="lg"></FontAwesomeIcon></a>
-            <p id="footerText">Made by CampOAC group b</p>
+            <p id="footerText">Made by Camp OAC Group-B</p>
             <p id="footerText">All rights reserved CampOAC x Rotary Club of Kelowna</p>
+            
         </footer>
     );
 } 
