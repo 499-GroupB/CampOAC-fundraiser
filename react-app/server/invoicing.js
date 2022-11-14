@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
 
-//TODO css styling for invoice pdf
 const styles = StyleSheet.create({
     page: {},
     name: {},
@@ -12,19 +11,17 @@ const styles = StyleSheet.create({
     paidCash: {},
 });
 
-//takes values from order form and renders invoice pdf to a file that can be sent by email
 function genInvoice(order){
     const paidCash = false;
-    if(order.payment=='invoice') paidCash=true;
+    if(order.payType=='cash') paidCash=true;
     
     const nameDisp = 'Name: '+order.firstName+' '+order.lastName;
     const priceDisp = 'Total: $'+(order.numBags*bagPrice);
-    const payTypeDisp = 'Payment Method: '+order.payment;
-    const pickupLocDisp = 'Pickup Address: '+order.pickUp;
+    const payTypeDisp = 'Payment Method: '+order.payType;
+    const pickupLocDisp = 'Pickup Address: '+order.pickupLoc;
     const paidCashDisp = paidCash ? 'CASH PAYMENT DUE ON PICKUP' : '';
 
-    //using React-PDF, pdf is treated as react component and can be styled with css
-    const invoiceDoc = () => (
+    const invoice = () => (
         <Document>
             <Page size='A4' style={styles.page}>
                 <View style={styles.name}>
@@ -46,6 +43,5 @@ function genInvoice(order){
         </Document>
     );
 
-    //TODO come up with unique naming so pdfs can be attached to email and subsequently deleted but so concurrent orders aren't confused
-    ReactPDF.render(<invoiceDoc />, `${__dirname}/example.pdf`);
+    ReactPDF.render(<invoice />, `${__dirname}/example.pdf`);
 }
