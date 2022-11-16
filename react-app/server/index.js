@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // local requisites
 const Order = require('./models/order');
 const auth = require('./credentials');
-const Invoice = require('./invoicing');
+const Invoice = require('../src/components/invoicing');
 
 // conf
 const PORT = 3000;
