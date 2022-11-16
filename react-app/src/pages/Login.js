@@ -11,7 +11,7 @@ const Login = () => {
 
   return (
     <div class="order-form">
-      <h1>Admin Login</h1>
+      <h1>admin login</h1>
       <Formik
         // Formik requires intial values to be set
         // This also shows how the values are keyed and will be used

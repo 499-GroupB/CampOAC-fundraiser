@@ -3,10 +3,9 @@
 const About = () => {
     return (
         <>
-            <h1>Welcome to Camp OAC!</h1>
+            <h1>welcome to camp oac</h1>
             
             <p>
-
             Camp Owaissi is a childrens summer camp located just north
              of Kelowna on the beautiful Okanagan lake! Started in 1950,
               Camp Owaissi has ran summer camps that have been attended

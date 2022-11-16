@@ -42,9 +42,9 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <Link to="/about" onClick={open}><li>About</li></Link>
-      <Link to="/order" onClick={open}><li>Order</li></Link>
-      <Link to="/admin" onClick={open}><li>Admin</li></Link>
+      <Link to="/about" onClick={open}><li>about</li></Link>
+      <Link to="/order" onClick={open}><li>order</li></Link>
+      <Link to="/admin" onClick={open}><li>admin</li></Link>
     </Ul>
   )
 }

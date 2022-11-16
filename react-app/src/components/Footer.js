@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer-class">
             <a href="https://www.facebook.com/campoac/"><FontAwesomeIcon icon={faFacebook} size="lg"></FontAwesomeIcon></a>
-      
+            &nbsp;&nbsp;
             <a href = "https://www.instagram.com/camp_oac/"><FontAwesomeIcon icon={faInstagram} size="lg"></FontAwesomeIcon></a>
             <p id="footerText">Made by Camp OAC Group-B</p>
             <p id="footerText">All rights reserved CampOAC x Rotary Club of Kelowna</p>

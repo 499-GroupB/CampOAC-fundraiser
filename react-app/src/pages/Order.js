@@ -10,7 +10,7 @@ const Order = () => {
   const apiEnd = 'http://localhost:3000/order/submit';
   return (
     <div className='order-form'>
-      <h1>Order!</h1>
+      <h1>order</h1>
       <Formik
         // Formik requires intial values to be set
         // This is also how the variables appear in the api response
