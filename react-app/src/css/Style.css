@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'Bearhug';
+    src: url('../../public/Bearhug.ttf') format("truetype");
+}
+
 body {
     background-color: rgb(250, 250, 250);
 }
 
 h1 {
+    font-family: "Bearhug";
+    color: #2c4356;
     margin: 30px;
 }
 
@@ -62,7 +69,7 @@ label{
 }
 
 button {
-    background-color: #926d4c;
+    background-color: #17458f;
     /* royal blue */
     border: none;
     color: white;
@@ -76,7 +83,7 @@ button {
 }
 
 button:hover {
-    background-color: #926d4c;
+    background-color: #133366;
     padding: 20px 37px;
 }
 
@@ -84,14 +91,14 @@ button:hover {
     margin-top: auto;
     left: 0;
     width: 100%;
-    background-color: #3c4356;
+    background-color: #17458f;
     color: white;
     text-align: center;
     padding: 2em 0;
 }
 
 #footerText {
-    color: white;
+    color: darkGray;
     padding: 0px;
     font-size: 1rem;
 }
