@@ -34,6 +34,7 @@ const Admin = () => {
             <div className="order-wrapper">
                 <OrderView orders={orders}/>
             </div>
+            <br></br>
         </>
     );
 };

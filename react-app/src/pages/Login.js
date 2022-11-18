@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { MyTextInput } from '../components/Inputs';
+import { Link } from 'react-router-dom';
 
 // Login form
 const Login = () => {
@@ -77,6 +78,7 @@ const Login = () => {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
+      <Link to="/dashboard"><button>Go to dashboard (Cheat)</button></Link>
     </div>
   );
 };

@@ -68,7 +68,6 @@ const Order = () => {
               })
               .then(function (response) {
                 console.log(response);
-                this.props.history.push("/");
               })
               // Catching axios error
               // Currently outputs to browser console (not  good)
@@ -76,6 +75,7 @@ const Order = () => {
                 console.log(error);
               });
             setSubmitting(false);
+            window.location.reload(false);
           }, 400);
         }}
       >
