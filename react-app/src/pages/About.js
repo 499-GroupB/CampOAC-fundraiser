@@ -3,30 +3,22 @@
 const About = () => {
     return (
         <>
-            <h1>welcome to camp oac</h1>
+            <h1>Rotary Club of Kelowna Ogopogo</h1>
             
             <p>
-            Camp Owaissi is a childrens summer camp located just north
-             of Kelowna on the beautiful Okanagan lake! Started in 1950,
-              Camp Owaissi has ran summer camps that have been attended
-               by thousands of campers. In the Offseason, the amazing property
-                is available for rentals to host family reunions, get togethers
-                 and even weddings. We also host school group rentals. 
-                 Camp Owaissi is a place that everyone can enjoy. 
+            We accomplish service projects in the local community
+            and internationally through the fellowship and efforts
+            of our club members.  More information is available here.
             </p>
 
             
-            <p>We are currently doing the fundraisers to raise
-            money for the new craft hut and to support camper bursaries. 
-            We believe that all youth in our community should have the 
-            opportunity to experience summer camp! </p>
+           
 
-            <h3> Firewood Fundraiser</h3>
+            <h3>Camp OAC</h3>
 
             <p>
-            We have partnered with the Rotary Club of Kelowna
-            Ogopogo to sell firewood. Stay tuned for more information
-            in the spring.
+            Camp OAC is a children's summer camp located just north of Kelowna on Okanagan lake.
+              More information is available here.
 
             </p>
         </>
