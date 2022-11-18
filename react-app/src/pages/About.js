@@ -3,7 +3,7 @@
 const About = () => {
     return (
         <>
-            <h1>Rotary Club of Kelowna Ogopogo</h1>
+            <h1>rotary club of kelowna ogopogo</h1>
             
             <p>
             We accomplish service projects in the local community

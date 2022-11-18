@@ -86,6 +86,7 @@ const Order = () => {
             name="firstName"
             type="text"
             placeholder="Jane"
+            style={styles.input}
           />
           <br></br>
           <MyTextInput
@@ -138,8 +139,17 @@ const Order = () => {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
+      <br/>
     </div>
   );
 };
-
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    color: "red"
+  },
+});
 export default Order;
