@@ -68,7 +68,6 @@ const Order = () => {
               })
               .then(function (response) {
                 console.log(response);
-                this.props.history.push("/");
               })
               // Catching axios error
               // Currently outputs to browser console (not  good)
@@ -76,6 +75,7 @@ const Order = () => {
                 console.log(error);
               });
             setSubmitting(false);
+            window.location.reload(false);
           }, 400);
         }}
       >
@@ -86,7 +86,6 @@ const Order = () => {
             name="firstName"
             type="text"
             placeholder="Jane"
-            style={styles.input}
           />
           <br></br>
           <MyTextInput
@@ -143,13 +142,4 @@ const Order = () => {
     </div>
   );
 };
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    color: "red"
-  },
-});
 export default Order;

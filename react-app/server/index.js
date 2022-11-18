@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // local requisites
 const Order = require('./models/order');
 const auth = require('./credentials');
-const Invoice = require('../src/components/invoicing');
+//const Invoice = require('../src/components/invoicing');
 
 // conf
 const PORT = 3000;
@@ -43,7 +43,7 @@ app.post("/order/submit", (req, res) => {
     res.status(200).send("New order saved to database");
     
     //placed function here so invoice is only genrated on successful order
-    Invoice.genInvoice(req.body); //tied in for now, eventually probably makes more sense to make genInvoice call from inside emailInvoice function
+    //Invoice.genInvoice(req.body); //tied in for now, eventually probably makes more sense to make genInvoice call from inside emailInvoice function
     //TODO Invoice.emailInvoice(req.body)
   }) 
   // If something goes wrong (Code 400)
@@ -68,11 +68,18 @@ app.post("/login/auth", (req, res) => {
 // Order deletion
 // POST API endpoint
 app.post("/order/delete", (req, res) => {
-  // Display response to console
-  console.log("Recieved Order to delete: ");
-  // Do something
+  // return all orders
+  console.log("Recieved order to delete");
   console.log(req.body);
-});
+  Order.deleteOne({_id: req.body.data})
+    .then(() => {
+      console.log("succesfully deleted order");
+      res.status(200).send("Succesfully deleted from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to delete from database");
+    });
+  });
 
 // Order retrieval
 // GET API endpoint
