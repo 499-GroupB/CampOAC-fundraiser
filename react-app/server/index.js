@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // local requisites
 const Order = require('./models/order');
 const auth = require('./credentials');
-const Invoice = require('../src/components/invoicing');
+//const Invoice = require('../src/components/invoicing');
 
 // conf
 const PORT = 3000;
@@ -43,7 +43,7 @@ app.post("/order/submit", (req, res) => {
     res.status(200).send("New order saved to database");
     
     //placed function here so invoice is only genrated on successful order
-    Invoice.genInvoice(req.body); //tied in for now, eventually probably makes more sense to make genInvoice call from inside emailInvoice function
+    //Invoice.genInvoice(req.body); //tied in for now, eventually probably makes more sense to make genInvoice call from inside emailInvoice function
     //TODO Invoice.emailInvoice(req.body)
   }) 
   // If something goes wrong (Code 400)
