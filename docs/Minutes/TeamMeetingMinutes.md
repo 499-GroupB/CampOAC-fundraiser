@@ -99,6 +99,16 @@
 
 * Discussing about the prototype.
 
+---
+**2022/11/20	14:00-14:30 (everyone attended)**
+
+* Weekly scrum meeting
+
+* Splitting the tasks for the week
+
+* Discussed about invoice
+
+
 
 
 
