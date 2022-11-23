@@ -156,8 +156,8 @@ a:link {
   
   .column {
     float: left;
-    height: 200px;
     padding-top: 5px;
+    padding-left: 1.2%;
   }
 
   .row::after {
