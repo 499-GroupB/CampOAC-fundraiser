@@ -4,45 +4,41 @@
 import {Link} from 'react-router-dom';
 import '../css/Style.css';
 
-function fixSize() { //Add this on load at some point
-  document.querySelectorAll('.column').forEach(column => {
-    column.style.paddingLeft = "1.2%";
-  });
-  document.getElementById("image1").style.width = "10.3%";
-  document.getElementById("image2").style.width = "10.3%";
-  document.getElementById("image3").style.width = "17.55%";
-  document.getElementById("image4").style.width = "17.55%";
-  document.getElementById("image5").style.width = "22.3%";
-  document.getElementById("image6").style.width = "10.3%";
-  document.getElementById("image7").style.width = "10.3%";
+const styleSma = {
+  width: "10.3%"
 }
-window.addEventListener('resize', function(event){fixSize();},true);
+const styleMed = {
+  width: "17.55%"
+}
+const styleLar = {
+  width: "22.3%"
+}
 const Home = () => {
     return (
         <>
 
 
 <div class = "row">
-  <div class = "column" id="image1">
-    <img src = "firewoodPics/IMG_8859.jpeg" width="100%;" height="100%"/>
+  <div class = "column" id="image1" style={styleSma}>
+    <img src = "firewoodPics/IMG_8859.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image2">
-    <img src = "firewoodPics/IMG_9118.jpeg" width="100%;" height="100%"/>
+  <div class = "column" id="image2" style={styleSma}>
+    <img src = "firewoodPics/IMG_9118.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image3">
-    <img src = "firewoodPics/Firewood pic 2 - small.jpg" width="100%;" height="100%"/>
+  <div class = "column" id="image3" style={styleMed}>
+    <img src = "firewoodPics/Firewood pic 2 - small.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image4">
-    <img src = "firewoodPics/Firewood Team.jpg" width="100%;" height="100%"/>
+  <div class = "column" id="image4" style={styleMed}>
+    <img src = "firewoodPics/Firewood Team.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image5">
-    <img src = "firewoodPics/FirewoodBags.jpg" width="100%;" height="100%"/>
+  <div class = "column" id="image5" style={styleLar}>
+    <img src = "firewoodPics/FirewoodBags.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image6">
-    <img src = "firewoodPics/IMG_8688 2.jpeg" width="100%;" height="100%"/>
+  <div class = "column" id="image6" style={styleSma}>
+    <img src = "firewoodPics/IMG_8688 2.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image7">
-    <img src = "firewoodPics/IMG_8690.jpeg" width="100%;" height="100%"/>
+  <div class = "column" id="image7" style={styleSma}>
+    <img src = "firewoodPics/IMG_8690.jpeg" width="100%"/>
   </div>
 </div>
 
