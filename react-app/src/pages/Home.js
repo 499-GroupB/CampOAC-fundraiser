@@ -4,24 +4,40 @@
 import {Link} from 'react-router-dom';
 import '../css/Style.css';
 
+function fixSize() { //Add this on load at some point
+  document.querySelectorAll('.column').forEach(column => {
+    column.style.height = window.innerWidth/7.8+"px";
+    column.style.paddingLeft = window.innerWidth/150+"px";
+  });
+}
+window.addEventListener('resize', function(event){fixSize();},true);
 const Home = () => {
     return (
         <>
 
 
 <div class = "row">
- <div class = "column">
-  <img src = "https://media.discordapp.net/attachments/931270620547784754/1044383934399660033/Firewood_pic_2_-_small.jpg" width="100%;" height= "400" >
-</img>
- </div>
- <div class = "column">
-  <img src = "https://media.discordapp.net/attachments/931270620547784754/1044383862010163302/Firewood_Team.jpg" width="100%;  " height= "400"  >
- </img>
- </div>
- <div class = "column">
-  <img src = "https://media.discordapp.net/attachments/931270620547784754/1044383820541083679/Firewood_Bags.jpg" width="100%;" height = "400" >
-</img>
- </div>
+  <div class = "column">
+    <img src = "firewoodPics/IMG_8859.jpeg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/IMG_9118.jpeg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/Firewood pic 2 - small.jpg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/Firewood Team.jpg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/FirewoodBags.jpg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/IMG_8688 2.jpeg" width="100%;" height="100%"/>
+  </div>
+  <div class = "column">
+    <img src = "firewoodPics/IMG_8690.jpeg" width="100%;" height="100%"/>
+  </div>
 </div>
 
 
