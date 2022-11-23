@@ -4,10 +4,15 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 
+const pdf = require('html-pdf');
+
+const nodemailer = require("nodemailer");
+
 // local requisites
 const Order = require('./models/order');
 const auth = require('./credentials');
-//const Invoice = require('../src/components/invoicing');
+
+const invoiceTemplate = require('./models/invoiceTemplate');
 
 // conf
 const PORT = 3000;
@@ -22,6 +27,18 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 // initialize connection and log error message if anything goes wrong
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+// intialize reusable transporter for sending client invoices
+/*let testAccount = nodemailer.createTestAccount();
+const transporter = nodemailer.createTransport({
+  host: "smtp.ethereal.email",
+    port: PORT,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass, // generated ethereal password
+    },
+});*/
 
 // Express Middleware
 // Use JSON to be able to parse POST requests from form submissions
@@ -40,11 +57,35 @@ app.post("/order/submit", (req, res) => {
 
   // If succesful (Code 200))
   .then(item => {
-    res.status(200).send("New order saved to database");
     
-    //placed function here so invoice is only genrated on successful order
-    //Invoice.genInvoice(req.body); //tied in for now, eventually probably makes more sense to make genInvoice call from inside emailInvoice function
-    //TODO Invoice.emailInvoice(req.body)
+    //Create invoice pdf
+    pdf.create(invoiceTemplate(req.body), {}).toFile('invoiceName.pdf', (err) => {
+      if(err) {
+          return console.log('error creating invoice');
+      }
+      res.send(Promise.resolve())
+    });
+
+    //Email invoice pdf
+    /*var mailOptions = {
+      from: '"Fred Foo" <foo@example.com>',
+      to: req.body.email,
+      subject: 'Firewood Invoice',
+      text: 'Thank you for your purchase! Please find your invoice attached',
+      attachments: {filename: 'invoiceName.pdf', path: './invoiceName.pdf'},
+    };
+
+    let info = transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });*/
+
+  
+
+    res.status(200).send("New order saved to database");
   }) 
   // If something goes wrong (Code 400)
   .catch(err => {
