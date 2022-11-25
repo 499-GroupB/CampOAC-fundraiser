@@ -115,24 +115,24 @@ button:hover {
     text-align: center;
     padding: 2em 0;
     display: flex;
+    
    align-items: center;
-   justify-content: center;
-   
-  
-    
-    
-}
+  justify-content: center;
+   }
 
 .text{
-   padding-left: 550px;
+   /*padding-left: 550px;*/
+ 
    
 }
-
-
 .logo{
     
-    flex-basis: 40%
+    /*flex-basis: 40%*/
+    flex: 1;
 
+}
+.forflex{
+    flex: 1;
 }
 
 #footerText {
