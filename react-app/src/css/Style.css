@@ -122,16 +122,14 @@ button:hover {
 
 .text{
    /*padding-left: 550px;*/
- 
-   
-}
+ }
 .logo{
     
     /*flex-basis: 40%*/
     flex: 1;
 
 }
-.forflex{
+.logo2{
     flex: 1;
 }
 
