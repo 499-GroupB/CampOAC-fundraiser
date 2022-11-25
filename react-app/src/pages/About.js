@@ -58,6 +58,12 @@ const About = () => {
               More information is available here.
 
             </p>
+            <br/>
+            <h3>Contact Us</h3>
+
+            <p>Please contact us about any concerns you may have or if you need to cancel an order.</p>
+            <p>Tel: 555-867-5309</p>
+            <p>Email: firewood@example.com</p>
         </>
     );
   };
