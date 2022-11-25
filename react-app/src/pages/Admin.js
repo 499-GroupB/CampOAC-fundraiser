@@ -28,7 +28,7 @@ const Admin = () => {
 
     return (
         <>
-            <h1>Admin</h1>
+            <h1>admin</h1>
             <p>This would be the admin page :)</p>
             <br></br>
             <div className="order-wrapper">
