@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 // Login form
 const Login = () => {
-  const apiEnd = 'http://localhost:3000/order/submit';
+  const apiEnd = 'http://localhost:3000/login/auth';
 
   return (
     <div class="order-form">
