@@ -1,0 +1,15 @@
+Order page should have several states (Prop)
+
+Initially should present pickup location options showing stock available (API call to location)
+
+User should be able to click the location they wish to order from
+
+That gets passed and this.state.location is set
+That will also be used in the form submit where location can be set to this.state.location
+
+This will also modify the max stock a user can order from the form
+
+Order should be timestamped as well so they can be dated and fulfilled accordingly.
+    in schema {timestamps: true}
+    this gives doc.createdAt and doc.updatedAt
+    

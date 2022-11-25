@@ -1,0 +1,8 @@
+admin dashboard should be a two column layout
+
+One side is the orders (allow for live filtering)
+
+One side should list locations and available stock
+also list how many orders have that location set
+
+Will need to modify the order schema to include a reference to Location to make this easier.
