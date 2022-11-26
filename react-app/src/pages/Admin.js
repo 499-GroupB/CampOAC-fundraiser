@@ -8,7 +8,8 @@ import LocationView from "../components/LocationView";
 import "../css/Style.css";
 
 const Admin = () => {
-    const [orders, getOrders, locations, getLocations] = useState('');
+    const [orders, getOrders] = useState('');
+    const [locations, getLocations] = useState('');
     const orderApi = 'http://localhost:3000/order/list';
     const locationsApi = 'http://localhost:3000/location/list';
     
@@ -39,14 +40,20 @@ const Admin = () => {
         })
     }
 
-
     return (
         <>
             <h1>admin</h1>
-            <p>This would be the admin page :)</p>
+            <h3>Admin Dashboard</h3>
             <br></br>
-            <div className="order-wrapper">
-                <OrderView orders={orders}/>
+            <div className="dashboard">
+                <h1>Orders:</h1>
+                <div className="order-wrapper">
+                    <OrderView orders={orders}/>
+                </div>
+                <h1>Locations and stock:</h1>
+                <div className="location-wrapper">
+                    <LocationView locations={locations}/>
+                </div>
             </div>
             <br></br>
         </>

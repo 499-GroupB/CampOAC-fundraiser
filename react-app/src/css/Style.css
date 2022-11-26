@@ -136,8 +136,9 @@ button:hover {
     font-size: 1rem;
 }
 
-
- 
+.dashboard {
+    display: flex;
+}
 
 .order-wrapper {
     display: flex;
@@ -149,6 +150,22 @@ button:hover {
 }
 
 .order {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 25px;
+    border: 2px solid #17458f;
+}
+
+.location-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.location {
     padding: 10px;
     margin: 5px;
     border-radius: 25px;

@@ -1,13 +1,15 @@
 import "../css/Style.css";
 import axios from 'axios';
+import { MyTextInput } from "./Inputs";
+import { Formik, Form } from 'formik';
 
 export default function LocationView(props) {
     const { locations } = props;
-    
-    const apiEnd = "http://localhost:3000/order/delete"
+
+    const apiEnd = "http://localhost:3000/location/modify"
 
     const modifyLocation = (locationData) => {
-        axios.post(apiEnd, {data: locationData._id},
+        axios.post(apiEnd, { data: locationData },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -23,15 +25,47 @@ export default function LocationView(props) {
             .catch(function (error) {
                 console.log(error);
             });
-            window.location.reload(false);
+        window.location.reload(false);
     }
 
     const displayLocations = (props) => {
         if (locations.length > 0) {
             return (
-                locations.map((map, index) => {
+                locations.map((location, index) => {
                     return (
-                        <div className="location" key={locations._id}>
+                        <div className="location" key={location._id}>
+                            <h3 className="location_name">{location.name}</h3>
+                            <h3 className="location_stock">Current Stock: {location.stock}</h3>
+                            <Formik
+                                // Formik requires intial values to be set
+                                // This is also how the variables appear in the api response
+                                initialValues={{
+                                    id: location._id,
+                                    stock: location.stock
+                                }}
+                            
+                                // Form submission event.
+                                onSubmit={(values, { setSubmitting }) => {
+                                    setTimeout(() => {
+                                        modifyLocation(values);
+                                        setSubmitting(false);
+                                        window.location.reload(false);
+                                    }, 400);
+                                }}
+                            >
+                                <Form>
+                                    <MyTextInput
+                                        //BAG NUMBER SELECTION 
+                                        label="stock: "
+                                        name="stock"
+                                        type="number"
+                                        placeholder={location.stock}
+                                    />
+                                    <br></br>
+                                    <br></br>
+                                    <button type="submit">Modify Order</button>
+                                </Form>
+                            </Formik>
                         </div>
                     )
                 })
