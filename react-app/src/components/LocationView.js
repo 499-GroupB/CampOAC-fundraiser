@@ -4,10 +4,10 @@ import axios from 'axios';
 export default function LocationView(props) {
     const { locations } = props;
     
-    const apiEnd = "http://localhost:3000/order/delete"
+    const apiEnd = "http://localhost:3000/location/modify"
 
     const modifyLocation = (locationData) => {
-        axios.post(apiEnd, {data: locationData._id},
+        axios.post(apiEnd, {data: locationData},
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -29,9 +29,14 @@ export default function LocationView(props) {
     const displayLocations = (props) => {
         if (locations.length > 0) {
             return (
-                locations.map((map, index) => {
+                locations.map((location, index) => {
                     return (
-                        <div className="location" key={locations._id}>
+                        <div className="location" key={location._id}>
+                             <h3 className="location_name">{location.name}</h3>
+                             <h3 className="location_stock">{location.stock}</h3>
+                             <button type="submit" onClick={() => modifyLocation(location._id)} >
+                                Update Location
+                            </button>
                         </div>
                     )
                 })

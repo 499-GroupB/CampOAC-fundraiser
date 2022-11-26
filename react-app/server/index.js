@@ -20,10 +20,10 @@ const PORT = 3000;
 
 // Database configuration
 // Initalize mongoDB connection string for MongoDB Atlas
-const mongoDB = "mongodb+srv://"+auth+"@wooddb.sibodbb.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://" + auth + "@wooddb.sibodbb.mongodb.net/?retryWrites=true&w=majority";
 
 // Use mongoose to connect to the URL and pass parameters
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // initialize connection and log error message if anything goes wrong
 const db = mongoose.connection;
@@ -56,42 +56,42 @@ app.post("/order/submit", (req, res) => {
   var newOrder = new Order(req.body);
   newOrder.save()
 
-  // If succesful (Code 200))
-  .then(item => {
-    
-    //Create invoice pdf
-    pdf.create(invoiceTemplate(req.body), {}).toFile('invoiceName.pdf', (err) => {
-      if(err) {
+    // If succesful (Code 200))
+    .then(item => {
+
+      //Create invoice pdf
+      pdf.create(invoiceTemplate(req.body), {}).toFile('invoiceName.pdf', (err) => {
+        if (err) {
           return console.log('error creating invoice');
-      }
-      res.send(Promise.resolve())
-    });
+        }
+        res.send(Promise.resolve())
+      });
 
-    //Email invoice pdf
-    /*var mailOptions = {
-      from: '"Fred Foo" <foo@example.com>',
-      to: req.body.email,
-      subject: 'Firewood Invoice',
-      text: 'Thank you for your purchase! Please find your invoice attached',
-      attachments: {filename: 'invoiceName.pdf', path: './invoiceName.pdf'},
-    };
-
-    let info = transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });*/
-
+      //Email invoice pdf
+      /*var mailOptions = {
+        from: '"Fred Foo" <foo@example.com>',
+        to: req.body.email,
+        subject: 'Firewood Invoice',
+        text: 'Thank you for your purchase! Please find your invoice attached',
+        attachments: {filename: 'invoiceName.pdf', path: './invoiceName.pdf'},
+      };
   
+      let info = transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });*/
 
-    res.status(200).send("New order saved to database");
-  }) 
-  // If something goes wrong (Code 400)
-  .catch(err => {
-    res.status(400).send("Unable to save to database");
-  });
+
+
+      res.status(200).send("New order saved to database");
+    })
+    // If something goes wrong (Code 400)
+    .catch(err => {
+      res.status(400).send("Unable to save to database");
+    });
 });
 
 // Login Authentication
@@ -113,7 +113,7 @@ app.post("/order/delete", (req, res) => {
   // return all orders
   console.log("Recieved order to delete");
   console.log(req.body);
-  Order.deleteOne({_id: req.body.data})
+  Order.deleteOne({ _id: req.body.data })
     .then(() => {
       console.log("succesfully deleted order");
       res.status(200).send("Succesfully deleted from database");
@@ -121,7 +121,15 @@ app.post("/order/delete", (req, res) => {
     .catch(err => {
       res.status(400).send("Unable to delete from database");
     });
-  });
+});
+
+// POST API endpoint
+app.post("/location/modify", (req, res) => {
+  // return all orders
+  console.log("Recieved location to modify");
+  console.log(req.body);
+  res.status(200).send("modifying");
+});
 
 // Order retrieval
 // GET API endpoint
@@ -129,26 +137,26 @@ app.get("/order/list", (req, res) => {
   // return all orders
   console.log("Someone is accessing order records")
   Order.find()
-  .then(data => {
-    console.log(data);
-    res.status(200).send(data);
-  })
-  .catch(err => {
-    res.status(400).send("Unable to retrieve from database");
-  });
+    .then(data => {
+      console.log(data);
+      res.status(200).send(data);
+    })
+    .catch(err => {
+      res.status(400).send("Unable to retrieve from database");
+    });
 })
 
 app.get("/location/list", (req, res) => {
   // return all orders
   console.log("Someone is accessing location records")
   Location.find()
-  .then(data => {
-    console.log(data);
-    res.status(200).send(data);
-  })
-  .catch(err => {
-    res.status(400).send("Unable to retrieve from database");
-  });
+    .then(data => {
+      console.log(data);
+      res.status(200).send(data);
+    })
+    .catch(err => {
+      res.status(400).send("Unable to retrieve from database");
+    });
 })
 
 // Express Middleware
