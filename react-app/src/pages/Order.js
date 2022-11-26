@@ -6,7 +6,7 @@ import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 
 // Order form
-const Order = () => {
+const Order = (props) => {
   const apiEnd = 'http://localhost:3000/order/submit';
   return (
     <div className='order-form'>
