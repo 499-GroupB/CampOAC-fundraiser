@@ -128,7 +128,14 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  res.status(200).send("modifying");
+  Location.findOneAndUpdate({ _id: req.body.data.id }, {stock: req.body.data.stock})
+  .then(() => {
+    console.log("succesfully found order");
+    res.status(200).send("Succesfully modified from database");
+  })
+  .catch(err => {
+    res.status(400).send("Unable to modify location");
+  });
 });
 
 // Order retrieval
