@@ -10,6 +10,7 @@ const nodemailer = require("nodemailer");
 
 // local requisites
 const Order = require('./models/order');
+const Location = require('./models/location');
 const auth = require('./credentials');
 
 const invoiceTemplate = require('./models/invoiceTemplate');
@@ -128,6 +129,19 @@ app.get("/order/list", (req, res) => {
   // return all orders
   console.log("Someone is accessing order records")
   Order.find()
+  .then(data => {
+    console.log(data);
+    res.status(200).send(data);
+  })
+  .catch(err => {
+    res.status(400).send("Unable to retrieve from database");
+  });
+})
+
+app.get("/location/list", (req, res) => {
+  // return all orders
+  console.log("Someone is accessing location records")
+  Location.find()
   .then(data => {
     console.log(data);
     res.status(200).send(data);

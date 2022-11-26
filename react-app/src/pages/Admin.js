@@ -4,21 +4,35 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import OrderView from "../components/OrderView";
+import LocationView from "../components/LocationView";
 import "../css/Style.css";
 
 const Admin = () => {
-    const [orders, getOrders] = useState('');
-    const apiEnd = 'http://localhost:3000/order/list';
+    const [orders, getOrders, locations, getLocations] = useState('');
+    const orderApi = 'http://localhost:3000/order/list';
+    const locationsApi = 'http://localhost:3000/location/list';
     
     useEffect(() => {
         getAllOrders();
+        getAllLocations();
     }, [])
 
     const getAllOrders = () => {
-        axios.get(apiEnd)
+        axios.get(orderApi)
         .then(response => {
             const allOrders = response.data;
             getOrders(allOrders);
+        })
+        .catch(err => { 
+            console.log(err);
+        })
+    }
+
+    const getAllLocations = () => {
+        axios.get(locationsApi)
+        .then(response => {
+            const allLocations = response.data;
+            getLocations(allLocations);
         })
         .catch(err => { 
             console.log(err);
