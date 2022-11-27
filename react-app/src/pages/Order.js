@@ -4,158 +4,84 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
+import OrderForm from '../components/OrderForm';
+import LocationForm from '../components/LocationForm';
 
 // Order form
 const Order = (props) => {
-  const apiEnd = 'http://localhost:3000/order/submit';
 
-  // two states, form and form end
-  // form end is used when an order is completed
-  // to show the orderid and thank them for the order
-  const [view, setView] = useState("")
+  // Test location
+  const testLocation = {
+    name: "A place from beyond time and space",
+    stock: 1100
+  }
 
-  // conditional check if the state has been updated
-  if (view == "") {
-    return (
-      <div className='order-form'>
-        <h1>order</h1>
-        <Formik
-          // Formik requires intial values to be set
-          // This is also how the variables appear in the api response
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            pickUp: '',
-            numBags: '1',
-            payment: '',
-          }}
+  // Order step
+  // Step 1: Set location, Step 2: Fill out order form, Step 3: payment processing
+  const [step, setStep] = useState(1);
 
-          // Validation schema via https://www.npmjs.com/package/yup
-          // Use this to define what will cause the Formik errors to generate
-          // per input. Also puts hards limits on inputs
-          validationSchema={Yup.object({
-            firstName: Yup.string()
-              .max(15, 'Must be 15 characters or less')
-              .required('Required'),
-            lastName: Yup.string()
-              .max(20, 'Must be 20 characters or less')
-              .required('Required'),
-            email: Yup.string()
-              .email('Invalid email address')
-              .required('Required'),
-            phone: Yup.number()
-              .required('Required'),
-            pickUp: Yup.string()
-              .oneOf(
-                ['north', 'south', 'east', 'west'],
-                'Invalid Pickup location')
-              .required('Required'),
-            numBags: Yup.number()
-              .max(5, "Maximum 5")
-              .min(1, "Minimum 1")
-              .required('Required'),
-            payment: Yup.string()
-              .oneOf(['square', 'invoice'], 'You must select a payment option')
-              .required('Required'),
-          })}
+  // Location state
+  const [location, setLocation] = useState("");
 
-          // Form submission event.
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              // Axios API Call to Order Submit endpoint
-              // Backend handles response accordingly
-              axios.post(apiEnd, JSON.stringify(values),
-                {
-                  headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "http://localhost:3000",
-                    "Access-Control-Allow-Credentials": "true",
-                  }
-                })
-                .then(function (response) {
-                  console.log(response);
-                  setView(response.data);
-                })
-                // Catching axios error
-                // Currently outputs to browser console (not  good)
-                .catch(function (error) {
-                  console.log(error);
-                });
-              setSubmitting(false);
-            }, 400);
-          }}
-        >
-          <Form>
-            <MyTextInput
-              //NAME ENTRY
-              label="First Name: "
-              name="firstName"
-              type="text"
-              placeholder="Jane"
-            />
-            <br></br>
-            <MyTextInput
-              //NAME ENTRY          
-              label="Last Name: "
-              name="lastName"
-              type="text"
-              placeholder="Doe"
-            />
-            <br></br>
-            <MyTextInput
-              //EMAIL ENTRY 
-              label="Email Address: "
-              name="email"
-              type="email"
-              placeholder="jane@formik.com"
-            />
-            <br></br>
-            <MyTextInput
-              //PHONE NUMBER ENTRY 
-              label="Phone Number: "
-              name="phone"
-              type="text"
-              placeholder="1231231234"
-            />
-            <br></br>
-            <MySelect label="Pickup Location: " name="pickUp">
-              <option value="">Select location</option>
-              <option value="north">North</option>
-              <option value="south">South</option>
-              <option value="east">East</option>
-              <option value="west">West</option>
-            </MySelect>
+  // OrderId state
+  const [id, setId] = useState("");
 
-            <MyTextInput
-              //BAG NUMBER SELECTION 
-              label="Number of Bags: "
-              name="numBags"
-              type="number"
-              placeholder="1"
-            />
-            <br></br>
-            <MyRadio name="payment" value="square">
-              Pay now with square
-            </MyRadio>
-            <MyRadio name="payment" value="invoice">
-              Pay later with invoice
-            </MyRadio>
-            <br></br>
-            <button type="submit">Submit</button>
-          </Form>
-        </Formik>
-        <br />
-      </div>
-    );
-  }else{
-    return (
-      <div className='order-form'>
-        <h1>Thank you for your order</h1>
-        <h2>Your order id: {view}</h2>
-      </div>
-    );
+  // function for handling location submission
+  const locationSelect = (values, { setSubmitting }) => {
+    setTimeout(() => {
+      // Location is set as an array of the entire location object {_id, name, stock}
+      setLocation(values)
+      setStep(2)
+      setSubmitting(false);
+    }, 400);
+  }
+
+  // function for handling form submission
+  const orderSubmit = (values, { setSubmitting }) => {
+    setTimeout(() => {
+      // Axios API Call to Order Submit endpoint
+      // Backend handles response accordingly
+      axios.post('http://localhost:3000/order/submit', JSON.stringify(values),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Credentials": "true",
+          }
+        })
+        .then(function (response) {
+          setId(response.data);
+          setStep(3);
+        })
+        // Catching axios error
+        // Currently outputs to browser console (not  good)
+        .catch(function (error) {
+          console.log(error);
+        });
+      setSubmitting(false);
+    }, 400);
+  }
+
+  switch (step) {
+    case (1):
+      return (
+        <LocationForm onSubmit={locationSelect}/>
+      );
+    case (2):
+      return (
+        <OrderForm location={location} onSubmit={orderSubmit}/>
+      );
+    case (3):
+      return (
+        <>
+        <h1>Thank you for placing your order!</h1>
+        <h3>Your order number is {id}</h3>
+        </>
+      );
+    default:
+      return (
+        <>Something went wrong :c</>
+      );
   }
 };
 export default Order;
