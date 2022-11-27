@@ -1,11 +1,9 @@
 // Global NPM requisites
 import { React, useState } from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import axios from 'axios';
-import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 import OrderForm from '../components/OrderForm';
 import LocationForm from '../components/LocationForm';
+import StepMeter from '../components/StepMeter';
 
 // Order form
 const Order = (props) => {
@@ -57,15 +55,22 @@ const Order = (props) => {
   switch (step) {
     case (1):
       return (
+        <>
+        <StepMeter step={step}/>
         <LocationForm onSubmit={locationSelect}/>
+        </>
       );
     case (2):
       return (
+        <>
+        <StepMeter step={step}/>
         <OrderForm location={location} onSubmit={orderSubmit}/>
+        </>
       );
     case (3):
       return (
         <>
+        <StepMeter step={step}/>
         <h1>Thank you for placing your order!</h1>
         <h3>Your order number is {id}</h3>
         </>
@@ -76,4 +81,5 @@ const Order = (props) => {
       );
   }
 };
+
 export default Order;
