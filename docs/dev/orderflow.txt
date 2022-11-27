@@ -12,4 +12,10 @@ This will also modify the max stock a user can order from the form
 Order should be timestamped as well so they can be dated and fulfilled accordingly.
     in schema {timestamps: true}
     this gives doc.createdAt and doc.updatedAt
+
+INTIAL ORDER FORM:
+    get location information
+    present with the option to click on a location
+    <OrderForm {PROP LOCATION}>
+        This allows us to load location and stock information into the order form, also cuts down the form length
     

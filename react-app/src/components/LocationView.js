@@ -56,14 +56,14 @@ export default function LocationView(props) {
                                 <Form>
                                     <MyTextInput
                                         //BAG NUMBER SELECTION 
-                                        label="stock: "
+                                        label="Stock: "
                                         name="stock"
                                         type="number"
                                         placeholder={location.stock}
                                     />
                                     <br></br>
                                     <br></br>
-                                    <button type="submit">Modify Order</button>
+                                    <button type="submit">Modify Location</button>
                                 </Form>
                             </Formik>
                         </div>
