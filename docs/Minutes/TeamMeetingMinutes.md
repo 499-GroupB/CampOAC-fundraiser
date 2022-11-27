@@ -108,7 +108,12 @@
 
 * Discussed about invoice
 
+---
+**2022/11/27	14:00-14:30 (everyone attended)**
 
+* Weekly scrum meeting
+
+* Worked on prototype video
 
 
 
