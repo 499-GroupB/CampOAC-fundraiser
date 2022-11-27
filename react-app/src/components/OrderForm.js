@@ -9,8 +9,7 @@ import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 const OrderForm = (props) => {
 
     // access a location via prop
-    const { location } = props;
-    const { onSubmit } = props;
+    const { location, onSubmit } = props;
 
     // Api endpoint for order submission
     const apiEnd = 'http://localhost:3000/order/submit';

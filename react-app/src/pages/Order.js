@@ -10,19 +10,11 @@ import LocationForm from '../components/LocationForm';
 // Order form
 const Order = (props) => {
 
-  // Test location
-  const testLocation = {
-    name: "A place from beyond time and space",
-    stock: 1100
-  }
-
   // Order step
   // Step 1: Set location, Step 2: Fill out order form, Step 3: payment processing
   const [step, setStep] = useState(1);
-
   // Location state
   const [location, setLocation] = useState("");
-
   // OrderId state
   const [id, setId] = useState("");
 
@@ -36,7 +28,7 @@ const Order = (props) => {
     }, 400);
   }
 
-  // function for handling form submission
+  // function for handling order submission
   const orderSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
       // Axios API Call to Order Submit endpoint

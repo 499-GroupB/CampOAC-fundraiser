@@ -136,10 +136,6 @@ button:hover {
     font-size: 1rem;
 }
 
-.dashboard {
-    display: flex;
-}
-
 .order-wrapper {
     display: flex;
     justify-content: center;
