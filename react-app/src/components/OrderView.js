@@ -3,11 +3,11 @@ import axios from 'axios';
 
 export default function OrderView(props) {
     const { orders } = props;
-    
+
     const apiEnd = "http://localhost:3000/order/delete"
 
     const deleteOrder = (orderId) => {
-        axios.post(apiEnd, {data: orderId},
+        axios.post(apiEnd, { data: orderId },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default function OrderView(props) {
             .catch(function (error) {
                 console.log(error);
             });
-            window.location.reload(false);
+        window.location.reload(false);
     }
 
     const displayOrders = (props) => {
@@ -31,17 +31,20 @@ export default function OrderView(props) {
             return (
                 orders.map((order, index) => {
                     return (
-                        <div className="order" key={order._id}>
-                            <h3 className="order_name">{order.firstName} {order.lastName} | Ordered: {order.numBags}</h3>
-                            <p className="order_email">Email: {order.email}</p>
-                            <p className="order_phone">Phone: {order.phone}</p>
-                            <p className="order_pickUp">Location: {order.pickUp}</p>
-                            <button type="submit" onClick={() => deleteOrder(order._id)} >
-                                Delete order
-                            </button>
-                            <br></br>
-                            <br></br>
-                        </div>
+                        <tr>
+                            <td>{order._id}</td>
+                            <td>{order.pickUp}</td>
+                            <td>{order.firstName} {order.lastName}</td>
+                            <td>{order.email}</td>
+                            <td>{order.phone}</td>
+                            <td>{order.numBags}</td>
+                            <td>{order.payment}</td>
+                            <td>
+                                <button type="submit" onClick={() => deleteOrder(order._id)} >
+                                    Delete order
+                                </button>
+                            </td>
+                        </tr>
                     )
                 })
             )
@@ -52,8 +55,22 @@ export default function OrderView(props) {
         }
     }
     return (
-        <>
-            {displayOrders(props)}
-        </>
+        <table id="order-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Location</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Number ordered</th>
+                    <th>Payment Type</th>
+                    <th>Delete Order</th>
+                </tr>
+            </thead>
+            <tbody>
+                {displayOrders(props)}
+            </tbody>
+        </table>
     )
 }

@@ -29,7 +29,7 @@ export default function LocationForm(props) {
             return (
                 locations.map((location, index) => {
                     return (
-                        <div className="location" key={location._id}>
+                        <div id={location._id} className="location" key={location._id}>
                             <h3 className="location_name">{location.name}</h3>
                             <h3 className="location_stock">Current Stock: {location.stock}</h3>
                             <Formik
