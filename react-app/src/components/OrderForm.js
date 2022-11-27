@@ -53,7 +53,7 @@ const OrderForm = (props) => {
                         .min(1, "Minimum 1")
                         .required('Required'),
                     payment: Yup.string()
-                        .oneOf(['square', 'invoice'], 'You must select a payment option')
+                        .oneOf(['credit', 'cash'], 'You must select a payment option')
                         .required('Required'),
                 })}
 
@@ -103,10 +103,10 @@ const OrderForm = (props) => {
                     />
                     <br></br>
                     <MyRadio name="payment" value="square">
-                        Pay now with square
+                        Pay now with credit card
                     </MyRadio>
                     <MyRadio name="payment" value="invoice">
-                        Pay later with invoice
+                        Pay with cash upon pick up
                     </MyRadio>
                     <br></br>
                     <button type="submit">Submit</button>
