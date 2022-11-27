@@ -1,5 +1,6 @@
 import "../css/Style.css";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function OrderView(props) {
     const { orders } = props;
@@ -25,6 +26,10 @@ export default function OrderView(props) {
             });
         window.location.reload(false);
     }
+    
+    const viewPayment = (orderId) => {
+        console.log(orderId);
+    }
 
     const displayOrders = (props) => {
         if (orders.length > 0) {
@@ -38,10 +43,12 @@ export default function OrderView(props) {
                             <td>{order.email}</td>
                             <td>{order.phone}</td>
                             <td>{order.numBags}</td>
-                            <td>{order.payment}</td>
+                            <td ><button type="submit" onClick={() => viewPayment(order._id)} >
+                                    {order.payment}
+                                </button></td>
                             <td>
                                 <button type="submit" onClick={() => deleteOrder(order._id)} >
-                                    Delete order
+                                    Close order
                                 </button>
                             </td>
                         </tr>
@@ -50,7 +57,7 @@ export default function OrderView(props) {
             )
         } else {
             return (
-                <h3>No orders</h3>
+                <h2>No orders</h2>
             )
         }
     }

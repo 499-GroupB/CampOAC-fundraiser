@@ -11,6 +11,9 @@
 # production
 /build
 
+#invoice directory
+/server/invoice
+
 # misc
 .DS_Store
 .env.local

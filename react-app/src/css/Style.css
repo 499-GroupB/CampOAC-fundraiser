@@ -180,6 +180,15 @@ button:hover {
     border: 2px solid #17458f;
 }
 
+#table-link {
+    background-color: #2c4356;
+    padding: 4px;
+}
+
+#table-link:hover {
+    background-color:#0d2538;
+}
+
 a:link {
     color: white;
     background-color: transparent;

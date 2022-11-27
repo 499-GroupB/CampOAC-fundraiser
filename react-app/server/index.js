@@ -59,7 +59,8 @@ app.post("/order/submit", (req, res) => {
     .then(item => {
 
       //Create invoice pdf
-      pdf.create(invoiceTemplate(req.body), {}).toFile('invoiceName.pdf', (err) => {
+      let pdfName = item.lastName + "-" + item._id;
+      pdf.create(invoiceTemplate(req.body), {}).toFile('./invoices/' + pdfName + '.pdf', (err) => {
         if (err) {
           return console.log('error creating invoice');
         }
