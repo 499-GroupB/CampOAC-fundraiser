@@ -64,7 +64,6 @@ app.post("/order/submit", (req, res) => {
         if (err) {
           return console.log('error creating invoice');
         }
-        res.send(Promise.resolve())
       });
 
       //Email invoice pdf
@@ -86,7 +85,7 @@ app.post("/order/submit", (req, res) => {
 
 
 
-      res.status(200).send("New order saved to database");
+      res.status(200).send(newOrder._id);
     })
     // If something goes wrong (Code 400)
     .catch(err => {
