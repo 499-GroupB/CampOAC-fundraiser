@@ -55,7 +55,6 @@ app.post("/order/submit", (req, res) => {
   // Save recieved order to Mongo via Model Order (./models/order)
   var newOrder = new Order(req.body);
   newOrder.save()
-
     // If succesful (Code 200))
     .then(item => {
 
@@ -83,8 +82,16 @@ app.post("/order/submit", (req, res) => {
         }
       });*/
 
+      // Update stock based on new order
+      Location.findOneAndUpdate({ name: item.pickUp }, {$inc: {stock: -item.numBags}})
+        .then(() => {
+          console.log("succesfully updated stock to reflect new order");
+        })
+        .catch(err => {
+          console.log("undable to modify stock on location")
+        });
 
-
+      // return new order id
       res.status(200).send(newOrder._id);
     })
     // If something goes wrong (Code 400)
