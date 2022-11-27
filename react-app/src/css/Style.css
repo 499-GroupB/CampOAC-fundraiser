@@ -37,25 +37,12 @@ p {
 
 /* Order Tracker styles */
 
-.step-meter {
-    display: inline;
-    margin: 16px;
-}
+.step-bar progress{
 
-.step-bar progress {
     width: 75%;
-    height: 30px;
-
-    background: #EEE;
-    border-radius: 4px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+    height: 40px;
+    accent-color: #2c4356;
 }
-
-.step-bar progress::-webkit-progress-value {
-    background-color: #3476da;
-    border-radius: 3px;
-}
-
 
 /* ----- */
 
