@@ -3,12 +3,13 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { MyTextInput } from '../components/Inputs';
+import { MyTextInput } from './Inputs';
 import { Link } from 'react-router-dom';
 
 // Login form
-const Login = () => {
-  const apiEnd = 'http://localhost:3000/login/auth';
+const LoginForm = (props) => {
+  
+  const { onSubmit } = props;
 
   return (
     <div class="order-form">
@@ -34,29 +35,7 @@ const Login = () => {
         })}
 
         // Form submission event.
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            // Axios API Call to Login auth endpoint
-            // Backend handles response accordingly
-            axios.post(apiEnd, JSON.stringify(values),
-              {
-                headers: {
-                  "Content-Type": "application/json",
-                  "Access-Control-Allow-Origin": "http://localhost:3000",
-                  "Access-Control-Allow-Credentials": "true",
-                }
-              })
-              .then(function (response) {
-                console.log(response);
-              })
-              // Catching axios error
-              // Currently outputs to browser console (not  good)
-              .catch(function (error) {
-                console.log(error);
-              });
-            setSubmitting(false);
-          }, 400);
-        }}
+        onSubmit={onSubmit}
       >
         <Form>
           <MyTextInput
@@ -78,9 +57,8 @@ const Login = () => {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
-      <Link to="/dashboard"><button>Go to dashboard (Cheat)</button></Link>
     </div>
   );
 };
 
-export default Login;
+export default LoginForm;

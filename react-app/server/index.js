@@ -104,14 +104,29 @@ app.post("/order/submit", (req, res) => {
 // Login Authentication
 // POST API endpoint
 app.post("/login/auth", (req, res) => {
+  
+  // Test admin user
+  // To be replaced with user database later
+  const testAdmin = {
+    username: 'admin',
+    password: 't3st1ng'
+  }
+
   // Display response to console
   console.log("Recieved login request: ");
-  // Do something
+
+  // Output details of request
   console.log(req.body);
-  // This does nothing.
-  res.send({
-    token: '123',
-  })
+
+  // authentication (if you can call it that)
+  if(req.body.username == testAdmin.username && req.body.password == testAdmin.password){
+    console.log("User authenticated, sending token");
+    // status 1 is logged in
+    res.send({status: 1});
+  }else{
+    // status 0 is auth failure
+    res.send({status: 0})
+  }
 });
 
 // Order deletion

@@ -13,7 +13,9 @@ import About from "./pages/About";
 import Order from "./pages/Order";
 import NoPage from "./pages/NoPage";
 import Admin from "./pages/Admin";
-import Login from "./pages/Login";
+import Login from "./components/LoginForm";
+
+//          <Route path="dashboard" element={<Admin />} />
 
 export default function App() {
   return (
@@ -23,8 +25,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="order" element={<Order />} />
-          <Route path="admin" element={<Login />} />
-          <Route path="dashboard" element={<Admin />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
