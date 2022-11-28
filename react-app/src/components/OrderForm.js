@@ -102,10 +102,10 @@ const OrderForm = (props) => {
                         placeholder="1"
                     />
                     <br></br>
-                    <MyRadio name="payment" value="square">
+                    <MyRadio name="payment" value="credit">
                         Pay now with credit card
                     </MyRadio>
-                    <MyRadio name="payment" value="invoice">
+                    <MyRadio name="payment" value="cash">
                         Pay with cash upon pick up
                     </MyRadio>
                     <br></br>
