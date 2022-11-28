@@ -23,7 +23,6 @@ const Admin = () => {
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-        console.log(isLoggedIn);
         if(isLoggedIn == null){
             isLoggedIn = "false";
         }else if(isLoggedIn == "true"){
