@@ -1,67 +1,75 @@
+
+<h1 align="center">
+Team Meeting Minutes
+</h1>
+
+
+
+
 **2022/09/18	16:00-17:00 (everyone attended)**
 
-  * Scheduled client meeting
+ * Client meeting scheduled
+
+* Decided on the team agreement
+
+* Organized github repository
+
+* Trello organised
   
-  * Decided the team agreement
-  
-  * Organized github repo
-  
-  * Organized trello
-  
-  ---
+---
 
 **2022/09/25	14:40-16:30 (everyone attended)**
 
-  * Requirements Breakdown
+* Breakdown of Requirements
+
+* Questions for the client meeting
+
+* Planning for the Requirements Report
   
-  * Questions for the clients meeting
-  
-  * Requirements Report Planning
-  
-  ---
+---
   
 **2022/09/30  11:00-11:30  (everyone attended)**
 
-  * IP Agreement discussion
+* IP Agreement discussions
+
+* DFD examination
+
+* Gitstats
+
+* Outlined topics for the next meeting
   
-  * DFD review
-  
-  * Gitstats
-  
-  * Layed out next meeting topics
-  
-  ---
+ ---
   
  **2022/10/02  14:00-15:00  (everyone attended)**
  
- * Discussed tentative timeline
- 
- * Worked on requirements presentation (slides)
+* Discussed a tentative timeline
+
+* Worked on the requirements presentation (slides)
  
  ---
  
 **2022/10/09	14:00-15:00 (Michael did not attend)**
 
-* Worked on requirements presentation (slides)
+* Worked on the requirements presentation (slides)
 
 
- ---
+---
 
  **2022/10/11  17:15-17:45  (everyone attended)**
 
  * Finalized requirements presentation slides
 
- * Group rehearsal for requirements presentation
+* A group practise for the presenting of requirements
 
  ---
 
  **2022/10/23	14:00-15:00 (everyone attended)**
  
-* Cleaned the repo
+* Cleaned up the repository
 
-* Installed tech stack on local computer
+* Setting up the tech stack on a local computer
 
-* Dissued our goals for milestone 2
+* Discussed our milestone 2 objectives
 
 * Created issues for potential tasks and exploration 
 
@@ -71,13 +79,13 @@
 
 * Weekly scrum meeting
 
-* Discussed upcoming issues and roles
+* Talked about impending issues and roles.
 
-* Finalised our prototype
+* Finalised our prototype
 
-* Selected Design
+* Selected the design
 
-* Presented Design Drafts
+* Design Drafts Presented
 
 ---
 
@@ -85,9 +93,9 @@
 
 * Weekly scrum meeting
 
-* Tasks are being broken down
+* Tasks are being divided
 
-* This week's tasks are being assigned to team members
+* Tasks for this week are being assigned to team members
 
 ---
 
@@ -95,25 +103,25 @@
 
 * Weekly scrum meeting
 
-* Explaining code in development
+* Demonstrating code in development
 
-* Discussing about the prototype.
+* We're talking about the prototype
 
 ---
 **2022/11/20	14:00-14:30 (everyone attended)**
 
 * Weekly scrum meeting
 
-* Splitting the tasks for the week
+* Splitting the week's tasks
 
-* Discussed about invoice
+* Discussed about the invoice.
 
 ---
 **2022/11/27	14:00-14:30 (everyone attended)**
 
 * Weekly scrum meeting
 
-* Worked on prototype video
+* Worked on the prototype video
 
 
 

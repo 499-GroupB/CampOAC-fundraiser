@@ -1,35 +1,42 @@
+<h1 align="center">
+Client Meeting Minutes
+</h1>
+
+
+
+
+
 **20/09/2022 14:00-14:20**
 
   * Introductions
-  
-  * Discussed initial project specs
-  
-  * Decided weekly meeting time
+
+* Discussed preliminary project specifications
+
+* Set a weekly meeting time
 
 ---
 
 **26/09/2022 14:00-14:15**
 
-  * Further details on requirements
-  
-  * Follow up questions
+ * Additional information on requirements
 
+* Follow-up inquiries
 ---
 
 **17/10/2022 14:00-14:15**
 
-  * Further details about how to handle cash purchases
-  
-  * Discussed colour scheme
+* Additional information on how to handle cash purchases
 
-  * Changed meeting schedule
+* Color scheme was discussed.
+
+* Modified meeting schedule
 
 ---
 
 **28/11/2022 14:00-14:45**
 
-  * All teams provided demonstrations of their current prototype builds
+* All teams demonstrated their current prototype builds.
 
-  * Clients provided feedback
+* Clients gave feedback
 
-  * Discussion of future development direction
+* Discussion of future development direction
