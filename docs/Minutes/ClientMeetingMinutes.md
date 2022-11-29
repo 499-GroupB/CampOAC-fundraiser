@@ -25,3 +25,11 @@
   * Changed meeting schedule
 
 ---
+
+**28/11/2022 14:00-14:45**
+
+  * All teams provided demonstrations of their current prototype builds
+
+  * Clients provided feedback
+
+  * Discussion of future development direction
