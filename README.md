@@ -13,7 +13,7 @@ Baillie Stang*
 
 
 
-<table>
+<table border='0'>
 <tr>
 
 <td>
