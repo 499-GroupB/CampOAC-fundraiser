@@ -1,5 +1,6 @@
 import "../css/Style.css";
 import axios from 'axios';
+import * as Yup from 'yup';
 import { MyTextInput } from "./Inputs";
 import { Formik, Form } from 'formik';
 
@@ -43,6 +44,9 @@ export default function LocationView(props) {
                                     id: location._id,
                                     stock: location.stock
                                 }}
+                                validationSchema={Yup.object({
+                                    stock: Yup.number().min(0, 'Too few wood').max(10000, 'Too many wood'),
+                                })}
                             
                                 // Form submission event.
                                 onSubmit={(values, { setSubmitting }) => {
@@ -63,7 +67,7 @@ export default function LocationView(props) {
                                     />
                                     <br></br>
                                     <br></br>
-                                    <button type="submit">Modify Location</button>
+                                    <button type="submit">Update Inventory</button>
                                 </Form>
                             </Formik>
                         </div>

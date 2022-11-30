@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 // Create schema for an order should be self explanatory
 const LocationSchema = new Schema({
   name: { type: String, required: true, maxLength: 100 },
-  stock: { type: Number, required: true },
+  stock: { type: Number, required: true, min: [0, 'Too few wood'], max: 1000 },
 });
 
 // Export model
