@@ -43,6 +43,7 @@ export default function OrderView(props) {
                             <td>{order.email}</td>
                             <td>{order.phone}</td>
                             <td>{order.numBags}</td>
+                            <td>{order.date}</td>
                             <td ><button type="submit" onClick={() => viewPayment(order._id)} >
                                     {order.payment}
                                 </button></td>
@@ -71,6 +72,7 @@ export default function OrderView(props) {
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Number ordered</th>
+                    <th>Date Ordered</th>
                     <th>Payment Type</th>
                     <th>Delete Order</th>
                 </tr>
