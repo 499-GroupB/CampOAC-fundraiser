@@ -4,13 +4,14 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
+import getCurrentDate from '../components/CurrentDate';
 
 // Order form
 const OrderForm = (props) => {
 
     // access a location via prop
     const { location, onSubmit } = props;
-
+    const currDate = getCurrentDate();
     // Api endpoint for order submission
     const apiEnd = 'http://localhost:3000/order/submit';
 
@@ -31,6 +32,7 @@ const OrderForm = (props) => {
                     pickUp: location.name,
                     numBags: '1',
                     payment: '',
+                    date: currDate,
                 }}
 
                 // Validation schema via https://www.npmjs.com/package/yup

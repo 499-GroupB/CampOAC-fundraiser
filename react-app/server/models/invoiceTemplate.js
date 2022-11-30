@@ -1,5 +1,4 @@
-module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment }) => {
-    const today = new Date();
+module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date }) => {
     const price = 8.99;
     const total = (numBags*price).toFixed(2); //temporary hardcoded price
     var address; 
@@ -47,7 +46,7 @@ module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment }) => {
                 <div id='page'>
                     <div id='title'><h2>Camp OAC Firewood Invoice</h2></div>
                     <br>
-                    <div id='date' class='invoiceLineItem'><p>Date: ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}</p></div>
+                    <div id='date' class='invoiceLineItem'><p>Date: ${date}</p></div>
 
                     <div id='name' class='invoiceLineItem'>
                         <p>Customer Name: ${firstName} ${lastName} </p>
