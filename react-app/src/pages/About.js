@@ -24,16 +24,16 @@ const About = () => {
     <img src = "firewoodPics/IMG_9118.jpeg" width="100%"/>
   </div>
   <div class = "column" id="image3" style={styleMed}>
-    <img src = "firewoodPics/Firewood pic 2 - small.jpg" width="100%"/>
+    <img src = "firewoodPics/Firewood_pic_2_-_small.jpg" width="100%"/>
   </div>
   <div class = "column" id="image4" style={styleMed}>
-    <img src = "firewoodPics/Firewood Team.jpg" width="100%"/>
+    <img src = "firewoodPics/Firewood_Team.jpg" width="100%"/>
   </div>
   <div class = "column" id="image5" style={styleLar}>
     <img src = "firewoodPics/FirewoodBags.jpg" width="100%"/>
   </div>
   <div class = "column" id="image6" style={styleSma}>
-    <img src = "firewoodPics/IMG_8688 2.jpeg" width="100%"/>
+    <img src = "firewoodPics/IMG_8688_2.jpeg" width="100%"/>
   </div>
   <div class = "column" id="image7" style={styleSma}>
     <img src = "firewoodPics/IMG_8690.jpeg" width="100%"/>
