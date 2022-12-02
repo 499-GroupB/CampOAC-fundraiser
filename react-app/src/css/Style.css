@@ -11,6 +11,7 @@
 body {
     background-color: rgb(250, 250, 250);
     font-family: "Roboto";
+    color: #2c4356;
 }
 
 h1 {
@@ -18,6 +19,10 @@ h1 {
     font-size: xx-large;
     color: #2c4356;
     margin: 30px;
+}
+
+.bearhug {
+    font-family: "Bearhug";
 }
 
 p {
@@ -199,6 +204,14 @@ a:visited {
     color: white;
     background-color: transparent;
     text-decoration: none;
+}
+
+.bodylink:link {
+    color:#557a65;
+}
+
+.bodylink:visited {
+    color:#557a65;
 }
 
 * {
