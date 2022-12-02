@@ -96,6 +96,7 @@ const OrderForm = (props) => {
                         placeholder="1231231234"
                     />
                     <br></br>
+                    <p>Price per bag: $8.99</p>
                     <MyTextInput
                         //BAG NUMBER SELECTION 
                         label="Number of Bags: "
