@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer-class">
       <div class="logo2">
-    <img src="https://media.discordapp.net/attachments/931270620547784754/1045467416894902332/Camp-OAC-Logo-Primary.png" width="120px" height="120px" ></img>
+    <a href="https://www.campoac.com/"><img src="Camp-OAC-Logo-Primary.png" width="120px" height="120px" ></img></a>
     </div>
             <div class = "text">
             <a href="https://www.facebook.com/campoac/"><FontAwesomeIcon icon={faFacebook} size="lg"></FontAwesomeIcon></a>
@@ -18,7 +18,7 @@ const Footer = () => {
        </div>
     <div class="logo">
        
-        <img src="https://media.discordapp.net/attachments/931270620547784754/1045468871781523456/officialclublogo_rotary.png" width="150px" height="120px" ></img>
+        <a href="https://portal.clubrunner.ca/824"><img src="officialclublogo_rotary.png" width="150px" height="120px" ></img></a>
          </div>
 
             

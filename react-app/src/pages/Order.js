@@ -72,7 +72,7 @@ const Order = (props) => {
       return (
         <>
         <StepMeter step={step}/>
-        <h1>Thank you for placing your order!</h1>
+        <h1>thank you for placing your order!</h1>
         <h3>Your order number is {id}</h3>
         </>
       );
