@@ -1,39 +1,28 @@
 // About page
 
-
-const styleSma = {
-  width: "10.3%"
-}
-const styleMed = {
-  width: "17.55%"
-}
-const styleLar = {
-  width: "22.3%"
-}
-
 const About = () => {
     return (
         <>
 <div class = "row">
-  <div class = "column" id="image1" style={styleSma}>
+  <div class = "column imgSma">
     <img src = "firewoodPics/IMG_8859.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image2" style={styleSma}>
+  <div class = "column imgSma">
     <img src = "firewoodPics/IMG_9118.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image3" style={styleMed}>
+  <div class = "column imgMed">
     <img src = "firewoodPics/Firewood_pic_2_-_small.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image4" style={styleMed}>
+  <div class = "column imgMed">
     <img src = "firewoodPics/Firewood_Team.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image5" style={styleLar}>
+  <div class = "column imgLar">
     <img src = "firewoodPics/FirewoodBags.jpg" width="100%"/>
   </div>
-  <div class = "column" id="image6" style={styleSma}>
+  <div class = "column imgSma">
     <img src = "firewoodPics/IMG_8688_2.jpeg" width="100%"/>
   </div>
-  <div class = "column" id="image7" style={styleSma}>
+  <div class = "column imgSma">
     <img src = "firewoodPics/IMG_8690.jpeg" width="100%"/>
   </div>
 </div>

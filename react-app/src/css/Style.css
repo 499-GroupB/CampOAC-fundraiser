@@ -224,6 +224,18 @@ a:visited {
     padding-left: 1.2%;
 }
 
+.imgSma {
+    width: 10.3%;
+}
+
+.imgMed {
+    width: 17.55%;
+}
+
+.imgLar {
+    width: 22.3%;
+}
+
 .row::after {
     content: "";
     clear: both;
