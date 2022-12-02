@@ -88,11 +88,11 @@ const Admin = () => {
                     <h1>admin</h1>
                     <br></br>
                     <div className="dashboard">
-                        <h1>Locations and stock:</h1>
+                        <h1>locations and stock:</h1>
                         <div className="location-wrapper">
                             <LocationView locations={locations} />
                         </div>
-                        <h1>Orders:</h1>
+                        <h1>orders:</h1>
                         <div className="order-wrapper">
                             <OrderView orders={orders} />
                         </div>

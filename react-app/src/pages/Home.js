@@ -45,7 +45,6 @@ const Home = () => {
 
              
             <h1>welcome to the camp oac firewood fundraiser</h1>
-            <br/>
             <p>Rotary Club of Kelowna Ogopogo
                 <br/>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members.  More information is available here.
                 <br/><br/>Camp OAC
