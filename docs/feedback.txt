@@ -1,0 +1,12 @@
+• re-word 'modify location' button
+• stock goes below 0
+• are the cash/credit buttons supposed to be clickable
+• add sign out button
+• make bottom logos clickable
+• change homepage text
+• add space between orders in the mobile admin panel
+• the credit card input section should pop up when clicking 'pay with credit card'
+• check for bad phone number before clicking 'submit'
+• add confirmation for buttons for many things
+• stick top bar to top
+• check for 'Little Bobby Tables' issues
