@@ -73,11 +73,11 @@ const Order = (props) => {
         <>
         <StepMeter step={step}/>
 
-        <h1>Thank you for placing your order!</h1>
+        <h1>thank you for placing your order!</h1>
        
-        <h3>Your order number is {id}</h3>
+        <h3>your order number is {id}</h3>
 
-        <h4>Your order details and receipt will be sent to your mail.</h4>
+        <h4>your order details and receipt will be sent to your mail.</h4>
         </>
       );
     default:
