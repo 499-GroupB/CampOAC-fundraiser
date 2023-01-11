@@ -8,7 +8,7 @@ const StepMeter = (props) => {
         case (1):
             return (
                 <div className="step-meter">
-                    <h2>Select a location</h2>
+                    <h2>Select a pick up location</h2>
                     <p class="step-bar">
                     <progress value="33" max="100"></progress>
                     </p>
