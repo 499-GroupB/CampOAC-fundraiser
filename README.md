@@ -19,16 +19,10 @@ Baillie Stang*
 
 
 
-
-
-
-
 <p align="center">
   <img alt="Logo1" src="https://media.discordapp.net/attachments/931270620547784754/1045467416894902332/Camp-OAC-Logo-Primary.png" width="300" height = "300">
-
-
 &nbsp; &nbsp; &nbsp; &nbsp;
-<img alt="logo2" src="https://media.discordapp.net/attachments/931270620547784754/1045468871781523456/officialclublogo_rotary.png" width="300" height = "300">
+  <img alt="logo2" src="https://media.discordapp.net/attachments/931270620547784754/1045468871781523456/officialclublogo_rotary.png" width="300" height = "300">
 </p>
 
 ## About
