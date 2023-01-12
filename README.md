@@ -8,13 +8,13 @@ CampOAC - Group B
 
 **Maintainers:** <br />
 
-*Michael Boulanger <br />
-
-Sai Rohith Enumala <br />
-
-Paul Ranger <br />
-
-Baillie Stang*
+_Michael Boulanger
+<br />
+Sai Rohith Enumala
+ <br />
+ Paul Ranger 
+ <br />
+ Baillie Stang_
 
 
 
