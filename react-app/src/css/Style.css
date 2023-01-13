@@ -226,14 +226,81 @@ a:visited {
 
 .imgSma {
     width: 10.3%;
+    transition: 0.3s;
 }
 
 .imgMed {
     width: 17.55%;
+    transition: 0.3s;
 }
 
 .imgLar {
     width: 22.3%;
+    transition: 0.3s;
+}
+
+.imgSma:hover {opacity: 0.7;cursor: pointer;}
+.imgMed:hover {opacity: 0.7;cursor: pointer;}
+.imgLar:hover {opacity: 0.7;cursor: pointer;}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+  
+.modal-content {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    position: relative;
+    top: 4%;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    text-align: center;
+    color: white;
+    font-size: large;
+    position: relative;
+    top: 5%;
+}
+
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    z-index: 32;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+  
+.close:hover,
+.close:focus {
+    color: darkgray;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .row::after {
