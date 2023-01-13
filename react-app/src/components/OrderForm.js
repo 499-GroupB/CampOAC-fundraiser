@@ -20,7 +20,7 @@ const OrderForm = (props) => {
     // conditional check if the state has been updated
     return (
         <div className='order-form'>
-            <h1>Ordering from {location.name}</h1>
+            <h1>ordering from {location.name.toLowerCase()}</h1>
             <Formik
                 // Formik requires intial values to be set
                 // This is also how the variables appear in the api response
