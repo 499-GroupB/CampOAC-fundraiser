@@ -69,7 +69,7 @@ const OrderForm = (props) => {
                         label="First Name: "
                         name="firstName"
                         type="text"
-                        placeholder="Jane"
+                        placeholder="First Name"
                     />
                     <br></br>
                     <MyTextInput
@@ -77,7 +77,7 @@ const OrderForm = (props) => {
                         label="Last Name: "
                         name="lastName"
                         type="text"
-                        placeholder="Doe"
+                        placeholder="Last Name"
                     />
                     <br></br>
                     <MyTextInput
@@ -85,7 +85,7 @@ const OrderForm = (props) => {
                         label="Email Address: "
                         name="email"
                         type="email"
-                        placeholder="jane@formik.com"
+                        placeholder="email@address.com"
                     />
                     <br></br>
                     <MyTextInput
@@ -93,7 +93,7 @@ const OrderForm = (props) => {
                         label="Phone Number: "
                         name="phone"
                         type="text"
-                        placeholder="1231231234"
+                        placeholder="123-123-1234"
                     />
                     <br></br>
                     <p>Price per bag: $8.99</p>
