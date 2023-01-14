@@ -12,7 +12,7 @@
 /build
 
 #invoice directory
-/server/invoice
+/server/invoices
 
 # misc
 .DS_Store
