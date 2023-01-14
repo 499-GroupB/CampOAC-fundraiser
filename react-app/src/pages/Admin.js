@@ -80,7 +80,6 @@ const Admin = () => {
         }, 400);
     }
 
-
     switch (loginState) {
         case (1):
             return (
