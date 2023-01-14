@@ -344,6 +344,10 @@ a:visited {
     }
 
     #order-table tr {
-        border-bottom: 2px solid blue;
+        padding: 10px;
+        border-radius: 25px;
+        border: 2px solid #17458f;
+        display: block;
+        margin-bottom: 16px;
     }
 }
