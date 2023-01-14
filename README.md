@@ -46,7 +46,8 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 |--|--|--|
 | NodeJS | [16.18.0](https://nodejs.org/en/) | Backend script / run express |
 | Express.js |[4.18.2](https://www.npmjs.com/package/express) | Serve site and handle end points for database |
-| MongoDB | [6.0](https://www.mongodb.com/)| Database |
+| MongoDB | [6.0](https://www.mongodb.com/) | Database |
+| Square Payment API | [3.23](https://github.com/square/web-payments-quickstart) | Server side payment info processing |
 
 **Package Manager:**
 | NAME | LATEST VERSION | PURPOSE |
@@ -56,7 +57,8 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 **Frontend**
 | NAME | LATEST VERSION | PURPOSE |
 |--|--|--|
-| React-dom| [18.0.2](https://www.npmjs.com/package/react-dom) | Rendering the website |
+| React-dom | [18.0.2](https://www.npmjs.com/package/react-dom) | Rendering the website |
+| Square Web Payments SDK | [3.23](https://github.com/square/web-payments-quickstart) | Client side payment information handling |
 
 ## Status
 | Milestone | Requirements | Status|
