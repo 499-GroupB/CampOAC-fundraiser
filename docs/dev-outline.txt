@@ -40,3 +40,12 @@ Configure server for hosting react app
    - Test
    - Test
    - Test again
+
+Database schema:
+
+Order schema needs a reference to Location
+Location schema: { name: string, stock: number, active: boolean }
+  active flag allows for admins to temporarily close a location for whatever reason
+  stock allows for admin to change stock
+  name will be used in the order schema to link orders with specific locations when admin needs to filter orders.
+User schema: {}
