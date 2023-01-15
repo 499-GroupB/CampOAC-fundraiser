@@ -123,6 +123,15 @@ Team Meeting Minutes
 
 * Worked on the prototype video
 
+---
+
+**2023/01/15	14:00-14:30 (everyone attended)**
+
+* Weekly scrum meeting
+
+* Splitting the week's tasks
+
+* Recap
 
 
 
