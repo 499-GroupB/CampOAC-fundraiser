@@ -104,7 +104,10 @@ const OrderForm = (props) => {
                         type="number"
                         placeholder="1"
                     />
-                    <p>Price per bag: $8.99</p>
+                    <p>
+                        <b><u>Price per bag: $8.99</u></b>
+
+                    </p>
                     <br></br>
                     <MyRadio name="payment" value="credit">
                         Pay now with credit card
