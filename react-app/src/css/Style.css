@@ -207,11 +207,11 @@ a:visited {
 }
 
 .bodylink:link {
-    color:#557a65;
+    color: blue;
 }
 
 .bodylink:visited {
-    color:#557a65;
+    color: purple;
 }
 
 * {
