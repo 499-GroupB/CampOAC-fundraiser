@@ -47,11 +47,13 @@ const OrderForm = (props) => {
                         .required('Required'),
                     email: Yup.string()
                         .email('Invalid email address')
+                        .max(50, 'Must be 50 characters or less')
                         .required('Required'),
                     phone: Yup.string()
                         .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                         .required('Required'),
                     numBags: Yup.number()
+                        .integer("Invalid number of bags")
                         .max(location.stock, "Maximum amount available is " + location.stock + ".")
                         .min(1, "Minimum 1")
                         .required('Required'),
