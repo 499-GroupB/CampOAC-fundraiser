@@ -99,7 +99,7 @@ Team Meeting Minutes
 
 ---
 
-**2022/11/12	14:00-14:30 (everyone attended)**
+**2022/11/12	14:00-15:00 (everyone attended)**
 
 * Weekly scrum meeting
 
@@ -108,7 +108,7 @@ Team Meeting Minutes
 * We're talking about the prototype
 
 ---
-**2022/11/20	14:00-14:30 (everyone attended)**
+**2022/11/20	14:00-15:00 (everyone attended)**
 
 * Weekly scrum meeting
 
@@ -117,7 +117,7 @@ Team Meeting Minutes
 * Discussed about the invoice.
 
 ---
-**2022/11/27	14:00-14:30 (everyone attended)**
+**2022/11/27	14:00-15:00 (everyone attended)**
 
 * Weekly scrum meeting
 
@@ -125,7 +125,7 @@ Team Meeting Minutes
 
 ---
 
-**2023/01/15	14:00-14:30 (everyone attended)**
+**2023/01/15	14:00-15:00 (everyone attended)**
 
 * Weekly scrum meeting
 
