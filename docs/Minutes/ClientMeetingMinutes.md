@@ -2,13 +2,9 @@
 Client Meeting Minutes
 </h1>
 
-
-
-
-
 **20/09/2022 14:00-14:20**
 
-  * Introductions
+* Introductions
 
 * Discussed preliminary project specifications
 
@@ -18,7 +14,7 @@ Client Meeting Minutes
 
 **26/09/2022 14:00-14:15**
 
- * Additional information on requirements
+* Additional information on requirements
 
 * Follow-up inquiries
 ---
