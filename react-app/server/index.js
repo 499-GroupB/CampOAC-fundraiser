@@ -59,8 +59,8 @@ app.post("/order/submit", (req, res) => {
     .then(item => {
 
       //Create invoice pdf
-      let pdfName = item.lastName + "-" + item._id;
-      pdf.create(invoiceTemplate(req.body), {}).toFile('./invoices/' + pdfName + '.pdf', (err) => {
+      let pdfName = item.lastName + "-" + item._id + ".pdf";
+      pdf.create(invoiceTemplate(req.body), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
         if (err) {
           return console.log('error creating invoice');
         }
@@ -72,7 +72,7 @@ app.post("/order/submit", (req, res) => {
         to: req.body.email,
         subject: 'Firewood Invoice',
         text: 'Thank you for your purchase! Please find your invoice attached',
-        attachments: {filename: 'invoiceName.pdf', path: './invoiceName.pdf'},
+        attachments: {filename: 'invoiceName.pdf', path: __dirname + '/invoices/' + pdfName},
       };
   
       let info = transporter.sendMail(mailOptions, function(error, info){
