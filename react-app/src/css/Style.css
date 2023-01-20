@@ -49,6 +49,12 @@ p {
     accent-color: #2c4356;
 }
 
+.loading {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
 /* ----- */
 
 .order-form {

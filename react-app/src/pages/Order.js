@@ -27,6 +27,14 @@ const Order = (props) => {
     }, 400);
   }
 
+  // Try not to question this too much.
+  const finishy = (values) => {
+    setTimeout(() => {
+      setStep(values);
+      //We may want to change how long this holds later.
+    }, 4000);
+  }
+
   // function for handling order submission
   const orderSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
@@ -43,6 +51,7 @@ const Order = (props) => {
         .then(function (response) {
           setId(response.data);
           setStep(3);
+          finishy(4);
         })
         // Catching axios error
         // Currently outputs to browser console (not  good)
@@ -73,10 +82,19 @@ const Order = (props) => {
         <>
         <StepMeter step={step}/>
 
+        <img class="loading" src = "loading.gif"/>
+        <br/>
+        </>
+      );
+    case (4):
+      return (
+        <>
+        <StepMeter step={step}/>
+  
         <h1>thank you for placing your order!</h1>
-       
+         
         <h3>Your order number is {id}.</h3>
-
+  
         <h4>Your order details and receipt will be sent to your email.</h4>
         </>
       );
