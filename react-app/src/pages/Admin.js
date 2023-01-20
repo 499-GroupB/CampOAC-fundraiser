@@ -18,8 +18,6 @@ const Admin = () => {
     const authApi = 'http://localhost:3000/login/auth';
 
     useEffect(() => {
-        getAllOrders();
-        getAllLocations();
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
@@ -71,6 +69,8 @@ const Admin = () => {
                     if(response.data.status == 1){
                         sessionStorage.setItem("isLoggedIn", "true");
                     }
+                    getAllOrders();
+                    getAllLocations();
                     setLoginState(response.data.status);
                 })
                 // Catching axios error
