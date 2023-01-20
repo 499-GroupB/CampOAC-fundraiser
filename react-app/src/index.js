@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Order from "./pages/Order";
 import NoPage from "./pages/NoPage";
 import Admin from "./pages/Admin";
+import OrderInfo from "./pages/OrderInfo";
 import Login from "./components/LoginForm";
 
 //          <Route path="dashboard" element={<Admin />} />
@@ -25,6 +26,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="order" element={<Order />} />
+          <Route path="orderInfo" element={<OrderInfo />} />
           <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
         </Route>

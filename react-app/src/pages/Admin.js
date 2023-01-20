@@ -27,6 +27,8 @@ const Admin = () => {
             isLoggedIn = "false";
         }else if(isLoggedIn == "true"){
             setLoginState(1);
+        }else if(isLoggedIn == "false"){
+            setLoginState(0);
         }
 
     }, [])
@@ -80,11 +82,17 @@ const Admin = () => {
         }, 400);
     }
 
+    const logout = () => {
+        sessionStorage.setItem("isLoggedIn", "false");
+        setLoginState(0);
+    }
+
     switch (loginState) {
         case (1):
             return (
                 <>
                     <h1>admin</h1>
+                    <button onClick={logout}>Log Out</button>
                     <br></br>
                     <div className="dashboard">
                         <h1>locations and stock:</h1>

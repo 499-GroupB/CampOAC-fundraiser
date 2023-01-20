@@ -84,7 +84,7 @@ app.post("/order/submit", (req, res) => {
       });*/
 
       // Update stock based on new order
-      Location.findOneAndUpdate({ name: item.pickUp }, {$inc: {stock: -item.numBags}})
+      Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
         })
@@ -104,7 +104,7 @@ app.post("/order/submit", (req, res) => {
 // Login Authentication
 // POST API endpoint
 app.post("/login/auth", (req, res) => {
-  
+
   // Test admin user
   // To be replaced with user database later
   const testAdmin = {
@@ -119,13 +119,13 @@ app.post("/login/auth", (req, res) => {
   console.log(req.body);
 
   // authentication (if you can call it that)
-  if(req.body.username == testAdmin.username && req.body.password == testAdmin.password){
+  if (req.body.username == testAdmin.username && req.body.password == testAdmin.password) {
     console.log("User authenticated, sending token");
     // status 1 is logged in
-    res.send({status: 1});
-  }else{
+    res.send({ status: 1 });
+  } else {
     // status 0 is auth failure
-    res.send({status: 0})
+    res.send({ status: 0 })
   }
 });
 
@@ -150,14 +150,14 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, {stock: req.body.data.stock})
-  .then(() => {
-    console.log("succesfully found order");
-    res.status(200).send("Succesfully modified from database");
-  })
-  .catch(err => {
-    res.status(400).send("Unable to modify location");
-  });
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock })
+    .then(() => {
+      console.log("succesfully found order");
+      res.status(200).send("Succesfully modified from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to modify location");
+    });
 });
 
 // Order retrieval
@@ -172,6 +172,20 @@ app.get("/order/list", (req, res) => {
     })
     .catch(err => {
       res.status(400).send("Unable to retrieve from database");
+    });
+})
+
+// retrieve order by orderID
+app.get("/order/single", (req, res) => {
+  // return single orders
+  console.log("Recieved order to retrieve");
+  console.log(req.body);
+  Order.findOne({ _id: req.body.data })
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {
+      res.status(400).send("Unable to find order:" + req.body.data);
     });
 })
 
