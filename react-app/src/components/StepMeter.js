@@ -26,6 +26,15 @@ const StepMeter = (props) => {
         case (3):
             return (
                 <div className="step-meter">
+                    <h2>Loading</h2>
+                    <p class="step-bar">
+                    <progress value="66"max="100"></progress>
+                    </p>
+                </div>
+            )
+        case (4):
+            return (
+                <div className="step-meter">
                     <h2>Thank you!</h2>
                     <p class="step-bar">
                     <progress value="100"max="100"></progress>
