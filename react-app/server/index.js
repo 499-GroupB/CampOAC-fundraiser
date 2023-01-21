@@ -30,14 +30,17 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // intialize reusable transporter for sending client invoices
-/*let testAccount = nodemailer.createTestAccount();
-const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-    port: PORT,
-    secure: false, // true for 465, false for other ports
+/*const transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+      type: "OAuth2",
+      user: "capstone499.groupb@gmail.com",
+      clientId: TODO,
+      clientSecret: TODO,
+      refreshToken: TODO,
+      accessToken: TODO,
+      expires: TODO,
+
     },
 });*/
 
@@ -68,11 +71,11 @@ app.post("/order/submit", (req, res) => {
 
       //Email invoice pdf
       /*var mailOptions = {
-        from: '"Fred Foo" <foo@example.com>',
+        from: '"OACGroupB" <capstone499.groupb@gmail.com>',
         to: req.body.email,
         subject: 'Firewood Invoice',
         text: 'Thank you for your purchase! Please find your invoice attached',
-        attachments: {filename: 'invoiceName.pdf', path: __dirname + '/invoices/' + pdfName},
+        attachments: {filename: pdfName, path: __dirname + '/invoices/' + pdfName},
       };
   
       let info = transporter.sendMail(mailOptions, function(error, info){
