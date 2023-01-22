@@ -133,7 +133,17 @@ Team Meeting Minutes
 
 * Recap
 
+---
 
+**2023/01/22	14:00-15:00 (everyone attended)**
+
+* Weekly scrum meeting
+
+* Splitting the week's tasks
+
+* Found some bugs that need to be fixed
+
+* Discussed about the presentation for friday
 
 
 
