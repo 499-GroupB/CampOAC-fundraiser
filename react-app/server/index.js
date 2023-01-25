@@ -29,6 +29,22 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+//SMS Auth Info
+//var TWILIO_ACCOUNT_SID = AC3a955d022be1a96e6bdf6db88cb6d74b;
+//var TWILIO_AUTH_TOKEN = c730b045c51bb7207987427ea83b8797;
+
+/*const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
+client.messages
+  .create({
+     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+     from: '+15017122661',
+     to: '+15558675310'
+   })
+  .then(message => console.log(message.sid));*/
+
 // intialize reusable transporter for sending client invoices
 /*const transporter = nodemailer.createTransport({
     service: "gmail",
