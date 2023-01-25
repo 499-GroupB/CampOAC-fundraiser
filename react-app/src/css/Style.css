@@ -213,7 +213,7 @@ a:visited {
 }
 
 .bodylink:link {
-    color: blue;
+    color: #2c4356;
 }
 
 .bodylink:visited {
@@ -300,6 +300,7 @@ a:visited {
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
+    text-shadow: 2px 2px #2c4356;
 }
   
 .close:hover,
