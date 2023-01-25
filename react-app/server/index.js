@@ -30,8 +30,8 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //SMS Auth Info
-//var TWILIO_ACCOUNT_SID = AC3a955d022be1a96e6bdf6db88cb6d74b;
-//var TWILIO_AUTH_TOKEN = c730b045c51bb7207987427ea83b8797;
+//var TWILIO_ACCOUNT_SID = ;
+//var TWILIO_AUTH_TOKEN = ;
 
 /*const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
