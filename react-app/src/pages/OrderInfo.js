@@ -10,14 +10,14 @@ const OrderInfo = () => {
 
   const [order, getOrder] = useState('');
 
-  const apiEnd = "/order/single";
+  const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/single`;
 
   const findOrder = (orderId) => {
     axios.get(apiEnd, { data: orderId },
         {
             headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
                 "Access-Control-Allow-Credentials": "true",
             }
         })

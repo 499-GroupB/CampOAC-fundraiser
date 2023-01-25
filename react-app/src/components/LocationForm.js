@@ -7,7 +7,7 @@ export default function LocationForm(props) {
     const [locations, getLocations] = useState('');
     const { onSubmit } = props;
 
-    const locationsApi = 'http://localhost:3000/location/list';
+    const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
 
     useEffect(() => {
         getAllLocations();

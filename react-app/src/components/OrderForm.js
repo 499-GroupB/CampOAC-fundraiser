@@ -13,7 +13,7 @@ const OrderForm = (props) => {
     const { location, onSubmit } = props;
     const currDate = getCurrentDate();
     // Api endpoint for order submission
-    const apiEnd = 'http://localhost:3000/order/submit';
+    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/submit`;
 
     // this state is used for the order id sent from the api
 
