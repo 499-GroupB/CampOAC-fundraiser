@@ -12,6 +12,9 @@ const nodemailer = require("nodemailer");
 const Order = require('./models/order');
 const Location = require('./models/location');
 const auth = require('./credentials');
+//const smsAuth = require('./smsCredentials');
+//const emailAuth = require('./emailCredentials');
+
 
 const invoiceTemplate = require('./models/invoiceTemplate');
 
@@ -30,8 +33,8 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //SMS Auth Info
-//var TWILIO_ACCOUNT_SID = AC3a955d022be1a96e6bdf6db88cb6d74b;
-//var TWILIO_AUTH_TOKEN = c730b045c51bb7207987427ea83b8797;
+//var TWILIO_ACCOUNT_SID = smsAuth.twilSID;
+//var TWILIO_AUTH_TOKEN = smsAuth.twilTok;
 
 /*const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -39,20 +42,22 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-     from: '+15017122661',
-     to: '+15558675310'
+     body: TODO,
+     from: TODO,
+     to: req.body.phone,
    })
   .then(message => console.log(message.sid));*/
 
 // intialize reusable transporter for sending client invoices
 /*const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
       type: "OAuth2",
       user: "capstone499.groupb@gmail.com",
-      clientId: TODO,
-      clientSecret: TODO,
+      clientId: emailAuth.gmailClientID,
+      clientSecret: emailAuth.gmailClientSecret,
       refreshToken: TODO,
       accessToken: TODO,
       expires: TODO,
