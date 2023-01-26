@@ -96,7 +96,7 @@ const Admin = () => {
         // user logged in
         case (1):
             return (
-                <>
+                <div className="admin-panel">
                     <h1>admin</h1>
                     <button onClick={logout}>Log Out</button>
                     <br></br>
@@ -111,7 +111,7 @@ const Admin = () => {
                         </div>
                     </div>
                     <br></br>
-                </>
+                </div>
             );
         // login failure
         case (-1):
