@@ -146,8 +146,8 @@ app.post("/login/auth", (req, res) => {
     // status 1 is logged in
     res.send({ status: 1 });
   } else {
-    // status 0 is auth failure
-    res.send({ status: 0 })
+    // status -1 is auth failure
+    res.send({ status: -1 })
   }
 });
 
