@@ -40,11 +40,11 @@ const Order = (props) => {
     setTimeout(() => {
       // Axios API Call to Order Submit endpoint
       // Backend handles response accordingly
-      axios.post('http://localhost:3000/order/submit', JSON.stringify(values),
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/order/submit`, JSON.stringify(values),
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
             "Access-Control-Allow-Credentials": "true",
           }
         })

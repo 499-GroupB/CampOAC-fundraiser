@@ -13,9 +13,9 @@ const Admin = () => {
     const [orders, getOrders] = useState('');
     const [locations, getLocations] = useState('');
 
-    const orderApi = 'http://localhost:3000/order/list';
-    const locationsApi = 'http://localhost:3000/location/list';
-    const authApi = 'http://localhost:3000/login/auth';
+    const orderApi = `${process.env.REACT_APP_BACKEND_URL}/order/list`;
+    const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
+    const authApi = `${process.env.REACT_APP_BACKEND_URL}/login/auth`;
 
     useEffect(() => {
 
@@ -61,7 +61,7 @@ const Admin = () => {
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "http://localhost:3000",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
                         "Access-Control-Allow-Credentials": "true",
                     }
                 })

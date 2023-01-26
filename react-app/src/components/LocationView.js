@@ -7,14 +7,14 @@ import { Formik, Form } from 'formik';
 export default function LocationView(props) {
     const { locations } = props;
 
-    const apiEnd = "http://localhost:3000/location/modify"
+    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
 
     const modifyLocation = (locationData) => {
         axios.post(apiEnd, { data: locationData },
             {
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "http://localhost:3000",
+                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
                     "Access-Control-Allow-Credentials": "true",
                 }
             })
