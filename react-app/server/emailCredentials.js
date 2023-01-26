@@ -1,0 +1,9 @@
+let gmailClientID = "419825997352-43o1edf10rn5bsbh3a4efnad1ebn5jg0.apps.googleusercontent.com";
+let gmailClientSecret = "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";
+let gmailRefresh = "1//04hIrCL5Ec82bCgYIARAAGAQSNwF-L9IrYhM2XyQyIsO17N3LnoTfvH7zZdhsPaCJboZSILlTfI4SEylvGHmcE4FOTc9G1Wvmz2w";
+let gmailAccess = "ya29.a0AVvZVsqv4XCPrpsM8VuRiX2SOIEGi1XBY75ZtArcBJY2xdOrfhgrH9GhRJEMst5jhnII_SFbqICgxaaiM16ZbHf9xLbqGHuG_gF5AMi4ORE7qrT5Q9zL-5tcxIBNXLQ5SqotI5M6bTW5crtyDGRVG0sKW617X3eiaCgYKAegSAQASFQGbdwaIaQA3mW-LPvBvTrZSiCtuNg0167";
+
+exports.gmailClientID = gmailClientID;
+exports.gmailClientSecret = gmailClientSecret;
+exports.gmailRefresh = gmailRefresh;
+exports.gmailAccess = gmailAccess;
