@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 export default function OrderView(props) {
     const { orders } = props;
 
-    const apiEnd = "http://localhost:3000/order/delete"
+    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
 
     const deleteOrder = (orderId) => {
         axios.post(apiEnd, { data: orderId },
             {
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "http://localhost:3000",
+                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
                     "Access-Control-Allow-Credentials": "true",
                 }
             })
