@@ -4,35 +4,54 @@ Client Meeting Minutes
 
 **20/09/2022 14:00-14:20**
 
-* Introductions
+- Introductions
 
-* Discussed preliminary project specifications
+- Discussed preliminary project specifications
 
-* Set a weekly meeting time
+- Set a weekly meeting time
 
 ---
 
 **26/09/2022 14:00-14:15**
 
-* Additional information on requirements
+- Additional information on requirements
 
-* Follow-up inquiries
+- Follow-up inquiries
 ---
 
 **17/10/2022 14:00-14:15**
 
-* Additional information on how to handle cash purchases
+- Additional information on how to handle cash purchases
 
-* Color scheme was discussed.
+- Color scheme was discussed
 
-* Modified meeting schedule
+- Modified meeting schedule
 
 ---
 
 **28/11/2022 14:00-14:45**
 
-* All teams demonstrated their current prototype builds.
+- All teams demonstrated their current prototype builds
 
-* Clients gave feedback
+- Clients gave feedback
 
-* Discussion of future development direction
+- Discussion of future development direction
+
+
+---
+
+
+**28/11/2022 14:30-15:00**
+
+- Talked about further requirements
+
+    - Email and sms for order confirmation
+
+    - Using temporary email and square credentials and
+    chage to corporate credentials at handsoff
+
+
+
+
+- Scheduled a time for in-person meeting
+
