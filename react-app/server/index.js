@@ -58,8 +58,8 @@ client.messages
       user: "capstone499.groupb@gmail.com",
       clientId: emailAuth.gmailClientID,
       clientSecret: emailAuth.gmailClientSecret,
-      refreshToken: TODO,
-      accessToken: TODO,
+      refreshToken: emailAuth.gmailRefresh,
+      accessToken: emailAuth.gmailAccess,
       expires: TODO,
 
     },
