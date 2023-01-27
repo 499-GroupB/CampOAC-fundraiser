@@ -32,7 +32,7 @@ module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date }
                         text-align: center;
                         color: gray;
                     }
-                        .invoiceLineItem {
+                    .invoiceLineItem {
                         border: 1px solid black;
                         margin: 5px;
                         padding: 1px;
@@ -53,8 +53,8 @@ module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date }
                         <p>Customer Phone: ${phone} </p>
                     </div>
                     <div id='total' class='invoiceLineItem'>
-                        <p>Number of Bags: ${numBags}                Price: 8.99<p>
-                        <p>                                          Total: ${total}</p>
+                        <p>Number of Bags: ${numBags} Price: 8.99<p>
+                        <p>Total: ${total}</p>
                         <p>Payment type: ${payment}</p>
                         <p style='text-align:center'>If paid by cash customer must present invoice at time of pick up</p>
                     </div>
