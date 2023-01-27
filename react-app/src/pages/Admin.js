@@ -23,11 +23,16 @@ const Admin = () => {
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
         if(isLoggedIn == null){
             isLoggedIn = "false";
+            setLoginState(0);
         }else if(isLoggedIn == "true"){
             setLoginState(1);
+            getAllOrders();
+            getAllLocations();
         }else if(isLoggedIn == "false"){
             setLoginState(0);
         }
+
+        console.log(isLoggedIn);
 
     }, [])
 
@@ -68,9 +73,9 @@ const Admin = () => {
                 .then(function (response) {
                     if(response.data.status == 1){
                         sessionStorage.setItem("isLoggedIn", "true");
+                        getAllOrders();
+                        getAllLocations();
                     }
-                    getAllOrders();
-                    getAllLocations();
                     setLoginState(response.data.status);
                 })
                 // Catching axios error
@@ -88,9 +93,10 @@ const Admin = () => {
     }
 
     switch (loginState) {
+        // user logged in
         case (1):
             return (
-                <>
+                <div className="admin-panel">
                     <h1>admin</h1>
                     <button onClick={logout}>Log Out</button>
                     <br></br>
@@ -105,13 +111,21 @@ const Admin = () => {
                         </div>
                     </div>
                     <br></br>
-                </>
+                </div>
             );
-        case (0):
+        // login failure
+        case (-1):
             return (
                 <>
                     <LoginForm onSubmit={loginSubmission} />
                     <h3>Login failed</h3>
+                </>
+            );
+        // not logged in
+        case (0):
+            return (
+                <>
+                    <LoginForm onSubmit={loginSubmission} />
                 </>
             );
         default:
