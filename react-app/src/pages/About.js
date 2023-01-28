@@ -48,6 +48,7 @@ const About = () => {
   <img class="modal-content" id="img01"/>
   <div id="caption"></div>
 </div>
+<hr></hr>
 <br/>
 <h2 class="bearhug">rotary club of kelowna ogopogo</h2>
 <p>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members.  More information is available <a class="bodylink" href="https://my.rotary.org/en/"><b><u>here.</u></b></a></p>
