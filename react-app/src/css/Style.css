@@ -316,6 +316,12 @@ a:visited {
     display: table;
 }
 
+#order-table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    width: 100%;
+}
+
 #order-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
