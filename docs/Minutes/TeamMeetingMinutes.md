@@ -145,5 +145,17 @@ Team Meeting Minutes
 
 - Discussed about the presentation for friday
 
+---
+
+**2023/01/29	14:00-15:00 (everyone attended)**
+
+- Weekly scrum meeting
+
+- Talked about TA critiques
+
+- Contemplated Square API
+
+
+
 
 
