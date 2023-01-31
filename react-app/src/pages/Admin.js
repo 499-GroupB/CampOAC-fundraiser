@@ -21,14 +21,14 @@ const Admin = () => {
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-        if(isLoggedIn == null){
+        if (isLoggedIn == null) {
             isLoggedIn = "false";
             setLoginState(0);
-        }else if(isLoggedIn == "true"){
+        } else if (isLoggedIn == "true") {
             setLoginState(1);
             getAllOrders();
             getAllLocations();
-        }else if(isLoggedIn == "false"){
+        } else if (isLoggedIn == "false") {
             setLoginState(0);
         }
 
@@ -71,7 +71,7 @@ const Admin = () => {
                     }
                 })
                 .then(function (response) {
-                    if(response.data.status == 1){
+                    if (response.data.status == 1) {
                         sessionStorage.setItem("isLoggedIn", "true");
                         getAllOrders();
                         getAllLocations();

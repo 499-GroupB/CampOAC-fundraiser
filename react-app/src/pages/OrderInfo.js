@@ -14,25 +14,25 @@ const OrderInfo = () => {
 
   const findOrder = (orderId) => {
     axios.get(apiEnd, { data: orderId },
-        {
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                "Access-Control-Allow-Credentials": "true",
-            }
-        })
-        .then(function (response) {
-            console.log(response);
-            const retrievedOrder = response.data;
-            getOrder(retrievedOrder);
-        })
-        // Catching axios error
-        // Currently outputs to browser console (not  good)
-        .catch(function (error) {
-            console.log(error);
-        });
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+          "Access-Control-Allow-Credentials": "true",
+        }
+      })
+      .then(function (response) {
+        console.log(response);
+        const retrievedOrder = response.data;
+        getOrder(retrievedOrder);
+      })
+      // Catching axios error
+      // Currently outputs to browser console (not  good)
+      .catch(function (error) {
+        console.log(error);
+      });
     window.location.reload(false);
-}
+  }
 
   return (
     <div className='order-form'>
@@ -71,7 +71,7 @@ const OrderInfo = () => {
         </Form>
       </Formik>
       <br />
-      <UserOrderView order={order}/>
+      <UserOrderView order={order} />
     </div>
   );
 };
