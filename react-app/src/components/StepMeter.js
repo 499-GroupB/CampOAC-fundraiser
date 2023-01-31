@@ -10,7 +10,7 @@ const StepMeter = (props) => {
                 <div className="step-meter">
                     <h2>Select a pick up location</h2>
                     <p class="step-bar">
-                    <progress value="33" max="100"></progress>
+                        <progress value="33" max="100"></progress>
                     </p>
                 </div>
             )
@@ -19,7 +19,7 @@ const StepMeter = (props) => {
                 <div className="step-meter">
                     <h2>Enter contact information</h2>
                     <p class="step-bar">
-                    <progress value="66"max="100"></progress>
+                        <progress value="66" max="100"></progress>
                     </p>
                 </div>
             )
@@ -28,7 +28,7 @@ const StepMeter = (props) => {
                 <div className="step-meter">
                     <h2>Loading</h2>
                     <p class="step-bar">
-                    <progress value="66"max="100"></progress>
+                        <progress value="66" max="100"></progress>
                     </p>
                 </div>
             )
@@ -37,7 +37,7 @@ const StepMeter = (props) => {
                 <div className="step-meter">
                     <h2>Thank you!</h2>
                     <p class="step-bar">
-                    <progress value="100"max="100"></progress>
+                        <progress value="100" max="100"></progress>
                     </p>
                 </div>
             )
@@ -46,7 +46,7 @@ const StepMeter = (props) => {
                 <div className="step-meter">
                     <h2>Select a location</h2>
                     <p class="step-bar">
-                    <progress max="100"></progress>
+                        <progress max="100"></progress>
                     </p>
                 </div>
             )

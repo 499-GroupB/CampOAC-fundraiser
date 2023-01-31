@@ -47,7 +47,7 @@ export default function LocationView(props) {
                                 validationSchema={Yup.object({
                                     stock: Yup.number().min(0, 'Too few wood').max(10000, 'Too many wood'),
                                 })}
-                            
+
                                 // Form submission event.
                                 onSubmit={(values, { setSubmitting }) => {
                                     setTimeout(() => {
