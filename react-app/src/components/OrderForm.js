@@ -99,7 +99,7 @@ const OrderForm = (props) => {
                         placeholder="123-123-1234"
                     />
                     <br></br>
-                    
+
                     <MyTextInput
                         //BAG NUMBER SELECTION 
                         label="Number of Bags: "

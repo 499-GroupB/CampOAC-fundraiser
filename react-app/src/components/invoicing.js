@@ -13,14 +13,14 @@ const styles = StyleSheet.create({
 });
 
 //takes values from order form and renders invoice pdf to a file that can be sent by email
-function genInvoice(order){
+function genInvoice(order) {
     const paidCash = false;
-    if(order.payment=='invoice') paidCash=true;
-    
-    const nameDisp = 'Name: '+order.firstName+' '+order.lastName;
-    const priceDisp = 'Total: $'+(order.numBags*bagPrice);
-    const payTypeDisp = 'Payment Method: '+order.payment;
-    const pickupLocDisp = 'Pickup Address: '+order.pickUp;
+    if (order.payment == 'invoice') paidCash = true;
+
+    const nameDisp = 'Name: ' + order.firstName + ' ' + order.lastName;
+    const priceDisp = 'Total: $' + (order.numBags * bagPrice);
+    const payTypeDisp = 'Payment Method: ' + order.payment;
+    const pickupLocDisp = 'Pickup Address: ' + order.pickUp;
     const paidCashDisp = paidCash ? 'CASH PAYMENT DUE ON PICKUP' : '';
 
     //using React-PDF, pdf is treated as react component and can be styled with css

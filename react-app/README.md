@@ -1,6 +1,5 @@
 ## Available Scripts
 
-
 After accessing project directory
 (assuming in CampOAC-GroupB dir)
 

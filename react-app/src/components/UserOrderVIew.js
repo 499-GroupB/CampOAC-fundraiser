@@ -44,7 +44,7 @@ export default function UserOrderView(props) {
 
     return (
         <>
-        Order would be returned here.
+            Order would be returned here.
         </>
     )
 }

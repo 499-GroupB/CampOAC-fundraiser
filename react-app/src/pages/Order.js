@@ -66,36 +66,36 @@ const Order = (props) => {
     case (1):
       return (
         <>
-        <StepMeter step={step}/>
-        <LocationForm onSubmit={locationSelect}/>
+          <StepMeter step={step} />
+          <LocationForm onSubmit={locationSelect} />
         </>
       );
     case (2):
       return (
         <>
-        <StepMeter step={step}/>
-        <OrderForm location={location} onSubmit={orderSubmit}/>
+          <StepMeter step={step} />
+          <OrderForm location={location} onSubmit={orderSubmit} />
         </>
       );
     case (3):
       return (
         <>
-        <StepMeter step={step}/>
+          <StepMeter step={step} />
 
-        <img class="loading" src = "loading.gif"/>
-        <br/>
+          <img class="loading" src="loading.gif" />
+          <br />
         </>
       );
     case (4):
       return (
         <>
-        <StepMeter step={step}/>
-  
-        <h1>thank you for placing your order!</h1>
-         
-        <h3>Your order number is {id}.</h3>
-  
-        <h4>Your order details and receipt will be sent to your email.</h4>
+          <StepMeter step={step} />
+
+          <h1>thank you for placing your order!</h1>
+
+          <h3>Your order number is {id}.</h3>
+
+          <h4>Your order details and receipt will be sent to your email.</h4>
         </>
       );
     default:
