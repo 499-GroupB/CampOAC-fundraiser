@@ -27,7 +27,7 @@ const About = () => {
             onClick={() => modd(document.getElementById("img3").src, document.getElementById("img3").alt)} />
         </div>
         <div class="column imgMed">
-          <img id="img4" src="firewoodPics/Firewood_Team.jpg" width="100%" alt="The team. &nbsp : )"
+          <img id="img4" src="firewoodPics/Firewood_Team.jpg" width="100%" alt="The team with the wood splitter."
             onClick={() => modd(document.getElementById("img4").src, document.getElementById("img4").alt)} />
         </div>
         <div class="column imgLar">
@@ -39,7 +39,7 @@ const About = () => {
             onClick={() => modd(document.getElementById("img6").src, document.getElementById("img6").alt)} />
         </div>
         <div class="column imgSma">
-          <img id="img7" src="firewoodPics/IMG_8690.jpeg" width="100%" alt="It takes two."
+          <img id="img7" src="firewoodPics/IMG_8690.jpeg" width="100%" alt="Moving some wood."
             onClick={() => modd(document.getElementById("img7").src, document.getElementById("img7").alt)} />
         </div>
       </div>
