@@ -45,7 +45,7 @@ export default function LocationView(props) {
                                     stock: location.stock
                                 }}
                                 validationSchema={Yup.object({
-                                    stock: Yup.number().min(0, 'Too few wood').max(10000, 'Too many wood'),
+                                    stock: Yup.number().min(0, 'You cannot have negative stock').max(10000, 'Too much stock!'),
                                 })}
 
                                 // Form submission event.
