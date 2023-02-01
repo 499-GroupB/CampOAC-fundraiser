@@ -29,6 +29,7 @@ const OrderForm = (props) => {
                     lastName: '',
                     email: '',
                     phone: '',
+                    sms: '',
                     pickUp: location.name,
                     numBags: '1',
                     payment: '',
@@ -99,7 +100,10 @@ const OrderForm = (props) => {
                         placeholder="123-123-1234"
                     />
                     <br></br>
-                    
+                    <MyRadio name="sms" value="isSMS">
+                        Check to receive invoice by SMS messaging
+                    </MyRadio>
+                    <br></br>
                     <MyTextInput
                         //BAG NUMBER SELECTION 
                         label="Number of Bags: "
