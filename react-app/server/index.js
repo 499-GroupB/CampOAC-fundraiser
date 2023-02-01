@@ -38,15 +38,9 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 /*const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
+const client = require('twilio')(accountSid, authToken);*/
 
-client.messages
-  .create({
-     body: TODO,
-     from: +16693483413,
-     to: req.body.phone,
-   })
-  .then(message => console.log(message.sid));*/
+
 
 // intialize reusable transporter for sending client invoices
 /*const transporter = nodemailer.createTransport({
@@ -79,7 +73,15 @@ app.post("/order/submit", (req, res) => {
   newOrder.save()
     // If succesful (Code 200))
     .then(item => {
-
+      if(req.body.sms=='yes'){
+        /*client.messages
+          .create({
+          body: TODO,
+          from: +16693483413,
+          to: req.body.phone,
+        })
+        .then(message => console.log(message.sid));*/
+      }
       //Create invoice pdf
       let pdfName = item.lastName + "-" + item._id + ".pdf";
       pdf.create(invoiceTemplate(req.body), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
