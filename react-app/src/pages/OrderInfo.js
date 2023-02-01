@@ -64,7 +64,7 @@ const OrderInfo = () => {
             label="Order ID: "
             name="orderId"
             type="text"
-            placeholder="Order ID"
+            placeholder="24 Character Order ID"
           />
           <br></br>
           <button type="submit">Submit</button>
