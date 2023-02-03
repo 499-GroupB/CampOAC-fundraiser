@@ -2,8 +2,6 @@
 CampOAC - Group B
 </h1>
 
-
-
 ![Version - 0.0.1](https://img.shields.io/badge/version-pending-lightgrey?style=for-the-badge)
 
 **Maintainers:** <br />
@@ -12,12 +10,9 @@ _Michael Boulanger
 <br />
 Sai Rohith Enumala
  <br />
- Paul Ranger 
+ Paul Ranger
  <br />
  Baillie Stang_
-
-
-
 
 <p align="center">
   <img alt="Logo1" src="https://media.discordapp.net/attachments/931270620547784754/1045467416894902332/Camp-OAC-Logo-Primary.png" width="300" height = "300">
@@ -26,16 +21,16 @@ Sai Rohith Enumala
 </p>
 
 ## About
+
  🚧 **Under Construction** 🚧 <br />
- 
+
 We are developing a mobile-friendly website to help the general public obtain
 campfire wood. The user will select the location (from a list of available locations)
 and the desired number of bags of firewood on the website. Then, they will receive an email
 with an invoice generated based on the pricing and quantity ordered. The website then processes
 payment or retains an invoice for cash payment at pick-up time. The receipt is automatically generated.
-Users groups include local residents as well as tourists, most people who need a smaller quantity of wood 
+Users groups include local residents as well as tourists, most people who need a smaller quantity of wood
 as for larger orders people would be more likely to turn to a bulk supplier.
-
 
 ## TO DO
 
@@ -61,6 +56,7 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 | Square Web Payments SDK | [3.23](https://github.com/square/web-payments-quickstart) | Client side payment information handling |
 
 ## Status
+
 | Milestone | Requirements | Status|
 |--|--|--|
 | Requirements Completed | Decided on project requirements, ready to begin development | ✔️|

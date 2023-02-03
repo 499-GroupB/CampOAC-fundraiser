@@ -17,6 +17,7 @@ Client Meeting Minutes
 - Additional information on requirements
 
 - Follow-up inquiries
+
 ---
 
 **17/10/2022 14:00-14:15**
@@ -37,21 +38,15 @@ Client Meeting Minutes
 
 - Discussion of future development direction
 
-
 ---
-
 
 **28/11/2022 14:30-15:00**
 
 - Talked about further requirements
 
-    - Email and sms for order confirmation
+  - Email and sms for order confirmation
 
-    - Using temporary email and square credentials and
+  - Using temporary email and square credentials and
     chage to corporate credentials at handsoff
 
-
-
-
 - Scheduled a time for in-person meeting
-
