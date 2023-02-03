@@ -73,7 +73,7 @@ app.post("/order/submit", (req, res) => {
   newOrder.save()
     // If succesful (Code 200))
     .then(item => {
-      if(req.body.sms=='yes'){
+      if(req.body.sms=='isSMS'){
         /*client.messages
           .create({
           body: TODO,
