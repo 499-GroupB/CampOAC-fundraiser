@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 // Login form
 const LoginForm = (props) => {
-  
+
   const { onSubmit } = props;
 
   return (
@@ -21,7 +21,7 @@ const LoginForm = (props) => {
           username: '',
           password: '',
         }}
-        
+
         // Validation schema via https://www.npmjs.com/package/yup
         // Use this to define what will cause the Formik errors to generate
         // per input. Also puts hards limits on inputs
@@ -53,7 +53,7 @@ const LoginForm = (props) => {
             type="password"
             placeholder="Password"
           />
-          <br/><br/>
+          <br /><br />
           <button type="submit">Submit</button>
         </Form>
       </Formik>
