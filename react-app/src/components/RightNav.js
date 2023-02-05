@@ -9,8 +9,7 @@ const Ul = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   li {
-    padding: 20px 30px;
-    margin: 0px 15px;
+    padding: 2vh 1.5vw;
     text-decoration: none;
     color: white;
   }
@@ -41,10 +40,10 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <Link to="/about" onClick={open}><li>about</li></Link>
-      <Link to="/order" onClick={open}><li>order</li></Link>
-      <Link to="/orderInfo" onClick={open}><li>view order</li></Link>
-      <Link to="/admin" onClick={open}><li>admin</li></Link>
+      <Link class="bearhug" to="/about" onClick={open}><li>about</li></Link>
+      <Link class="bearhug" to="/order" onClick={open}><li>order</li></Link>
+      <Link class="bearhug" to="/orderInfo" onClick={open}><li>view order</li></Link>
+      <Link class="bearhug" to="/admin" onClick={open}><li>admin</li></Link>
     </Ul>
   )
 }

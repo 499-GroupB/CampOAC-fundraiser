@@ -42,11 +42,9 @@ p {
 }
 
 /* Order Tracker styles */
-
 .step-bar progress {
-
     width: 75%;
-    height: 7vh;
+    height: 6vh;
     accent-color: #2c4356;
 }
 
@@ -55,7 +53,6 @@ p {
     margin-right: auto;
     width: 30%;
 }
-
 /* ----- */
 
 .radio-input {
@@ -72,24 +69,22 @@ label {
     border-radius: 1%;
     width: 20%;
     padding: 0.5%;
-
 }
 
 .text-input {
-    width: 40%;
+    width: 30%;
     border: none;
     border-bottom: 0.4vh solid gray;
     border-radius: 0.6vh;
     padding: 1.4vh 3vh;
-    margin: 2vh;
+    margin: 3.5vh;
     font-size: 2.5vh;
     font-family: "Roboto";
 }
 
 button {
     font-family: "Roboto";
-    background-color: #2c4356;
-    /* royal blue */
+    background-color: #2c4356; /* royal blue */
     border: none;
     color: white;
     padding: 2.5vh 5vh;
@@ -162,13 +157,7 @@ button:hover {
     border: 0.4vh solid #2c4356;
 }
 
-a:link {
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-a:visited {
+a:link, a:visited {
     color: white;
     background-color: transparent;
     text-decoration: none;
@@ -244,8 +233,7 @@ a:visited {
     top: 5%;
 }
 
-.modal-content,
-#caption {
+.modal-content, #caption {
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -254,7 +242,6 @@ a:visited {
     from {
         transform: scale(0)
     }
-
     to {
         transform: scale(1)
     }
