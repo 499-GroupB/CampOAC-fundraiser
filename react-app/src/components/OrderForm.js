@@ -102,7 +102,7 @@ const OrderForm = (props) => {
                     <br></br>
 
                     <MyRadio name="sms" value="isSMS">
-                        Check to receive invoice by SMS messaging
+                        &nbsp;Check to receive invoice by SMS messaging
                     </MyRadio>
                     <br></br>
 
@@ -119,10 +119,10 @@ const OrderForm = (props) => {
                     </p>
                     <br></br>
                     <MyRadio name="payment" value="credit">
-                        Pay now with credit card
+                        &nbsp;Pay now with credit card
                     </MyRadio>
                     <MyRadio name="payment" value="cash">
-                        Pay with cash upon pick up
+                        &nbsp;Pay with cash upon pick up
                     </MyRadio>
                     <br></br>
                     <button type="submit">Submit</button>
