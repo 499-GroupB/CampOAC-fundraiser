@@ -36,19 +36,4 @@ const MyRadio = ({ children, ...props }) => {
     </div>
   );
 };
-
-// Custom drop down input via formik, used to show error
-const MySelect = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <div>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <select className="select-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
-
-export { MyTextInput, MySelect, MyRadio }
+export { MyTextInput, MyRadio }
