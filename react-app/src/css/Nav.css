@@ -2,14 +2,14 @@
     font-family: "Bearhug";
     background-color: #2c4356;
     color: white;
-    height: 80px;
+    height: 6vw;
     border-bottom: 2px solid #f1f1f1;
-    padding: 0 20px;
+    padding: 0 1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-    font-size: x-large;
+    font-size: 2vw;
 }
 
 p.navbar {
@@ -30,13 +30,16 @@ a.navbar {
 #logo {
     color: white;
     text-decoration: none;
-    transition: 0.3s;
-    font-size: 2rem;
+    font-size: 2.5vw;
     padding: 15px 0px;
     text-decoration: none;
 }
 
+#topleftlogo {
+    height: 2.5vw;
+}
+
 #logo:hover {
     color: gray;
-    transition: 0.1s;
+    transition: 0.3s;
 }

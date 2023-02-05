@@ -13,7 +13,6 @@ const Ul = styled.ul`
     margin: 0px 15px;
     text-decoration: none;
     color: white;
-    transition: 0.3s;
   }
   li:hover {
     background-color: #fff;
