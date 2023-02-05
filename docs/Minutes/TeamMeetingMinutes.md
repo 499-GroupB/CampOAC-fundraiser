@@ -150,3 +150,11 @@ Team Meeting Minutes
 - Talked about TA critiques
 
 - Contemplated Square API
+
+---
+
+**2023/02/05 14:00-15:00 (everyone attended)**
+
+- Weekly scrum meeting
+
+- Prepared for client's demo
