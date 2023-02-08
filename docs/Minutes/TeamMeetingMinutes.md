@@ -33,7 +33,7 @@ Team Meeting Minutes
 ---
 
 <h3>
-<b> 
+<b>
 2022/09/30  11:00-11:30  (everyone attended)
 </h3>
 </b>
