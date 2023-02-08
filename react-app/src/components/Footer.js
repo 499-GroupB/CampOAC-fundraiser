@@ -14,7 +14,7 @@ const Footer = () => {
                 &nbsp;&nbsp;
                 <a class="footericons" href="https://www.instagram.com/camp_oac/"><FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon></a>
                 <p id="footerText">Made by Camp OAC Group-B</p>
-                <p id="footerText">All rights reserved CampOAC x Rotary Club of Kelowna</p>
+                <p id="footerText">All rights reserved CampOAC &times; Rotary Club of Kelowna</p>
             </div>
             <div class="bottomlogos">
                 <a href="https://portal.clubrunner.ca/824"><img class="logo" src="officialclublogo_rotary.png"></img></a>
