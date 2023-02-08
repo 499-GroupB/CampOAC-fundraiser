@@ -3,7 +3,11 @@
 Team Meeting Minutes
 </h1>
 
-**2022/09/18 16:00-17:00 (everyone attended)**
+<h3>
+<b>
+2022/09/18 16:00-17:00 (everyone attended)
+</h3>
+</b>
 
 - Client meeting scheduled
 
@@ -14,8 +18,11 @@ Team Meeting Minutes
 - Trello organised
   
 ---
-
-**2022/09/25 14:40-16:30 (everyone attended)**
+<h3>
+<b>
+2022/09/25 14:40-16:30 (everyone attended)
+</h3>
+</b>
 
 - Breakdown of Requirements
 
@@ -24,8 +31,12 @@ Team Meeting Minutes
 - Planning for the Requirements Report
   
 ---
-  
-**2022/09/30  11:00-11:30  (everyone attended)**
+
+<h3>
+<b> 
+2022/09/30  11:00-11:30  (everyone attended)
+</h3>
+</b>
 
 - IP Agreement discussions
 
@@ -36,8 +47,12 @@ Team Meeting Minutes
 - Outlined topics for the next meeting
   
  ---
-  
- **2022/10/02  14:00-15:00  (everyone attended)**
+
+<h3>
+<b>
+ 2022/10/02  14:00-15:00  (everyone attended)
+ </h3>
+</b>
 
 - Discussed a tentative timeline
 
@@ -45,13 +60,21 @@ Team Meeting Minutes
 
  ---
 
-**2022/10/09 14:00-15:00 (Michael did not attend)**
+<h3>
+<b>
+2022/10/09 14:00-15:00 (Michael did not attend)
+</h3>
+</b>
 
 - Worked on the requirements presentation (slides)
 
 ---
 
- **2022/10/11  17:15-17:45  (everyone attended)**
+ <h3>
+<b>
+ 2022/10/11  17:15-17:45  (everyone attended)
+</h3>
+</b>
 
 - Finalized requirements presentation slides
 
@@ -59,7 +82,11 @@ Team Meeting Minutes
 
  ---
 
- **2022/10/23 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+ 2022/10/23 14:00-15:00 (everyone attended)
+ </h3>
+</b>
 
 - Cleaned up the repository
 
@@ -71,7 +98,11 @@ Team Meeting Minutes
 
 ---
 
- **2022/10/30 14:00-15:15 (everyone attended)**
+<h3>
+<b>
+ 2022/10/30 14:00-15:15 (everyone attended)
+ </h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -85,7 +116,11 @@ Team Meeting Minutes
 
 ---
 
- **2022/11/06 12:00-12:30 (everyone attended)**
+<h3>
+<b>
+ 2022/11/06 12:00-12:30 (everyone attended)
+ </h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -94,8 +129,11 @@ Team Meeting Minutes
 - Tasks for this week are being assigned to team members
 
 ---
-
-**2022/11/12 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2022/11/12 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -104,7 +142,11 @@ Team Meeting Minutes
 - We're talking about the prototype
 
 ---
-**2022/11/20 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2022/11/20 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -113,7 +155,11 @@ Team Meeting Minutes
 - Discussed about the invoice.
 
 ---
-**2022/11/27 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2022/11/27 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -121,7 +167,11 @@ Team Meeting Minutes
 
 ---
 
-**2023/01/15 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2023/01/15 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -131,7 +181,11 @@ Team Meeting Minutes
 
 ---
 
-**2023/01/22 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2023/01/22 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -142,8 +196,11 @@ Team Meeting Minutes
 - Discussed about the presentation for friday
 
 ---
-
-**2023/01/29 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2023/01/29 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
@@ -152,8 +209,11 @@ Team Meeting Minutes
 - Contemplated Square API
 
 ---
-
-**2023/02/05 14:00-15:00 (everyone attended)**
+<h3>
+<b>
+2023/02/05 14:00-15:00 (everyone attended)
+</h3>
+</b>
 
 - Weekly scrum meeting
 
