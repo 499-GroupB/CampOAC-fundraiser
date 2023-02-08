@@ -50,3 +50,8 @@ Client Meeting Minutes
     chage to corporate credentials at handsoff
 
 - Scheduled a time for in-person meeting
+
+**06/02/2023 14:30-15:45**
+
+- In-person demo
+- Acquired feedback
