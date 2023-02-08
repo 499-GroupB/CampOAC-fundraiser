@@ -69,6 +69,7 @@ Client Meeting Minutes
 
 - Scheduled a time for in-person meeting
 
+---
 <h3>
 <b>
 06/02/2023 14:30-15:45
