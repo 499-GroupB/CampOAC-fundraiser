@@ -72,7 +72,8 @@ label {
 }
 
 .text-input {
-    width: 30%;
+    width: 50vh;
+    max-width: 60%;
     border: none;
     border-bottom: 0.4vh solid gray;
     border-radius: 0.6vh;
@@ -317,5 +318,8 @@ a:link, a:visited {
         border: 2px solid #2c4356;
         display: block;
         margin-bottom: 16px;
+    }
+    label {
+        margin-right: 5%;
     }
 }
