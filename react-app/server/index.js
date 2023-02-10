@@ -17,6 +17,7 @@ const auth = require('./credentials');
 
 
 const invoiceTemplate = require('./models/invoiceTemplate');
+const smsTemplate = require('./models/smsInvoice');
 
 // conf
 const PORT = 3000;
@@ -76,7 +77,7 @@ app.post("/order/submit", (req, res) => {
       if(req.body.sms=='isSMS'){
         /*client.messages
           .create({
-          body: TODO,
+          body: smsTemplate(item),
           from: +16693483413,
           to: req.body.phone,
         })
@@ -84,7 +85,7 @@ app.post("/order/submit", (req, res) => {
       }
       //Create invoice pdf
       let pdfName = item.lastName + "-" + item._id + ".pdf";
-      pdf.create(invoiceTemplate(req.body), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
+      pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
         if (err) {
           return console.log('error creating invoice');
         }
