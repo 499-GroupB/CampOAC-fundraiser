@@ -226,6 +226,26 @@ app.get("/location/list", (req, res) => {
     });
 })
 
+// Location add
+// POST API endpoint
+app.post("/location/add", (req, res) => {
+  // Display response to console
+  console.log("Recieved Location: ");
+  console.log(req.body.locationData);
+  // Save recieved location to Mongo via Location Order (./models/location)
+  var newLocation = new Location(req.body.locationData);
+  newLocation.save()
+    // If succesful (Code 200))
+    .then(item => {
+      // return new order id
+      res.status(200).send(newLocation._id);
+    })
+    // If something goes wrong (Code 400)
+    .catch(err => {
+      res.status(400).send("Unable to save to database");
+    });
+});
+
 // Express Middleware
 // Use Static to serve the build directory which is generated
 // through create-react-apps build script
