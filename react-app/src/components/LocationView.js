@@ -9,6 +9,7 @@ export default function LocationView(props) {
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/location/add`
+    const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/location/delete`
 
     const modifyLocation = (locationData) => {
         axios.post(apiEnd, { data: locationData },
@@ -48,6 +49,28 @@ export default function LocationView(props) {
                 console.log(error)
             });
         window.location.reload(false);
+    }
+
+    const deleteLocation = (locationId) => {
+        if (window.confirm("Are you sure you want to submit?")) {
+            axios.post(apiEnd3, { data: locationId },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            window.location.reload(false);
+        }
     }
 
     const displayLocations = (props) => {
@@ -90,6 +113,9 @@ export default function LocationView(props) {
                                         <br></br>
                                         <br></br>
                                         <button type="submit">Update Inventory</button>
+                                        <button className="important" type="button" onClick={() => deleteLocation(location._id)} >
+                                            Delete Location
+                                        </button>
                                     </Form>
                                 </Formik>
                             </div>
