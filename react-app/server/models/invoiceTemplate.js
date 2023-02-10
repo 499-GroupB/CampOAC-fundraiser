@@ -1,7 +1,9 @@
 module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, _id }) => {
     const price = 8.99;
     const total = (numBags*price).toFixed(2); //temporary hardcoded price
-    var address; 
+    var address;
+    var adminName = 'temp';
+    var adminPhone = 'temp'; 
     switch(pickUp){
         case 'north': 
             address = 'North Address';
