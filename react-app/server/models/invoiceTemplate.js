@@ -4,6 +4,7 @@ module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, 
     var address;
     var adminName = 'temp';
     var adminPhone = 'temp'; 
+    
     switch(pickUp){
         case 'north': 
             address = 'North Address';
