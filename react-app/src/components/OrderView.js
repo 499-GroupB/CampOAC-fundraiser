@@ -26,10 +26,10 @@ export default function OrderView(props) {
             });
         window.location.reload(false);
     }
-
+    
     const viewPayment = (orderId) => {
         console.log(orderId);
-    }
+    }   
 
     const displayOrders = (props) => {
         if (orders.length > 0) {
@@ -45,8 +45,8 @@ export default function OrderView(props) {
                             <td>{order.numBags}</td>
                             <td>{order.date}</td>
                             <td ><button type="submit" onClick={() => viewPayment(order._id)} >
-                                {order.payment}
-                            </button></td>
+                                    {order.payment}
+                                </button></td>
                             <td>
                                 <button type="submit" onClick={() => deleteOrder(order._id)} >
                                     Close order
