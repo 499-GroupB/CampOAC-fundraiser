@@ -32,6 +32,7 @@ export default function LocationForm(props) {
                         <div id={location._id} className="location" key={location._id}>
                             <h3 className="location_name">{location.name}</h3>
                             <h3 className="location_stock">Current Stock: {location.stock}</h3>
+                            <p>Contact this location: {location.contact}</p>
                             <Formik
                                 // Formik requires intial values to be set
                                 // This is also how the variables appear in the api response
