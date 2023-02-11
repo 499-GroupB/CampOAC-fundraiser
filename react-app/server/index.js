@@ -175,9 +175,9 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock })
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact })
     .then(() => {
-      console.log("succesfully found order");
+      console.log("succesfully found location");
       res.status(200).send("Succesfully modified from database");
     })
     .catch(err => {
@@ -192,7 +192,7 @@ app.get("/order/list", (req, res) => {
   console.log("Someone is accessing order records")
   Order.find()
     .then(data => {
-      console.log(data);
+      console.log("Data sent.")
       res.status(200).send(data);
     })
     .catch(err => {
@@ -207,7 +207,7 @@ app.get("/order/single", (req, res) => {
   console.log(req.body);
   Order.findOne({ _id: req.body.data })
     .then(data => {
-      console.log(data)
+      console.log("Data sent.")
     })
     .catch(err => {
       res.status(400).send("Unable to find order:" + req.body.data);

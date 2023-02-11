@@ -87,10 +87,14 @@ export default function LocationView(props) {
                                     // This is also how the variables appear in the api response
                                     initialValues={{
                                         id: location._id,
-                                        stock: location.stock
+                                        stock: location.stock,
+                                        contact: location.contact,
                                     }}
                                     validationSchema={Yup.object({
                                         stock: Yup.number().min(0, 'You cannot have negative stock').max(10000, 'Too much stock!'),
+                                        contact: Yup.string()
+                                            .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
+                                            .required('Required'),
                                     })}
 
                                     // Form submission event.
@@ -111,8 +115,15 @@ export default function LocationView(props) {
                                             placeholder={location.stock}
                                         />
                                         <br></br>
+                                        <MyTextInput
+                                            //CONTACT
+                                            label="Contact info: "
+                                            name="contact"
+                                            type="text"
+                                            placeholder={location.contact}
+                                        />
                                         <br></br>
-                                        <button type="submit">Update Inventory</button>
+                                        <button type="submit">Update Location</button>
                                         <button className="important" type="button" onClick={() => deleteLocation(location._id)} >
                                             Delete Location
                                         </button>

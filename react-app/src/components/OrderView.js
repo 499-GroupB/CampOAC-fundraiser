@@ -48,7 +48,7 @@ export default function OrderView(props) {
                                     {order.payment}
                                 </button></td>
                             <td>
-                                <button type="submit" onClick={() => deleteOrder(order._id)} >
+                                <button class="important" type="submit" onClick={() => deleteOrder(order._id)} >
                                     Close order
                                 </button>
                             </td>

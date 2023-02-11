@@ -98,7 +98,7 @@ const Admin = () => {
             return (
                 <div className="admin-panel">
                     <h1>admin</h1>
-                    <button onClick={logout}>Log Out</button>
+                    <button class="important" onClick={logout}>Log Out</button>
                     <br></br>
                     <div className="dashboard">
                         <h1>locations and stock:</h1>
@@ -119,6 +119,7 @@ const Admin = () => {
                 <>
                     <LoginForm onSubmit={loginSubmission} />
                     <h3>Login failed</h3>
+                    <br></br>
                 </>
             );
         // not logged in
