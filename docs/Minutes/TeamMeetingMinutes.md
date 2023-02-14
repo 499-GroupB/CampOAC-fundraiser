@@ -253,3 +253,13 @@ Team Meeting Minutes
 
 <hr>
 
+<h3>
+<b>
+2023/02/12 14:00-15:00 (everyone attended)
+</h3>
+</b>
+
+- Weekly scrum meeting
+
+- Discussed to comple the project by march
+
