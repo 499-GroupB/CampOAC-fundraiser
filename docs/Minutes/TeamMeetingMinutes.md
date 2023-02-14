@@ -17,7 +17,8 @@ Team Meeting Minutes
 
 - Trello organised
   
----
+<hr>
+
 <h3>
 <b>
 2022/09/25 14:40-16:30 (everyone attended)
@@ -30,7 +31,7 @@ Team Meeting Minutes
 
 - Planning for the Requirements Report
   
----
+<hr>
 
 <h3>
 <b>
@@ -46,7 +47,7 @@ Team Meeting Minutes
 
 - Outlined topics for the next meeting
   
- ---
+<hr>
 
 <h3>
 <b>
@@ -58,7 +59,7 @@ Team Meeting Minutes
 
 - Worked on the requirements presentation (slides)
 
- ---
+<hr>
 
 <h3>
 <b>
@@ -68,7 +69,7 @@ Team Meeting Minutes
 
 - Worked on the requirements presentation (slides)
 
----
+<hr>
 
  <h3>
 <b>
@@ -80,7 +81,7 @@ Team Meeting Minutes
 
 - A group practise for the presenting of requirements
 
- ---
+ <hr>
 
 <h3>
 <b>
@@ -96,7 +97,7 @@ Team Meeting Minutes
 
 - Created issues for potential tasks and exploration
 
----
+<hr>
 
 <h3>
 <b>
@@ -114,7 +115,7 @@ Team Meeting Minutes
 
 - Design Drafts Presented
 
----
+<hr>
 
 <h3>
 <b>
@@ -128,7 +129,8 @@ Team Meeting Minutes
 
 - Tasks for this week are being assigned to team members
 
----
+<hr>
+
 <h3>
 <b>
 2022/11/12 14:00-15:00 (everyone attended)
@@ -141,7 +143,8 @@ Team Meeting Minutes
 
 - We're talking about the prototype
 
----
+<hr>
+
 <h3>
 <b>
 2022/11/20 14:00-15:00 (everyone attended)
@@ -154,7 +157,8 @@ Team Meeting Minutes
 
 - Discussed about the invoice.
 
----
+<hr>
+
 <h3>
 <b>
 2022/11/27 14:00-15:00 (everyone attended)
@@ -165,7 +169,7 @@ Team Meeting Minutes
 
 - Worked on the prototype video
 
----
+<hr>
 
 <h3>
 <b>
@@ -179,7 +183,7 @@ Team Meeting Minutes
 
 - Recap
 
----
+<hr>
 
 <h3>
 <b>
@@ -195,7 +199,8 @@ Team Meeting Minutes
 
 - Discussed about the presentation for friday
 
----
+<hr>
+
 <h3>
 <b>
 2023/01/29 14:00-15:00 (everyone attended)
@@ -208,7 +213,8 @@ Team Meeting Minutes
 
 - Contemplated Square API
 
----
+<hr>
+
 <h3>
 <b>
 2023/02/05 14:00-15:00 (everyone attended)
@@ -218,3 +224,15 @@ Team Meeting Minutes
 - Weekly scrum meeting
 
 - Prepared for client's demo
+
+<hr>
+
+<h3>
+<b>
+2023/02/12 14:00-15:00 (everyone attended)
+</h3>
+</b>
+
+- Weekly scrum meeting
+
+- Discussed to comple the project by march
