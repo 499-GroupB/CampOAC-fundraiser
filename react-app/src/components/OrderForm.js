@@ -114,8 +114,12 @@ const OrderForm = (props) => {
                         placeholder="1"
                     />
                     <p>
-                        <b><u>Price per bag: $8.99</u></b>
+                        <b>Price per bag: $8.99</b>
 
+
+                    </p>
+                    <p>
+                        The quantity of wood in each bag is xxx pounds approx.
                     </p>
                     <br></br>
                     <MyRadio name="payment" value="credit">
