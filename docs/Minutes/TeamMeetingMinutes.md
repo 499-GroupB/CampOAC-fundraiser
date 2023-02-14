@@ -3,9 +3,6 @@
 Team Meeting Minutes
 </h1>
 
-
-
-
 <h3>
 <b>
 2022/09/18 16:00-17:00 (everyone attended)
@@ -22,7 +19,6 @@ Team Meeting Minutes
   
 <hr>
 
-
 <h3>
 <b>
 2022/09/25 14:40-16:30 (everyone attended)
@@ -36,8 +32,6 @@ Team Meeting Minutes
 - Planning for the Requirements Report
   
 <hr>
-
-
 
 <h3>
 <b>
@@ -55,7 +49,6 @@ Team Meeting Minutes
   
 <hr>
 
-
 <h3>
 <b>
  2022/10/02  14:00-15:00  (everyone attended)
@@ -68,8 +61,6 @@ Team Meeting Minutes
 
 <hr>
 
-
-
 <h3>
 <b>
 2022/10/09 14:00-15:00 (Michael did not attend)
@@ -79,8 +70,6 @@ Team Meeting Minutes
 - Worked on the requirements presentation (slides)
 
 <hr>
-
-
 
  <h3>
 <b>
@@ -93,8 +82,6 @@ Team Meeting Minutes
 - A group practise for the presenting of requirements
 
  <hr>
-
-
 
 <h3>
 <b>
@@ -111,8 +98,6 @@ Team Meeting Minutes
 - Created issues for potential tasks and exploration
 
 <hr>
-
-
 
 <h3>
 <b>
@@ -132,8 +117,6 @@ Team Meeting Minutes
 
 <hr>
 
-
-
 <h3>
 <b>
  2022/11/06 12:00-12:30 (everyone attended)
@@ -147,7 +130,6 @@ Team Meeting Minutes
 - Tasks for this week are being assigned to team members
 
 <hr>
-
 
 <h3>
 <b>
@@ -163,7 +145,6 @@ Team Meeting Minutes
 
 <hr>
 
-
 <h3>
 <b>
 2022/11/20 14:00-15:00 (everyone attended)
@@ -178,7 +159,6 @@ Team Meeting Minutes
 
 <hr>
 
-
 <h3>
 <b>
 2022/11/27 14:00-15:00 (everyone attended)
@@ -190,8 +170,6 @@ Team Meeting Minutes
 - Worked on the prototype video
 
 <hr>
-
-
 
 <h3>
 <b>
@@ -206,8 +184,6 @@ Team Meeting Minutes
 - Recap
 
 <hr>
-
-
 
 <h3>
 <b>
@@ -225,7 +201,6 @@ Team Meeting Minutes
 
 <hr>
 
-
 <h3>
 <b>
 2023/01/29 14:00-15:00 (everyone attended)
@@ -239,7 +214,6 @@ Team Meeting Minutes
 - Contemplated Square API
 
 <hr>
-
 
 <h3>
 <b>
@@ -262,4 +236,3 @@ Team Meeting Minutes
 - Weekly scrum meeting
 
 - Discussed to comple the project by march
-
