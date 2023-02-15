@@ -7,14 +7,17 @@ import OrderView from "../components/OrderView";
 import LocationView from "../components/LocationView";
 import "../css/Style.css";
 import LoginForm from '../components/LoginForm';
+import AdminView from '../components/AdminView';
 
 const Admin = () => {
     const [loginState, setLoginState] = useState('');
     const [orders, getOrders] = useState('');
     const [locations, getLocations] = useState('');
+    const [admins, getAdmins] = useState('');
 
     const orderApi = `${process.env.REACT_APP_BACKEND_URL}/order/list`;
     const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
+    const adminsApi = `${process.env.REACT_APP_BACKEND_URL}/admin/list`;
     const authApi = `${process.env.REACT_APP_BACKEND_URL}/login/auth`;
 
     useEffect(() => {
@@ -28,6 +31,7 @@ const Admin = () => {
             setLoginState(1);
             getAllOrders();
             getAllLocations();
+            getAllAdmins();
         } else if (isLoggedIn == "false") {
             setLoginState(0);
         }
@@ -58,6 +62,17 @@ const Admin = () => {
             })
     }
 
+    const getAllAdmins = () => {
+        axios.get(adminsApi)
+            .then(response => {
+                const allAdmins = response.data;
+                getAdmins(allAdmins);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     const loginSubmission = (values, { setSubmitting }) => {
         setTimeout(() => {
             // Axios API Call to Login auth endpoint
@@ -75,6 +90,7 @@ const Admin = () => {
                         sessionStorage.setItem("isLoggedIn", "true");
                         getAllOrders();
                         getAllLocations();
+                        getAllAdmins();
                     }
                     setLoginState(response.data.status);
                 })
@@ -103,7 +119,11 @@ const Admin = () => {
                     <div className="dashboard">
                         <h1>locations and stock:</h1>
                         <div className="location-wrapper">
-                            <LocationView locations={locations} />
+                            <LocationView locations={locations} admins={admins} />
+                        </div>
+                        <h1>administrative users:</h1>
+                        <div className="admin-wrapper">
+                            <AdminView admins={admins} />
                         </div>
                         <h1>orders:</h1>
                         <div className="order-wrapper">

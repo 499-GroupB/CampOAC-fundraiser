@@ -11,7 +11,8 @@ const AdminSchema = new Schema({
   phone: { type: String, required: true, maxLength: 100 },
   location: { type: String, required: true, maxLength: 100 },
   password: { type: String, required: true, maxLength: 100 },
+  isSuper: { type: Boolean, required: true},
 });
 
 // Export model
-module.exports = mongoose.model("Admin", OrderSchema);
+module.exports = mongoose.model("Admin", AdminSchema);
