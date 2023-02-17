@@ -113,6 +113,21 @@ app.post("/order/submit", (req, res) => {
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
+          // Location.findOne({ name: item,pickUp}, "stock", (err, stock) =>{
+          //   if (err) return handleError(err);
+          //   if(stock.toObject()<=10){
+          //     Admin.find("phone", (err, phones) =>{
+          //       if (err) return handleError(err);
+          //       for(phone in phones){
+          //         client.messages.create({
+          //           body: `Low stock alert. Only ${stock} bags remain at ${item.pickUp}`,
+          //           from: +16693483413,
+          //           to: phone.toObject(),
+          //         });
+          //       };
+          //     });
+          //   };
+          // });
         })
         .catch(err => {
           console.log("undable to modify stock on location")
