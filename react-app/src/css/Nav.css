@@ -106,11 +106,11 @@ li {
     padding: 2vh 1.5vw;
     text-decoration: none;
     color: white;
-    transition: 0.15s ease-in-out;
 }
 li:hover {
     background-color: #fff;
     color: black;
+    transition: 0.15s ease-in-out;
 }
 
 #burgControl:checked + label > #split4{
