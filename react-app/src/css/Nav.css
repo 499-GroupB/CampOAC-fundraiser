@@ -52,13 +52,6 @@ a.navbar {
     z-index: 20;
     display: none;
 }
-@media (max-width: 837px) {
-    #burg {
-        display: flex;
-        justify-content: space-around;
-        flex-flow: column nowrap;
-    }
-}
 
 .split {
     position: absolute;
@@ -68,6 +61,7 @@ a.navbar {
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+    z-index: 10;
 }
 
 #split1 {
@@ -100,4 +94,52 @@ a.navbar {
 #burgControl:checked + label > #split3{
     background-color: #fff;
     transform: rotate(-45deg);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+li {
+    padding: 2vh 1.5vw;
+    text-decoration: none;
+    color: white;
+    transition: 0.15s ease-in-out;
+}
+li:hover {
+    background-color: #fff;
+    color: black;
+}
+
+#burgControl:checked + label > #split4{
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 837px) {
+    #burg {
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column nowrap;
+    }
+    
+    ul {
+        flex-flow: column nowrap;
+        background-color: #0D2538;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 300px;
+        padding-top: 3.5rem;
+        transform: translateX(100%);
+    }
+    
+    li {
+        color: #fff;
+        text-decoration: none;
+        color: white;
+    }
 }

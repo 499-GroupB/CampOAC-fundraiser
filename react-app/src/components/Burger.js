@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
-import RightNav from './RightNav';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Nav.css';
 
 const Burger = () => {
-  const [open, setOpen] = useState(false)
-
   return (
     <>
       <input type="checkbox" id="burgControl"/>
-      <label id="burg" for="burgControl" open={open} onClick={() => setOpen(!open)}>
+      <label id="burg" for="burgControl">
         <div class="split" id="split1"/>
         <div class="split" id="split2"/>
         <div class="split" id="split3"/>
+        <ul id="split4">
+          <Link class="bearhug" to="/about"><li>about</li></Link>
+          <Link class="bearhug" to="/order"><li>order</li></Link>
+          <Link class="bearhug" to="/orderInfo"><li>view order</li></Link>
+          <Link class="bearhug" to="/admin"><li>admin</li></Link>
+        </ul>
       </label>
-      <RightNav open={open} />
+      <ul>
+          <Link class="bearhug" to="/about"><li>about</li></Link>
+          <Link class="bearhug" to="/order"><li>order</li></Link>
+          <Link class="bearhug" to="/orderInfo"><li>view order</li></Link>
+          <Link class="bearhug" to="/admin"><li>admin</li></Link>
+      </ul>
     </>
   )
 }
