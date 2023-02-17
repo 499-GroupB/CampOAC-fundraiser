@@ -15,6 +15,10 @@ const Admin = () => {
     const [locations, getLocations] = useState('');
     const [admins, getAdmins] = useState('');
 
+    const [locationHide, setLocationHide] = useState(false);
+    const [adminHide, setAdminHide] = useState(false);
+    const [orderHide, setOrderHide] = useState(false);
+
     const orderApi = `${process.env.REACT_APP_BACKEND_URL}/order/list`;
     const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
     const adminsApi = `${process.env.REACT_APP_BACKEND_URL}/admin/list`;
@@ -103,6 +107,10 @@ const Admin = () => {
         }, 400);
     }
 
+    const toggleLocations = () => { setLocationHide(!locationHide) }
+    const toggleAdmins = () => { setAdminHide(!adminHide) }
+    const toggleOrders = () => { setOrderHide(!orderHide) }
+
     const logout = () => {
         sessionStorage.setItem("isLoggedIn", "false");
         setLoginState(0);
@@ -118,17 +126,14 @@ const Admin = () => {
                     <br></br>
                     <div className="dashboard">
                         <h1>locations and stock:</h1>
-                        <div className="location-wrapper">
-                            <LocationView locations={locations} admins={admins} />
-                        </div>
+                        <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null }
                         <h1>administrative users:</h1>
-                        <div className="admin-wrapper">
-                            <AdminView admins={admins} />
-                        </div>
+                        <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
+                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null }
                         <h1>orders:</h1>
-                        <div className="order-wrapper">
-                            <OrderView orders={orders} />
-                        </div>
+                        <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null }
                     </div>
                     <br></br>
                 </div>
