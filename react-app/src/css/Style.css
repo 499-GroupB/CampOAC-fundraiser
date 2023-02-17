@@ -84,6 +84,16 @@ label {
     font-family: "Roboto";
 }
 
+.select-input {
+    width: 50vh;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin: 1em;
+    font-size: 1em;
+}
+
 button {
     font-family: "Roboto";
     background-color: #2c4356;
@@ -175,6 +185,22 @@ button:hover {
 }
 
 .location {
+    padding: 2vh;
+    margin: 1vh;
+    border-radius: 4vh;
+    border: 0.4vh solid #2c4356;
+}
+
+.admin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 4vh;
+}
+
+.admin {
     padding: 2vh;
     margin: 1vh;
     border-radius: 4vh;
