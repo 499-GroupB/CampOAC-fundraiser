@@ -112,6 +112,7 @@ button:hover {
     background-color: #0D2538;
     transition: 0.3s;
     padding: 2.5vh 6vh;
+    cursor: pointer;
 }
 
 .important {
@@ -320,6 +321,14 @@ a:visited {
     cursor: pointer;
 }
 
+#orderbtn {
+    margin-left: 40vw;
+    margin-right: 40vw;
+}
+#orderbtn:hover {
+    cursor:default;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -375,5 +384,10 @@ a:visited {
     }
     label {
         margin-right: 5%;
+    }
+
+    #orderbtn {
+        margin-left: 28vw;
+        margin-right: 28vw;
     }
 }
