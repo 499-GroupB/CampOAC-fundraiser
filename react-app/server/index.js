@@ -123,7 +123,8 @@ app.post("/order/submit", (req, res) => {
           //           body: `Low stock alert. Only ${stock} bags remain at ${item.pickUp}`,
           //           from: +16693483413,
           //           to: phone.toObject(),
-          //         });
+          //         })
+          //         .then(message => console.log(message.sid));
           //       };
           //     });
           //   };
