@@ -85,12 +85,14 @@ app.post("/order/submit", (req, res) => {
         .then(message => console.log(message.sid));*/
       }
       //Create invoice pdf
-      let pdfName = item.lastName + "-" + item._id + ".pdf";
-      pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
-        if (err) {
-          return console.log('error creating invoice');
-        }
-      });
+      else{
+        let pdfName = item.lastName + "-" + item._id + ".pdf";
+        pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
+          if (err) {
+            return console.log('error creating invoice');
+          }
+        });
+      }
 
       //Email invoice pdf
       /*var mailOptions = {
