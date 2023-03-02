@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 import getCurrentDate from '../components/CurrentDate';
-import "../css/Style.css";
+
 
 // Order form
 const OrderForm = (props) => {
