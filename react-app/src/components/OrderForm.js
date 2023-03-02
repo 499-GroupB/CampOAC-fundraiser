@@ -128,15 +128,15 @@ const OrderForm = (props) => {
                         The quantity of wood in each bag is xxx pounds approx.
                     </p>
                     <br></br><br></br>
-                    <div class="payy" style={{display: 'flex', justifyContent: 'center', columnGap: 50}} >
-                        <div class="pay" style={{}}>
+                    <div class="payy" style={{ display: 'flex', justifyContent: 'center', columnGap: 50 }} >
+                        <div>
                             <img src="https://cdn.discordapp.com/attachments/931270620547784754/1080977891958984807/credit-card-payment-icon.png" alt="Credit Card" width={120} height={70} />
                             <MyRadio name="payment" value="credit">
                                 &nbsp;Pay now with credit card
                             </MyRadio>
                         </div>
 
-                        <div class="pay" style={{}}>
+                        <div>
                             <img src="https://media.discordapp.net/attachments/931270620547784754/1080986605914960033/payment-icon.png" alt="Credit Card" width={100} height={70} />
 
                             <MyRadio name="payment" value="cash">
