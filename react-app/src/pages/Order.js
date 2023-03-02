@@ -70,6 +70,7 @@ const Order = (props) => {
           <LocationForm onSubmit={locationSelect} />
         </>
       );
+
     case (2):
       return (
         <>
@@ -77,6 +78,7 @@ const Order = (props) => {
           <OrderForm location={location} onSubmit={orderSubmit} />
         </>
       );
+
     case (3):
       return (
         <>
@@ -86,6 +88,7 @@ const Order = (props) => {
           <br />
         </>
       );
+
     case (4):
       return (
         <>
@@ -98,6 +101,7 @@ const Order = (props) => {
           <h4>Your order details and receipt will be sent to your email.</h4>
         </>
       );
+      
     default:
       return (
         <>Something went wrong :c</>
