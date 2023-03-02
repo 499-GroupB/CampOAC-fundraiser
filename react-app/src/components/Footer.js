@@ -9,6 +9,7 @@ const Footer = () => {
             <div class="bottomlogos">
                 <a href="https://www.campoac.com/"><img class="logo" src="Camp-OAC-Logo-Primary.png"></img></a>
             </div>
+
             <div>
                 <a class="footericons" href="https://www.facebook.com/campoac/"><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></a>
                 &nbsp;&nbsp;
@@ -16,6 +17,7 @@ const Footer = () => {
                 <p id="footerText">Made by Camp OAC Group-B</p>
                 <p id="footerText">All rights reserved CampOAC &times; Rotary Club of Kelowna</p>
             </div>
+            
             <div class="bottomlogos">
                 <a href="https://portal.clubrunner.ca/824"><img class="logo" src="officialclublogo_rotary.png"></img></a>
             </div>

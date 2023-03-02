@@ -26,11 +26,13 @@ const OrderInfo = () => {
         const retrievedOrder = response.data;
         getOrder(retrievedOrder);
       })
+
       // Catching axios error
       // Currently outputs to browser console (not  good)
       .catch(function (error) {
         console.log(error);
       });
+
     window.location.reload(false);
   }
 
@@ -66,8 +68,11 @@ const OrderInfo = () => {
             type="text"
             placeholder="24 Character Order ID"
           />
+
           <br></br>
+
           <button type="submit">Submit</button>
+          
         </Form>
       </Formik>
       <br />

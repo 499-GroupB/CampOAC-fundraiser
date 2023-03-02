@@ -30,18 +30,23 @@ function genInvoice(order) {
                 <View style={styles.name}>
                     <Text>{nameDisp} </Text>
                 </View>
+
                 <View style={styles.total}>
                     <Text>{priceDisp}</Text>
                 </View>
+
                 <View style={styles.payType}>
                     <Text>{payTypeDisp}</Text>
                 </View>
+
                 <View style={styles.pickupLoc}>
                     <Text>{pickupLocDisp}</Text>
                 </View>
+
                 <View style={styles.paidCash}>
                     <Text>{paidCashDisp}</Text>
                 </View>
+                
             </Page>
         </Document>
     );

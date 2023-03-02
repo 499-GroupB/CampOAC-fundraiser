@@ -15,6 +15,10 @@ const OrderForm = (props) => {
     // Api endpoint for order submission
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/submit`;
 
+
+
+ 
+
     // this state is used for the order id sent from the api
 
     // conditional check if the state has been updated
@@ -112,6 +116,7 @@ const OrderForm = (props) => {
                         name="numBags"
                         type="number"
                         placeholder="1"
+                        // value={this.state.number}
                     />
                     <p>
                         <b>Price per bag: $8.99</b>

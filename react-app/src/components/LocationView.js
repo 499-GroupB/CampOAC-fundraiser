@@ -212,6 +212,7 @@ export default function LocationView(props) {
                             placeholder='Location Name'
                         />
                         <br></br>
+
                         <MyTextInput
                             //BAG NUMBER SELECTION 
                             label="Stock: "
@@ -220,6 +221,7 @@ export default function LocationView(props) {
                             placeholder='1'
                         />
                         <br></br>
+
                         <MyTextInput
                             //CONTACT
                             label="Contact info: "
@@ -227,8 +229,11 @@ export default function LocationView(props) {
                             type="text"
                             placeholder="123-456-7890"
                         />
+
                         <br></br>
+
                         <br></br>
+                        
                         <button type="submit">Add Location</button>
                     </Form>
                 </Formik>
