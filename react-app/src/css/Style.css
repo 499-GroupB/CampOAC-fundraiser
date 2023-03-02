@@ -185,7 +185,7 @@ a:visited {
     color: #2c4356;
     text-decoration: underline;
     background-color: transparent;
-   
+
 }
 
 .bodylink:link {
@@ -348,6 +348,7 @@ a:visited {
         display: block;
         margin-bottom: 16px;
     }
+
     label {
         margin-right: 5%;
     }
