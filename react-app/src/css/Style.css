@@ -393,16 +393,5 @@ a:visited {
         margin-right: 28vw;
     }
 
-    .payy {
-        display: flex;
-    }
-    
-    .pay {
-        flex: 1;
-        border: 2px solid yellow;
-    }  
-    
-    .pay:first-child {
-        margin-right: 20px;
-    } 
+
 }
