@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 import getCurrentDate from '../components/CurrentDate';
+import "../css/Style.css";
 
 // Order form
 const OrderForm = (props) => {
@@ -17,7 +18,7 @@ const OrderForm = (props) => {
 
 
 
- 
+
 
     // this state is used for the order id sent from the api
 
@@ -116,7 +117,7 @@ const OrderForm = (props) => {
                         name="numBags"
                         type="number"
                         placeholder="1"
-                        // value={this.state.number}
+                    // value={this.state.number}
                     />
                     <p>
                         <b>Price per bag: $8.99</b>
@@ -127,12 +128,22 @@ const OrderForm = (props) => {
                         The quantity of wood in each bag is xxx pounds approx.
                     </p>
                     <br></br>
-                    <MyRadio name="payment" value="credit">
-                        &nbsp;Pay now with credit card
-                    </MyRadio>
-                    <MyRadio name="payment" value="cash">
-                        &nbsp;Pay with cash upon pick up
-                    </MyRadio>
+                    <div class="payy" style={{display: 'flex'}} >
+                        <div class="pay" style={{flex: 1}}>
+                            <img src="https://cdn.discordapp.com/attachments/931270620547784754/1080977891958984807/credit-card-payment-icon.png" alt="Credit Card" width={120} height={70} />
+                            <MyRadio name="payment" value="credit">
+                                &nbsp;Pay now with credit card
+                            </MyRadio>
+                        </div>
+
+                        <div class="pay" style={{flex:1}}>
+                            <img src="https://media.discordapp.net/attachments/931270620547784754/1080986605914960033/payment-icon.png" alt="Credit Card" width={100} height={70} />
+
+                            <MyRadio name="payment" value="cash">
+                                &nbsp;Pay with cash upon pick up
+                            </MyRadio>
+                        </div>
+                    </div>
                     <br></br>
                     <button type="submit">Submit</button>
                 </Form>
