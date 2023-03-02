@@ -5,21 +5,16 @@ import { MyTextInput } from "./Inputs";
 import { Formik, Form } from 'formik';
 import { useEffect } from "react";
 
-export default function LocationView(props) {
-    const { locations } = props;
+export default function AdminView(props) {
     const { admins } = props;
 
-    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
-    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/location/add`
-    const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/location/delete`
+    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/admin/modify`
+    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/admin/add`
+    const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/admin/delete`
     var adminOptions
 
-    useEffect(() => {
-        console.log(generateAdminOptions(props));
-    }, [])
-
-    const modifyLocation = (locationData) => {
-        axios.post(apiEnd, { data: locationData },
+    const modifyAdmin = (adminData) => {
+        axios.post(apiEnd, { data: adminData },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -38,8 +33,8 @@ export default function LocationView(props) {
         window.location.reload(false);
     }
 
-    const addLocation = (locationData) => {
-        axios.post(apiEnd2, { locationData },
+    const addAdmin = (adminData) => {
+        axios.post(apiEnd2, { adminData },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -58,9 +53,9 @@ export default function LocationView(props) {
         window.location.reload(false);
     }
 
-    const deleteLocation = (locationId) => {
+    const deleteAdmin = (adminId) => {
         if (window.confirm("Are you sure you want to submit?")) {
-            axios.post(apiEnd3, { data: locationId },
+            axios.post(apiEnd3, { data: adminId },
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -80,51 +75,36 @@ export default function LocationView(props) {
         }
     }
 
-    const generateAdminOptions = (props) => {
+    const displayAdmins = (props) => {
         if (admins.length > 0) {
             return (
                 admins.map((admin, index) => {
                     return (
-                        <option key={admin._id} label={admin.firstName} value={admin._id}></option>
-                    )
-            }))
-        } else {
-            return (
-                <option value="" label="Unable to retrieve admins"></option>
-            )
-        }
-    }
-
-    const displayLocations = (props) => {
-        if (locations.length > 0) {
-            return (
-                locations.map((location, index) => {
-                    return (
                         <>
-                            <div className="location" key={location._id}>
-                                <h3 className="location_name">{location.name}</h3>
-                                <h3 className="location_stock">Current Stock: {location.stock}</h3>
+                            <div className="admin" key={admin._id}>
+                                <h3 className="admin_name">{admin.firstName + " " + admin.lastName}</h3>
+                                <h3 className="admin_super">Super user: {admin.isSuper.toString()}</h3>
                                 <Formik
                                     // Formik requires intial values to be set
                                     // This is also how the variables appear in the api response
                                     initialValues={{
-                                        id: location._id,
-                                        stock: location.stock,
-                                        contact: location.contact,
-                                        admin: "test",
+                                        id: admin._id,
+                                        firstName: admin.firstName,
+                                        lastName: admin.lastName,
+                                        phone: admin.phone,
                                     }}
                                     validationSchema={Yup.object({
-                                        stock: Yup.number().min(0, 'You cannot have negative stock').max(10000, 'Too much stock!'),
-                                        contact: Yup.string()
-                                            .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
-                                            .required('Required'),
-                                        admin: Yup.string().required('Locations need an admin'),
+                                        firstName: Yup.string().required('Required'),
+                                        lastName: Yup.string().required('Required'),
+                                        phone: Yup.string()
+                                        .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
+                                        .required('Required'),
                                     })}
 
                                     // Form submission event.
                                     onSubmit={(values, { setSubmitting }) => {
                                         setTimeout(() => {
-                                            modifyLocation(values);
+                                            modifyAdmin(values);
                                             setSubmitting(false);
                                             window.location.reload(false);
                                         }, 400);
@@ -132,30 +112,32 @@ export default function LocationView(props) {
                                 >
                                     <Form>
                                         <MyTextInput
-                                            //BAG NUMBER SELECTION 
-                                            label="Stock: "
-                                            name="stock"
-                                            type="number"
-                                            placeholder={location.stock}
+                                            //First Name
+                                            label="First Name: "
+                                            name="firstName"
+                                            type="text"
+                                            placeholder={admin.firstName}
                                         />
                                         <br></br>
                                         <MyTextInput
-                                            //CONTACT
-                                            label="Contact info: "
-                                            name="contact"
+                                            //Last Name
+                                            label="Last Name: "
+                                            name="lastName"
                                             type="text"
-                                            placeholder={location.contact}
+                                            placeholder={admin.lastName}
                                         />
                                         <br></br>
-                                        <label>Admin</label>
-                                        <select name="admin" className="select-input">
-                                            <option value="" label="Select an admin">Select an admin</option>
-                                            {generateAdminOptions(props)}
-                                        </select>
+                                        <MyTextInput
+                                            //Phone number
+                                            label="Phone Number: "
+                                            name="phone"
+                                            type="text"
+                                            placeholder={admin.phone}
+                                        />
                                         <br></br>
-                                        <button type="submit">Update Location</button>
-                                        <button className="important" type="button" onClick={() => deleteLocation(location._id)} >
-                                            Delete Location
+                                        <button type="submit">Update Admin</button>
+                                        <button className="important" type="button" onClick={() => deleteAdmin(admin._id)} >
+                                            Delete Admin
                                         </button>
                                     </Form>
                                 </Formik>
@@ -168,36 +150,45 @@ export default function LocationView(props) {
             )
         } else {
             return (
-                <h3>Unable to retrieve locations</h3>
+                <h3>Unable to retrieve adminstrators</h3>
             )
         }
     }
     return (
         <>
-            {displayLocations(props)}
-            <div className="location">
-                <h3 className="location_name">New Location</h3>
+            {displayAdmins(props)}
+            <div className="admin">
+                <h3 className="admin_name">New Admin</h3>
                 <Formik
                     // Formik requires intial values to be set
                     // This is also how the variables appear in the api response
                     initialValues={{
-                        name: '',
-                        stock: '1',
-                        contact: '',
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        phone: '',
+                        location: 'NO ASSIGNED LOCATION',
+                        password: 'DEFAULT PASSWORD',
+                        isSuper: false,
 
                     }}
                     validationSchema={Yup.object({
-                        name: Yup.string().required('Required'),
-                        stock: Yup.number().min(0, 'You cannot have negative stock'),
-                        contact: Yup.string()
+                        firstName: Yup.string().required('Required'),
+                        lastName: Yup.string().required('Required'),
+                        email: Yup.string()
+                        .email('Invalid email address')
+                        .max(50, 'Must be 50 characters or less')
+                        .required('Required'),
+                        phone: Yup.string()
                             .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                             .required('Required'),
+                        password: Yup.string().required('Required'),
                     })}
 
                     // Form submission event.
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {
-                            addLocation(values);
+                            addAdmin(values);
                             setSubmitting(false);
                             window.location.reload(false);
                         }, 400);
@@ -206,35 +197,38 @@ export default function LocationView(props) {
                     <Form>
                         <MyTextInput
                             //LOCATION NUMBER
-                            label="Name: "
-                            name="name"
+                            label="First Name: "
+                            name="firstName"
                             type="text"
-                            placeholder='Location Name'
+                            placeholder='First Name'
                         />
                         <br></br>
-
                         <MyTextInput
                             //BAG NUMBER SELECTION 
-                            label="Stock: "
-                            name="stock"
-                            type="number"
-                            placeholder='1'
+                            label="Last Name: "
+                            name="lastName"
+                            type="text"
+                            placeholder='Last Name'
                         />
                         <br></br>
-
                         <MyTextInput
                             //CONTACT
-                            label="Contact info: "
-                            name="contact"
+                            label="Email: "
+                            name="email"
                             type="text"
-                            placeholder="123-456-7890"
+                            placeholder="email@address.com"
                         />
-
                         <br></br>
-
+                        <MyTextInput
+                            //CONTACT
+                            label="Phone Number: "
+                            name="phone"
+                            type="text"
+                            placeholder="1234567890"
+                        />
                         <br></br>
-                        
-                        <button type="submit">Add Location</button>
+                        <br></br>
+                        <button type="submit">Add User</button>
                     </Form>
                 </Formik>
             </div>

@@ -11,6 +11,7 @@ const nodemailer = require("nodemailer");
 // local requisites
 const Order = require('./models/order');
 const Location = require('./models/location');
+const Admin = require('./models/admin');
 const auth = require('./credentials');
 //const smsAuth = require('./smsCredentials');
 //const emailAuth = require('./emailCredentials');
@@ -84,12 +85,14 @@ app.post("/order/submit", (req, res) => {
         .then(message => console.log(message.sid));*/
       }
       //Create invoice pdf
-      let pdfName = item.lastName + "-" + item._id + ".pdf";
-      pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
-        if (err) {
-          return console.log('error creating invoice');
-        }
-      });
+      else{
+        let pdfName = item.lastName + "-" + item._id + ".pdf";
+        pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
+          if (err) {
+            return console.log('error creating invoice');
+          }
+        });
+      }
 
       //Email invoice pdf
       /*var mailOptions = {
@@ -112,6 +115,22 @@ app.post("/order/submit", (req, res) => {
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
+          // Location.findOne({ name: item,pickUp}, "stock", (err, stock) =>{
+          //   if (err) return handleError(err);
+          //   if(stock.toObject()<=10){
+          //     Admin.find("phone", (err, phones) =>{
+          //       if (err) return handleError(err);
+          //       for(phone in phones){
+          //         client.messages.create({
+          //           body: `Low stock alert. Only ${stock} bags remain at ${item.pickUp}`,
+          //           from: +16693483413,
+          //           to: phone.toObject(),
+          //         })
+          //         .then(message => console.log(message.sid));
+          //       };
+          //     });
+          //   };
+          // });
         })
         .catch(err => {
           console.log("undable to modify stock on location")
@@ -260,6 +279,68 @@ app.post("/location/delete", (req, res) => {
     })
     .catch(err => {
       res.status(400).send("Unable to delete from database");
+    });
+});
+
+// Admin API
+app.get("/admin/list", (req, res) => {
+  console.log("Someone is accessing location records")
+  Admin.find()
+    .then(data => {
+      console.log(data);
+      res.status(200).send(data);
+    })
+    .catch(err => {
+      res.status(400).send("Unable to retrieve from database");
+    });
+})
+
+// Admin add
+// POST API endpoint
+app.post("/admin/add", (req, res) => {
+  // Display response to console
+  console.log("Recieved User to create: ");
+  console.log(req.body.adminData);
+  // Save recieved admin to Mongo via admin Order (./models/admin)
+  var newAdmin = new Admin(req.body.adminData);
+  newAdmin.save()
+    // If succesful (Code 200))
+    .then(item => {
+      // return new order id
+      res.status(200).send(newAdmin._id);
+    })
+    // If something goes wrong (Code 400)
+    .catch(err => {
+      res.status(400).send("Unable to save to database");
+    });
+});
+
+// Admin deletion
+// POST API endpoint
+app.post("/admin/delete", (req, res) => {
+  console.log("Recieved user to delete");
+  console.log(req.body);
+  Admin.deleteOne({ _id: req.body.data })
+    .then(() => {
+      console.log("succesfully deleted user");
+      res.status(200).send("Succesfully deleted from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to delete from database");
+    });
+});
+
+// POST API endpoint
+app.post("/admin/modify", (req, res) => {
+  console.log("Recieved location to modify");
+  console.log(req.body);
+  Admin.findOneAndUpdate({ _id: req.body.data.id }, { firstName: req.body.data.firstName, lastName: req.body.data.lastName, phone: req.body.data.phone })
+    .then(() => {
+      console.log("succesfully found admin");
+      res.status(200).send("Succesfully modified from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to modify admin");
     });
 });
 

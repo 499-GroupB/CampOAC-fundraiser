@@ -68,8 +68,8 @@ const Home = () => {
         <br/><br/>The Rotary Club of Kelowna Ogopogo, chartered in 1993, is a group of 52 men and women, and is one of eight Rotary clubs in our area. In addition to providing support to our own community, our club has an active focus on programs involving youth. As well, both directly and through our involvement with Rotary International's Foundation, we assist with major international projects including disaster relief, fresh water development projects, and health programs such as PolioPlus.
         <br/><br/>On this website you can purchase firewood to support us!</p>
 
-      <Link to="/order"><button>Place Order</button></Link>
-      
+      <Link id="orderbtn" to="/order"><button>Place Order</button></Link>
+
     </>
   );
 };
