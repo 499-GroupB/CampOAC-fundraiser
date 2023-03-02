@@ -182,9 +182,10 @@ button:hover {
 
 a:link,
 a:visited {
-    color: white;
+    color: #2c4356;
+    text-decoration: underline;
     background-color: transparent;
-    text-decoration: none;
+   
 }
 
 .bodylink:link {

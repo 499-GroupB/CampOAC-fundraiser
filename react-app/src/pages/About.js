@@ -58,8 +58,11 @@ const About = () => {
       <br />
       <h2 class="bearhug">contact us</h2>
       <p>Please contact us about any concerns you may have or if you need to cancel an order.
-        <br /><br />Phone: 555-867-5309
-        <br />Email: firewood@example.com</p>
+        <br /><br />
+        <a href = "tel:5558675309">Phone: 555-867-5309</a>
+        <br />
+        <a>Email: firewood@example.com</a>
+        </p>
     </>
   );
 };
