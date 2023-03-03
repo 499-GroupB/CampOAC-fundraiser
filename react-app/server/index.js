@@ -151,10 +151,10 @@ app.post("/login/auth", (req, res) => {
 
   // Test admin user
   // To be replaced with user database later
-  const testAdmin = {
+  /*const testAdmin = {
     username: 'admin',
     password: 't3st1ng'
-  }
+  }*/
 
   // Display response to console
   console.log("Recieved login request: ");
@@ -162,15 +162,34 @@ app.post("/login/auth", (req, res) => {
   // Output details of request
   console.log(req.body);
 
+  Admin.findOne({email: req.body.email}).exec((err, admin) => {
+    if(err){
+      res.send({ status: -1}) // status -1 for failure
+    }
+
+    if(admin){
+      if(admin.password == req.body.password){
+        if(admin.isSuper){
+          res.send({ status: 1})
+          console.log("logged in as super user");
+        }else{
+          res.send({ status: 2}) // status 2 for login
+        }
+      }else{
+        res.send({ status: -1}) // status -1 for failure
+      }
+    }
+  })
+
   // authentication (if you can call it that)
-  if (req.body.username == testAdmin.username && req.body.password == testAdmin.password) {
+  /*if (req.body.email == testAdmin.username && req.body.password == testAdmin.password) {
     console.log("User authenticated, sending token");
     // status 1 is logged in
     res.send({ status: 1 });
   } else {
     // status -1 is auth failure
     res.send({ status: -1 })
-  }
+  }*/
 });
 
 // Order deletion
@@ -334,7 +353,13 @@ app.post("/admin/delete", (req, res) => {
 app.post("/admin/modify", (req, res) => {
   console.log("Recieved location to modify");
   console.log(req.body);
-  Admin.findOneAndUpdate({ _id: req.body.data.id }, { firstName: req.body.data.firstName, lastName: req.body.data.lastName, phone: req.body.data.phone })
+  Admin.findOneAndUpdate({ _id: req.body.data.id }, 
+    { firstName: req.body.data.firstName, 
+      lastName: req.body.data.lastName, 
+      phone: req.body.data.phone, 
+      email: req.body.data.email,
+      password: req.body.data.password
+    })
     .then(() => {
       console.log("succesfully found admin");
       res.status(200).send("Succesfully modified from database");

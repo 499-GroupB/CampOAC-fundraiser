@@ -18,7 +18,7 @@ const LoginForm = (props) => {
         // Formik requires intial values to be set
         // This also shows how the values are keyed and will be used
         initialValues={{
-          username: '',
+          email: '',
           password: '',
         }}
 
@@ -26,8 +26,8 @@ const LoginForm = (props) => {
         // Use this to define what will cause the Formik errors to generate
         // per input. Also puts hards limits on inputs
         validationSchema={Yup.object({
-          username: Yup.string()
-            .max(15, 'Must be 15 characters or less')
+          email: Yup.string()
+            .max(50, 'Must be 50 characters or less')
             .required('Required'),
           password: Yup.string()
             .max(20, 'Must be 20 characters or less')
@@ -40,10 +40,10 @@ const LoginForm = (props) => {
         <Form>
           <MyTextInput
             //USERNAME ENTRY
-            label="Username: "
-            name="username"
+            label="Email: "
+            name="email"
             type="text"
-            placeholder="Username"
+            placeholder="Email"
           />
           <br></br>
           <MyTextInput
