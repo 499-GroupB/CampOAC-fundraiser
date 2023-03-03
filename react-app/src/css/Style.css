@@ -209,8 +209,8 @@ button:hover {
 
 a:link,
 a:visited {
-    color: #2c4356;
-    text-decoration: underline;
+    color: #f1f1f1;
+    text-decoration: none;
     background-color: transparent;
 
 }
@@ -253,6 +253,17 @@ a:visited {
 .imgLar:hover {
     opacity: 0.7;
     cursor: pointer;
+}
+
+.paymentImage {
+    width: 100px;
+    height: 65px;
+}
+
+.payy {
+    display: flex;
+    justify-content: center;
+    column-gap: 50;
 }
 
 .modal {
