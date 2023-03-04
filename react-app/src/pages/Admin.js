@@ -95,6 +95,11 @@ const Admin = () => {
                         getAllOrders();
                         getAllLocations();
                         getAllAdmins();
+                    }else if(response.data.status == 2) {
+                        sessionStorage.setItem("isLoggedin", "true")
+                        getAllOrders();
+                        getAllLocations();
+                        getAllAdmins();
                     }
                     setLoginState(response.data.status);
                 })
@@ -127,13 +132,13 @@ const Admin = () => {
                     <div className="dashboard">
                         <h1>locations and stock:</h1>
                         <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null }
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null}
                         <h1>administrative users:</h1>
                         <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
-                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null }
+                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null}
                         <h1>orders:</h1>
                         <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
-                        {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null }
+                        {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
                 </div>
@@ -146,6 +151,24 @@ const Admin = () => {
                     <h3>Login failed</h3>
                     <br></br>
                 </>
+            );
+        // login as non super
+        case (2):
+            return (
+                <div className="admin-panel">
+                    <h1>admin</h1>
+                    <button class="important" onClick={logout}>Log Out</button>
+                    <br></br>
+                    <div className="dashboard">
+                        <h1>locations and stock:</h1>
+                        <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null}
+                        <h1>orders:</h1>
+                        <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
+                    </div>
+                    <br></br>
+                </div>
             );
         // not logged in
         case (0):

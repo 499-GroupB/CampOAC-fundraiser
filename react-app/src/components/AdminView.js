@@ -95,11 +95,15 @@ export default function AdminView(props) {
                                         id: admin._id,
                                         firstName: admin.firstName,
                                         lastName: admin.lastName,
+                                        email: admin.email,
+                                        passsword: admin.password,
                                         phone: admin.phone,
                                     }}
                                     validationSchema={Yup.object({
                                         firstName: Yup.string().required('Required'),
                                         lastName: Yup.string().required('Required'),
+                                        email: Yup.string().required('Required'),
+                                        password: Yup.string().required('Required'),
                                         phone: Yup.string()
                                         .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                                         .required('Required'),
@@ -129,6 +133,22 @@ export default function AdminView(props) {
                                             name="lastName"
                                             type="text"
                                             placeholder={admin.lastName}
+                                        />
+                                        <br></br>
+                                        <MyTextInput
+                                            //Email
+                                            label="Email: "
+                                            name="email"
+                                            type="text"
+                                            placeholder={admin.email}
+                                        />
+                                        <br></br>
+                                        <MyTextInput
+                                            //Email
+                                            label="Password: "
+                                            name="password"
+                                            type="text"
+                                            placeholder={admin.password}
                                         />
                                         <br></br>
                                         <MyTextInput
