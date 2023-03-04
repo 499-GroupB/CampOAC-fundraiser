@@ -8,11 +8,11 @@ import { useEffect } from "react";
 export default function LocationView(props) {
     const { locations } = props;
     const { admins } = props;
+    const { canEdit } = props;
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/location/add`
     const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/location/delete`
-    var adminOptions
 
     useEffect(() => {
         console.log(generateAdminOptions(props));
@@ -172,72 +172,84 @@ export default function LocationView(props) {
             )
         }
     }
+
+    const displayAddLocation = () => {
+        if(canEdit == true){
+        return (
+            <>
+                <div className="location">
+                    <h3 className="location_name">New Location</h3>
+                    <Formik
+                        // Formik requires intial values to be set
+                        // This is also how the variables appear in the api response
+                        initialValues={{
+                            name: '',
+                            stock: '1',
+                            contact: '',
+    
+                        }}
+                        validationSchema={Yup.object({
+                            name: Yup.string().required('Required'),
+                            stock: Yup.number().min(0, 'You cannot have negative stock'),
+                            contact: Yup.string()
+                                .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
+                                .required('Required'),
+                        })}
+    
+                        // Form submission event.
+                        onSubmit={(values, { setSubmitting }) => {
+                            setTimeout(() => {
+                                addLocation(values);
+                                setSubmitting(false);
+                                window.location.reload(false);
+                            }, 400);
+                        }}
+                    >
+                        <Form>
+                            <MyTextInput
+                                //LOCATION NUMBER
+                                label="Name: "
+                                name="name"
+                                type="text"
+                                placeholder='Location Name'
+                            />
+                            <br></br>
+    
+                            <MyTextInput
+                                //BAG NUMBER SELECTION 
+                                label="Stock: "
+                                name="stock"
+                                type="number"
+                                placeholder='1'
+                            />
+                            <br></br>
+    
+                            <MyTextInput
+                                //CONTACT
+                                label="Contact info: "
+                                name="contact"
+                                type="text"
+                                placeholder="123-456-7890"
+                            />
+    
+                            <br></br>
+    
+                            <br></br>
+                            
+                            <button type="submit">Add Location</button>
+                        </Form>
+                    </Formik>
+                </div>
+            </>
+        )
+        }
+    }
+
     return (
         <>
-            {displayLocations(props)}
-            <div className="location">
-                <h3 className="location_name">New Location</h3>
-                <Formik
-                    // Formik requires intial values to be set
-                    // This is also how the variables appear in the api response
-                    initialValues={{
-                        name: '',
-                        stock: '1',
-                        contact: '',
-
-                    }}
-                    validationSchema={Yup.object({
-                        name: Yup.string().required('Required'),
-                        stock: Yup.number().min(0, 'You cannot have negative stock'),
-                        contact: Yup.string()
-                            .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
-                            .required('Required'),
-                    })}
-
-                    // Form submission event.
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            addLocation(values);
-                            setSubmitting(false);
-                            window.location.reload(false);
-                        }, 400);
-                    }}
-                >
-                    <Form>
-                        <MyTextInput
-                            //LOCATION NUMBER
-                            label="Name: "
-                            name="name"
-                            type="text"
-                            placeholder='Location Name'
-                        />
-                        <br></br>
-
-                        <MyTextInput
-                            //BAG NUMBER SELECTION 
-                            label="Stock: "
-                            name="stock"
-                            type="number"
-                            placeholder='1'
-                        />
-                        <br></br>
-
-                        <MyTextInput
-                            //CONTACT
-                            label="Contact info: "
-                            name="contact"
-                            type="text"
-                            placeholder="123-456-7890"
-                        />
-
-                        <br></br>
-
-                        <br></br>
-                        
-                        <button type="submit">Add Location</button>
-                    </Form>
-                </Formik>
-            </div>
+        {displayLocations(props)}
+        {displayAddLocation()}
         </>
     )
+    
 }

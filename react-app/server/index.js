@@ -170,14 +170,16 @@ app.post("/login/auth", (req, res) => {
     if(admin){
       if(admin.password == req.body.password){
         if(admin.isSuper){
-          res.send({ status: 1})
+          res.send({ status: 1, user: admin})
           console.log("logged in as super user");
         }else{
-          res.send({ status: 2}) // status 2 for login
+          res.send({ status: 2, user: admin}) // status 2 for login
         }
       }else{
         res.send({ status: -1}) // status -1 for failure
       }
+    }else{
+      res.send({ status: -1 })
     }
   })
 

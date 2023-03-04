@@ -14,6 +14,7 @@ const Admin = () => {
     const [orders, getOrders] = useState('');
     const [locations, getLocations] = useState('');
     const [admins, getAdmins] = useState('');
+    const [adminUser, setAdminUser] = useState('');
 
     const [locationHide, setLocationHide] = useState(false);
     const [adminHide, setAdminHide] = useState(false);
@@ -28,6 +29,7 @@ const Admin = () => {
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
         if (isLoggedIn == null) {
             isLoggedIn = "false";
             setLoginState(0);
@@ -102,6 +104,7 @@ const Admin = () => {
                         getAllAdmins();
                     }
                     setLoginState(response.data.status);
+                    setAdminUser(response.data.user);
                 })
                 // Catching axios error
                 // Currently outputs to browser console (not  good)
@@ -122,22 +125,30 @@ const Admin = () => {
     }
 
     switch (loginState) {
-        // user logged in
+        // user logged in as SUPER USER
         case (1):
             return (
                 <div className="admin-panel">
-                    <h1>admin</h1>
+                    <h1>
+                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
+                    </h1>
                     <button class="important" onClick={logout}>Log Out</button>
                     <br></br>
                     <div className="dashboard">
-                        <h1>locations and stock:</h1>
+                        <span class="dashboard-items">
+                        <h1>locations and stock</h1>
                         <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null}
-                        <h1>administrative users:</h1>
+                        </span >
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
+                        <span class="dashboard-items">
+                        <h1>administrative users</h1>
                         <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
+                        </span>
                         {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null}
-                        <h1>orders:</h1>
+                        <span class="dashboard-items">
+                        <h1>orders</h1>
                         <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
@@ -156,14 +167,16 @@ const Admin = () => {
         case (2):
             return (
                 <div className="admin-panel">
-                    <h1>admin</h1>
+                    <h1>
+                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
+                    </h1>
                     <button class="important" onClick={logout}>Log Out</button>
                     <br></br>
                     <div className="dashboard">
-                        <h1>locations and stock:</h1>
+                        <h1>locations and stock</h1>
                         <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} /></div> : null}
-                        <h1>orders:</h1>
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={false}/></div> : null}
+                        <h1>orders</h1>
                         <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
