@@ -6,6 +6,8 @@ import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 import getCurrentDate from '../components/CurrentDate';
 
 import { PaymentForm } from 'react-square-web-payments-sdk';
+import { CreditCard } from 'react-square-web-payments-sdk';
+
 
 
 const OrderForm = (props) => {
@@ -33,7 +35,17 @@ const OrderForm = (props) => {
                 }}
                 locationId='XXXXXXXXXX'
             >
-                <CreditCard />
+                <CreditCard 
+                    buttonProps={{
+                        css: {
+                            backgroundColor: "#771520",
+                            fontSize: "14px",
+                            color: "#fff",
+                            "&:hover": {
+                                backgroundColor: "#530f16",
+                            },
+                        },
+                    }}/>
             </PaymentForm>
         </div>
     )
