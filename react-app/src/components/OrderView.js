@@ -28,16 +28,47 @@ export default function OrderView(props) {
             window.location.reload(false);
         }
     }
-    
+
     const viewPayment = (orderId) => {
         console.log(orderId);
-    }   
+    }
+
+    // Quick and simple export target #table_id into a csv
+    const download_table_as_csv = (table_id, separator = ',') => {
+        // Select rows from table_id
+        var rows = document.querySelectorAll('table#' + table_id + ' tr');
+        // Construct csv
+        var csv = [];
+        for (var i = 0; i < rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll('td, th');
+            for (var j = 0; j < cols.length-1; j++) {
+                // Clean innertext to remove multiple spaces and jumpline (break csv)
+                var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+                // Escape double-quote with double-double-quote (see https://stackoverflow.com/questions/17808511/properly-escape-a-double-quote-in-csv)
+                data = data.replace(/"/g, '""');
+                // Push escaped string
+                row.push('"' + data + '"');
+            }
+            csv.push(row.join(separator));
+        }
+        var csv_string = csv.join('\n');
+        // Download it
+        var filename = 'WOOD_' + table_id + '_' + new Date().toLocaleDateString() + '.csv';
+        var link = document.createElement('a');
+        link.style.display = 'none';
+        link.setAttribute('target', '_blank');
+        link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
+        link.setAttribute('download', filename);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 
     const displayOrders = (props) => {
         if (orders.length > 0) {
             return (
                 orders.map((order, index) => {
-                    return (
+                    return (     
                         <tr>
                             <td>{order._id}</td>
                             <td>{order.pickUp}</td>
@@ -47,8 +78,8 @@ export default function OrderView(props) {
                             <td>{order.numBags}</td>
                             <td>{order.date}</td>
                             <td ><button type="submit" onClick={() => viewPayment(order._id)} >
-                                    {order.payment}
-                                </button></td>
+                                {order.payment}
+                            </button></td>
                             <td>
                                 <button class="important" type="submit" onClick={() => deleteOrder(order._id)} >
                                     Close order
@@ -65,6 +96,8 @@ export default function OrderView(props) {
         }
     }
     return (
+        <>
+        <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
         <table id="order-table">
             <thead>
                 <tr>
@@ -83,5 +116,6 @@ export default function OrderView(props) {
                 {displayOrders(props)}
             </tbody>
         </table>
+        </>
     )
 }
