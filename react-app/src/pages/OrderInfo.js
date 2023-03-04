@@ -58,7 +58,13 @@ const OrderInfo = () => {
 
         // Form submission event.
         // it is asinine that this works :o
-        onSubmit={findOrder}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+              findOrder(values);
+              setSubmitting(false);
+              window.location.reload(false);
+          }, 400);
+      }}
       >
         <Form>
           <MyTextInput

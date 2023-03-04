@@ -11,7 +11,6 @@ export default function AdminView(props) {
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/admin/modify`
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/admin/add`
     const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/admin/delete`
-    var adminOptions
 
     const modifyAdmin = (adminData) => {
         if (window.confirm("Are you sure you want to modify this administrator?")) {
