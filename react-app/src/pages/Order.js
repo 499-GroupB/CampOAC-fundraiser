@@ -37,29 +37,31 @@ const Order = (props) => {
 
   // function for handling order submission
   const orderSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      // Axios API Call to Order Submit endpoint
-      // Backend handles response accordingly
-      axios.post(`${process.env.REACT_APP_BACKEND_URL}/order/submit`, JSON.stringify(values),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-            "Access-Control-Allow-Credentials": "true",
-          }
-        })
-        .then(function (response) {
-          setId(response.data);
-          setStep(3);
-          finishy(4);
-        })
-        // Catching axios error
-        // Currently outputs to browser console (not  good)
-        .catch(function (error) {
-          console.log(error);
-        });
-      setSubmitting(false);
-    }, 400);
+    if (window.confirm("Are you sure you want to submit your order?")) {
+      setTimeout(() => {
+        // Axios API Call to Order Submit endpoint
+        // Backend handles response accordingly
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/order/submit`, JSON.stringify(values),
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+              "Access-Control-Allow-Credentials": "true",
+            }
+          })
+          .then(function (response) {
+            setId(response.data);
+            setStep(3);
+            finishy(4);
+          })
+          // Catching axios error
+          // Currently outputs to browser console (not  good)
+          .catch(function (error) {
+            console.log(error);
+          });
+        setSubmitting(false);
+      }, 400);
+    }
   }
 
   switch (step) {

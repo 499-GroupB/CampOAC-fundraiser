@@ -19,47 +19,51 @@ export default function LocationView(props) {
     }, [])
 
     const modifyLocation = (locationData) => {
-        axios.post(apiEnd, { data: locationData },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                    "Access-Control-Allow-Credentials": "true",
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            // Catching axios error
-            // Currently outputs to browser console (not  good)
-            .catch(function (error) {
-                console.log(error);
-            });
-        window.location.reload(false);
+        if (window.confirm("Are you sure you want to modify this location?")) {
+            axios.post(apiEnd, { data: locationData },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            window.location.reload(false);
+        }
     }
 
     const addLocation = (locationData) => {
-        axios.post(apiEnd2, { locationData },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                    "Access-Control-Allow-Credentials": "true",
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            // Catching axios error
-            // Currently outputs to browser console (not good)
-            .catch(function (error) {
-                console.log(error)
-            });
-        window.location.reload(false);
+        if (window.confirm("Are you sure you want to add this location?")) {
+            axios.post(apiEnd2, { locationData },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not good)
+                .catch(function (error) {
+                    console.log(error)
+                });
+            window.location.reload(false);
+        }
     }
 
     const deleteLocation = (locationId) => {
-        if (window.confirm("Are you sure you want to submit?")) {
+        if (window.confirm("Are you sure you want to delete this location?")) {
             axios.post(apiEnd3, { data: locationId },
                 {
                     headers: {

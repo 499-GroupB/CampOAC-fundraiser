@@ -14,47 +14,51 @@ export default function AdminView(props) {
     var adminOptions
 
     const modifyAdmin = (adminData) => {
-        axios.post(apiEnd, { data: adminData },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                    "Access-Control-Allow-Credentials": "true",
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            // Catching axios error
-            // Currently outputs to browser console (not  good)
-            .catch(function (error) {
-                console.log(error);
-            });
-        window.location.reload(false);
+        if (window.confirm("Are you sure you want to modify this administrator?")) {
+            axios.post(apiEnd, { data: adminData },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            window.location.reload(false);
+        }
     }
 
     const addAdmin = (adminData) => {
-        axios.post(apiEnd2, { adminData },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                    "Access-Control-Allow-Credentials": "true",
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            // Catching axios error
-            // Currently outputs to browser console (not good)
-            .catch(function (error) {
-                console.log(error)
-            });
-        window.location.reload(false);
+        if (window.confirm("Are you sure you want to add this administrator?")) {
+            axios.post(apiEnd2, { adminData },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not good)
+                .catch(function (error) {
+                    console.log(error)
+                });
+            window.location.reload(false);
+        }
     }
 
     const deleteAdmin = (adminId) => {
-        if (window.confirm("Are you sure you want to submit?")) {
+        if (window.confirm("Are you sure you want to delete this administrator?")) {
             axios.post(apiEnd3, { data: adminId },
                 {
                     headers: {
