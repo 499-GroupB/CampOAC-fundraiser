@@ -381,6 +381,7 @@ app.post("/square/pay", (req, res) => {
     accessToken: process.env.SQUARE_ACCESS_TOKEN,
     environment: 'sandbox'
   });
+  BigInt.prototype.toJSON = function() { return this.toString(); }
   if ( req.method === 'POST' ) {
     const { result } = paymentsApi.createPayment({
       idempotencyKey: randomUUID(),
