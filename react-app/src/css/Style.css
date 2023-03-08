@@ -235,6 +235,12 @@ a:visited {
     box-sizing: border-box;
 }
 
+.fb-share-button {
+    font-size: 3vh;
+    padding: 0.25vh 0.5vh;
+    background-color: #4267B2;
+}
+
 .column {
     float: left;
     padding-top: 0.5%;
