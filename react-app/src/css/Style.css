@@ -222,6 +222,8 @@ a:visited {
 }
 
 .bodylink:link {
+    font-weight: bold;
+    text-decoration: underline;
     color: #2c4356;
 }
 
