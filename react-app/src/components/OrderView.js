@@ -8,23 +8,25 @@ export default function OrderView(props) {
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
 
     const deleteOrder = (orderId) => {
-        axios.post(apiEnd, { data: orderId },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                    "Access-Control-Allow-Credentials": "true",
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            // Catching axios error
-            // Currently outputs to browser console (not  good)
-            .catch(function (error) {
-                console.log(error);
-            });
-        window.location.reload(false);
+        if (window.confirm("Are you sure you want to delete this order?")) {
+            axios.post(apiEnd, { data: orderId },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            window.location.reload(false);
+        }
     }
 
     const viewPayment = (orderId) => {
