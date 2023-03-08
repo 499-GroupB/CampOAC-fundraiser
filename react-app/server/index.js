@@ -4,6 +4,9 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 
+const square =  require('square');
+const crypto = require('crypto');
+
 const pdf = require('html-pdf');
 
 const nodemailer = require("nodemailer");
@@ -370,6 +373,29 @@ app.post("/admin/modify", (req, res) => {
       res.status(400).send("Unable to modify admin");
     });
 });
+
+// Square payment
+// POST API endpoint
+app.post("/square/pay", (req, res) => {
+  const { paymentsApi } = new Client({
+    accessToken: process.env.SQUARE_ACCESS_TOKEN,
+    environment: 'sandbox'
+  });
+  if ( req.method === 'POST' ) {
+    const { result } = paymentsApi.createPayment({
+      idempotencyKey: randomUUID(),
+      sourceId: req.body.sourceId,
+      amountMoney: {
+        currency: 'CAD',
+        amount: 100
+      }
+    })
+    console.log(result);
+    res.status(200).json(result);
+  } else {
+    res.status(500).send();
+  }
+})
 
 
 // Express Middleware
