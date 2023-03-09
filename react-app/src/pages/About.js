@@ -50,17 +50,17 @@ const About = () => {
       </div>
       <br />
       <h2 class="bearhug">rotary club of kelowna ogopogo</h2>
-      <p>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members. <a class="bodylink" href="https://my.rotary.org/en/"><b><u>More information is available here.</u></b></a></p>
+      <p>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members. <a class="bodylink" href="https://my.rotary.org/en/">More information is available here.</a></p>
       <br />
       <h2 class="bearhug">camp oac</h2>
-      <p>Camp OAC is a children's summer camp located just north of Kelowna on Okanagan lake. <a class="bodylink" href="https://www.campoac.com/"><b><u>More information is available here.</u></b></a></p>
+      <p>Camp OAC is a children's summer camp located just north of Kelowna on Okanagan lake. <a class="bodylink" href="https://www.campoac.com/">More information is available here.</a></p>
       <br />
       <h2 class="bearhug">contact us</h2>
       <p>Please contact us about any concerns you may have or if you need to cancel an order.
         <br /><br />
-        <a href = "tel:5558675309">Phone: 555-867-5309</a>
+        <a class="bodylink" href = "tel:5558675309">Phone: 555-867-5309</a>
         <br />
-        <a href = "mailto: firewood@example.com">Email: firewood@example.com</a>
+        <a class="bodylink" href = "mailto: firewood@example.com">Email: firewood@example.com</a>
         </p>
     </>
   );
