@@ -250,3 +250,13 @@ Team Meeting Minutes
 - Discussed about peer evaluation
 
 - Discussed about further tasks
+
+<h3>
+<b>
+2023/03/07 14:00-14:30 (everyone attended)
+</h3>
+</b>
+
+- Worked on list of usability task 2 
+
+
