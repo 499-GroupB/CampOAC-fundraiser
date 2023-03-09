@@ -353,8 +353,9 @@ a:visited {
     margin-left: 40vw;
     margin-right: 40vw;
 }
+
 #orderbtn:hover {
-    cursor:default;
+    cursor: default;
 }
 
 .row::after {
@@ -428,11 +429,12 @@ a:visited {
     justify-content: center;
     align-content: center;
     height: 100vh;
-  }
+}
 
-  .visit{
+.visit {
     margin-bottom: 10px;
-  }
-  .share{
+}
+
+.share {
     margin-bottom: 10px;
-  }
+}
