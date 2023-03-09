@@ -239,6 +239,8 @@ a:visited {
     font-size: 3vh;
     padding: 0.25vh 0.5vh;
     background-color: #4267B2;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .column {
@@ -426,4 +428,8 @@ a:visited {
     justify-content: center;
     align-content: center;
     height: 100vh;
+  }
+
+  .visit{
+    margin-bottom: 10px;
   }
