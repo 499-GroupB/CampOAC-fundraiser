@@ -33,6 +33,8 @@ const SquareForm = (props) => {
                     await axios.post(`${process.env.REACT_APP_BACKEND_URL}/square/pay`, JSON.stringify({sourceId: token.token,}),{
                         headers: {
                             "Content-type": "application/json",
+                            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                            "Access-Control-Allow-Credentials": "true",
                         }
                     });
                     console.log(await response.json());

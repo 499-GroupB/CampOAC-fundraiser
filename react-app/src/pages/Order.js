@@ -85,7 +85,7 @@ const Order = (props) => {
       return (
         <>
           <StepMeter step={step} />
-
+          <SquareForm/>
           <img class="loading" src="loading.gif" />
           <br />
         </>
