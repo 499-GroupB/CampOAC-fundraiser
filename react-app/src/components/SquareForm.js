@@ -47,3 +47,4 @@ const SquareForm = (props) => {
         </div>
     );
 };
+export default SquareForm;
