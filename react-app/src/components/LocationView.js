@@ -151,7 +151,7 @@ export default function LocationView(props) {
                                             placeholder={location.contact}
                                         />
                                         <br></br>
-                                        <label>Admin</label>
+                                        <label>Admin:</label>
                                         <select name="admin" className="select-input">
                                             <option value="" label="Select an admin">Select an admin</option>
                                             {generateAdminOptions(props)}
