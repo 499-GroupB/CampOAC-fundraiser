@@ -86,12 +86,12 @@ label {
 
 .select-input {
     width: 50vh;
-    padding: 16px 20px;
+    padding: 1vh;
     border: none;
-    border-radius: 4px;
+    border-radius: 1vh;
     background-color: #f1f1f1;
-    margin: 1em;
-    font-size: 1em;
+    margin: 2.5vh 4vh;
+    font-size: 2.5vh;
 }
 
 button {
@@ -239,8 +239,8 @@ a:visited {
     font-size: 3vh;
     padding: 0.25vh 0.5vh;
     background-color: #4267B2;
-    border: 1px solid white;
-    border-radius: 10px;
+    border: 0.1vh solid white;
+    border-radius: 1.5vh;
 }
 
 .column {
@@ -272,8 +272,7 @@ a:visited {
 }
 
 .paymentImage {
-    width: 100px;
-    height: 65px;
+    height: 11vh;
 }
 
 .payy {
@@ -431,10 +430,12 @@ a:visited {
     height: 100vh;
 }
 
-.visit {
-    margin-bottom: 10px;
+.socials {
+    margin-bottom: 2vh;
 }
 
-.share {
-    margin-bottom: 10px;
+input[type=radio] {
+    accent-color: #2c4356;
+    height: 2.5vh;
+    width: 2.5vh;
 }
