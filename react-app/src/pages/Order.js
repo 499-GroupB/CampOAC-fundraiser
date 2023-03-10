@@ -3,6 +3,7 @@ import { React, useState } from 'react';
 import axios from 'axios';
 import OrderForm from '../components/OrderForm';
 import LocationForm from '../components/LocationForm';
+import SquareForm from '../components/SquareForm';
 import StepMeter from '../components/StepMeter';
 
 
@@ -52,7 +53,6 @@ const Order = (props) => {
           .then(function (response) {
             setId(response.data);
             setStep(3);
-            finishy(4);
           })
           // Catching axios error
           // Currently outputs to browser console (not  good)
@@ -62,6 +62,20 @@ const Order = (props) => {
         setSubmitting(false);
       }, 400);
     }
+  }
+
+  const cardTokenizeResponseReceived = async (token, verifiedBuyer) => {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/square/pay`, JSON.stringify({sourceId: token.token,}),{
+        headers: {
+            "Content-type": "application/json",
+            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+            "Access-Control-Allow-Credentials": "true",
+        }
+    })
+    .then(() => {
+      setStep(4);
+    })
+    console.log(await response.json());
   }
 
   switch (step) {
@@ -85,9 +99,7 @@ const Order = (props) => {
       return (
         <>
           <StepMeter step={step} />
-          <SquareForm/>
-          <img class="loading" src="loading.gif" />
-          <br />
+          <SquareForm cardTokenizeResponseReceived={cardTokenizeResponseReceived}/>
         </>
       );
 

@@ -13,7 +13,7 @@ import { CreditCard } from 'react-square-web-payments-sdk';
 const SquareForm = (props) => {
 
     // access the price total via prop
-    
+    const {cardTokenizeResponseReceived} = props;
    
     // Api endpoint for order submission
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/square/pay`;
@@ -29,16 +29,7 @@ const SquareForm = (props) => {
         <div className='squareForm'>
             <PaymentForm
                 applicationId="sandbox-XXXXXX"
-                cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
-                    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/square/pay`, JSON.stringify({sourceId: token.token,}),{
-                        headers: {
-                            "Content-type": "application/json",
-                            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                            "Access-Control-Allow-Credentials": "true",
-                        }
-                    });
-                    console.log(await response.json());
-                  }}
+                cardTokenizeResponseReceived = {cardTokenizeResponseReceived}
                 locationId='XXXXXXXXXX'
             >
                 <CreditCard 
@@ -54,5 +45,5 @@ const SquareForm = (props) => {
                     }}/>
             </PaymentForm>
         </div>
-    )
-}
+    );
+};
