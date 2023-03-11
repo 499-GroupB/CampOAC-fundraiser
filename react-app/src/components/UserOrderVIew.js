@@ -1,11 +1,18 @@
 import "../css/Style.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {useEffect} from 'react'
 
 export default function UserOrderView(props) {
     const order = props;
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
+    const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/single`;
+
+    useEffect(() => {
+        // retrieve admin location based on order names
+        
+    }, [])
 
     // allow user to delete order
     const deleteOrder = (orderId) => {
