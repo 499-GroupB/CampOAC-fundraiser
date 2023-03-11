@@ -4,6 +4,9 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 
+const { Client, Environment } = require("square");
+const uuidv4 = require('uuid4');
+
 const pdf = require('html-pdf');
 
 const nodemailer = require("nodemailer");
@@ -412,6 +415,28 @@ app.post("/admin/single", (req, res) => {
     }
   })
 })
+
+
+// Square Payments
+const { paymentsApi } = new Client({
+  accessToken: process.env.SQUARE_ACCESS_TOKEN,
+  environment: 'sandbox'
+});
+// POST API endpoint
+app.post("/square/pay", async (request, reply) => {
+  let body = request.body;
+  body.idempotencyKey = uuidv4();
+  body.amountMoney = {
+      amount: 100,
+      currency: 'CAD',
+  };
+  let paymentResponse = paymentsApi.createPayment(body);
+  paymentResponse.then((response) => {
+      console.log(response)
+      reply.send(response)
+  })
+});
+
 
 
 // Express Middleware

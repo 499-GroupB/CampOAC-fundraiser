@@ -3,6 +3,7 @@ import { React, useState } from 'react';
 import axios from 'axios';
 import OrderForm from '../components/OrderForm';
 import LocationForm from '../components/LocationForm';
+import SquareForm from '../components/SquareForm';
 import StepMeter from '../components/StepMeter';
 
 
@@ -89,6 +90,7 @@ const Order = (props) => {
           <img class="loading" src="loading.gif" />
           <br />
         </>
+        //<SquareForm />
       );
 
     case (4):
