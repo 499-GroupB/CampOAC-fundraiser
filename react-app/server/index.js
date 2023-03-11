@@ -215,7 +215,7 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact })
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId })
     .then(() => {
       console.log("succesfully found location");
       res.status(200).send("Succesfully modified from database");
@@ -276,9 +276,9 @@ app.get("/location/list", (req, res) => {
     });
 })
 
-// WORKING ON 
+// return location from id
 app.post("/location/single", (req, res) => {
-  // return single orders
+  // return single location
   let locationId = req.body.locationId
   console.log(locationId);
   Location.findOne({ _id: locationId }).exec((err, location) => {
@@ -287,7 +287,7 @@ app.post("/location/single", (req, res) => {
       res.status(400).send("Unable to retrieve location");
     } else {
       console.log(location);
-      res.status(200).send(order);
+      res.status(200).send(location);
     }
   })
 })
@@ -396,6 +396,22 @@ app.post("/admin/modify", (req, res) => {
       res.status(400).send("Unable to modify admin");
     });
 });
+
+// retrieve admin from id
+app.post("/admin/single", (req, res) => {
+  // return single admin
+  let adminId = req.body.adminId
+  console.log(adminId);
+  Admin.findOne({ _id: adminId }).exec((err, admin) => {
+    if (err) {
+      console.log("error finding admin " + adminId)
+      res.status(400).send("Unable to retrieve admin");
+    } else {
+      console.log(admin);
+      res.status(200).send(admin);
+    }
+  })
+})
 
 
 // Express Middleware

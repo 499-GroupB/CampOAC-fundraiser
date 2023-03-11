@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import axios from "axios";
+
 // About page
 
 function modd(srcc, altt) {
@@ -11,6 +14,44 @@ function close() {
 }
 
 const About = () => {
+
+  const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
+
+  const [locations, getLocations] = useState('');
+
+  useEffect(() => {
+    getAllLocations();
+  }, [])
+
+  const getAllLocations = () => {
+    axios.get(locationsApi)
+      .then(response => {
+        const allLocations = response.data;
+        getLocations(allLocations);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  const displayLocations = (locations) => {
+    if (locations.length > 0) {
+      return (
+        locations.map((location, index) => {
+          return (
+            <>
+              <pre>{location.name} | Phone: {location.contact}</pre>
+            </>
+          )
+        })
+      )
+    } else {
+      return (
+        <h3>Unable to retrieve location data</h3>
+      )
+    }
+  }
+
   return (
     <>
       <div class="row">
@@ -58,10 +99,13 @@ const About = () => {
       <h2 class="bearhug">contact us</h2>
       <p>Please contact us about any concerns you may have or if you need to cancel an order.
         <br /><br />
-        <a class="bodylink" href = "tel:5558675309">Phone: 555-867-5309</a>
+        <a class="bodylink" href="tel:5558675309">Phone: 555-867-5309</a>
         <br />
-        <a class="bodylink" href = "mailto: firewood@example.com">Email: firewood@example.com</a>
-        </p>
+        <a class="bodylink" href="mailto: firewood@example.com">Email: firewood@example.com</a>
+      </p>
+      <p>Location specific contact information: </p>
+      {displayLocations(locations)}
+      <br></br>
     </>
   );
 };
