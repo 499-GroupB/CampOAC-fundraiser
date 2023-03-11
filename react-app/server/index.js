@@ -4,8 +4,8 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 
-const square =  require('square');
-const crypto = require('crypto');
+const { Client, Environment } = require("square");
+const uuidv4 = require('uuid4');
 
 const pdf = require('html-pdf');
 
@@ -374,29 +374,25 @@ app.post("/admin/modify", (req, res) => {
     });
 });
 
-// Square payment
+// Square Payments
+const { paymentsApi } = new Client({
+  accessToken: process.env.SQUARE_ACCESS_TOKEN,
+  environment: 'sandbox'
+});
 // POST API endpoint
-app.post("/square/pay", (req, res) => {
-  const { paymentsApi } = new Client({
-    accessToken: process.env.SQUARE_ACCESS_TOKEN,
-    environment: 'sandbox'
-  });
-  BigInt.prototype.toJSON = function() { return this.toString(); }
-  if ( req.method === 'POST' ) {
-    const { result } = paymentsApi.createPayment({
-      idempotencyKey: randomUUID(),
-      sourceId: req.body.sourceId,
-      amountMoney: {
-        currency: 'CAD',
-        amount: 100
-      }
-    })
-    console.log(result);
-    res.status(200).json(result);
-  } else {
-    res.status(500).send();
-  }
-})
+app.post("/square/pay", async (request, reply) => {
+  let body = request.body;
+  body.idempotencyKey = uuidv4();
+  body.amountMoney = {
+      amount: 100,
+      currency: 'CAD',
+  };
+  let paymentResponse = paymentsApi.createPayment(body);
+  paymentResponse.then((response) => {
+      console.log(response)
+      reply.send(response)
+  })
+});
 
 
 // Express Middleware

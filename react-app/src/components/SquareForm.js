@@ -4,16 +4,17 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { MySelect, MyTextInput, MyRadio } from '../components/Inputs';
 import getCurrentDate from '../components/CurrentDate';
+import StepMeter from './StepMeter';
 
 import { PaymentForm } from 'react-square-web-payments-sdk';
 import { CreditCard } from 'react-square-web-payments-sdk';
 
 
 
-const SquareForm = (props) => {
+export default function SquareForm() {
 
     // access the price total via prop
-    const {cardTokenizeResponseReceived} = props;
+    
    
     // Api endpoint for order submission
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/square/pay`;
@@ -28,9 +29,22 @@ const SquareForm = (props) => {
     return (
         <div className='squareForm'>
             <PaymentForm
-                applicationId="sandbox-XXXXXX"
-                cardTokenizeResponseReceived = {cardTokenizeResponseReceived}
-                locationId='XXXXXXXXXX'
+                applicationId={process.env.SQUARE_APPLICATION_ID} //sandbox id, will need to be changed for production
+                cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
+                    const response = await fetch({apiEnd}, {
+                      method: "POST",
+                      headers: {
+                        "Content-type": "application/json",
+                        
+                      },
+                      body: JSON.stringify({
+                        sourceId: token.token,
+                      }),
+                    });
+                    console.log(await response.json());
+                    
+                  }}
+                locationId={process.env.SQUARE_LOCATION_ID} //sandbox id, will need to be changed for production
             >
                 <CreditCard 
                     buttonProps={{
@@ -47,4 +61,3 @@ const SquareForm = (props) => {
         </div>
     );
 };
-export default SquareForm;

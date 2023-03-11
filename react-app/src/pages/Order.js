@@ -6,6 +6,8 @@ import LocationForm from '../components/LocationForm';
 import SquareForm from '../components/SquareForm';
 import StepMeter from '../components/StepMeter';
 
+import { PaymentForm } from 'react-square-web-payments-sdk';
+
 
 // Order form
 const Order = (props) => {
@@ -64,19 +66,6 @@ const Order = (props) => {
     }
   }
 
-  const cardTokenizeResponseReceived = async (token, verifiedBuyer) => {
-    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/square/pay`, JSON.stringify({sourceId: token.token,}),{
-        headers: {
-            "Content-type": "application/json",
-            "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-            "Access-Control-Allow-Credentials": "true",
-        }
-    })
-    .then(() => {
-      setStep(4);
-    })
-    console.log(await response.json());
-  }
 
   switch (step) {
     case (1):
@@ -99,7 +88,7 @@ const Order = (props) => {
       return (
         <>
           <StepMeter step={step} />
-          <SquareForm cardTokenizeResponseReceived={cardTokenizeResponseReceived}/>
+          <SquareForm />
         </>
       );
 
