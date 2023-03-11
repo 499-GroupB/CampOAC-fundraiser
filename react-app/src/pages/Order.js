@@ -6,8 +6,6 @@ import LocationForm from '../components/LocationForm';
 import SquareForm from '../components/SquareForm';
 import StepMeter from '../components/StepMeter';
 
-import { PaymentForm } from 'react-square-web-payments-sdk';
-
 
 // Order form
 const Order = (props) => {
@@ -55,6 +53,7 @@ const Order = (props) => {
           .then(function (response) {
             setId(response.data);
             setStep(3);
+            finishy(4);
           })
           // Catching axios error
           // Currently outputs to browser console (not  good)
@@ -65,7 +64,6 @@ const Order = (props) => {
       }, 400);
     }
   }
-
 
   switch (step) {
     case (1):
@@ -88,8 +86,11 @@ const Order = (props) => {
       return (
         <>
           <StepMeter step={step} />
-          <SquareForm />
+
+          <img class="loading" src="loading.gif" />
+          <br />
         </>
+        //<SquareForm />
       );
 
     case (4):
