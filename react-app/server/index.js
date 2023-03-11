@@ -149,13 +149,6 @@ app.post("/order/submit", (req, res) => {
 // POST API endpoint
 app.post("/login/auth", (req, res) => {
 
-  // Test admin user
-  // To be replaced with user database later
-  /*const testAdmin = {
-    username: 'admin',
-    password: 't3st1ng'
-  }*/
-
   // Display response to console
   console.log("Recieved login request: ");
 
@@ -164,34 +157,23 @@ app.post("/login/auth", (req, res) => {
 
   Admin.findOne({ email: req.body.email }).exec((err, admin) => {
     if (err) {
-      res.send({ status: -1 }) // status -1 for failure
+      res.send({ status: -1, user: {} }) // status -1 for failure
     }
 
     if (admin) {
       if (admin.password == req.body.password) {
         if (admin.isSuper) {
           res.send({ status: 1, user: admin })
-          console.log("logged in as super user");
         } else {
           res.send({ status: 2, user: admin }) // status 2 for login
         }
       } else {
-        res.send({ status: -1 }) // status -1 for failure
+        res.send({ status: -1, user: {} }) // status -1 for failure
       }
     } else {
-      res.send({ status: -1 })
+      res.send({ status: -1, user: {} })
     }
   })
-
-  // authentication (if you can call it that)
-  /*if (req.body.email == testAdmin.username && req.body.password == testAdmin.password) {
-    console.log("User authenticated, sending token");
-    // status 1 is logged in
-    res.send({ status: 1 });
-  } else {
-    // status -1 is auth failure
-    res.send({ status: -1 })
-  }*/
 });
 
 // Order deletion
@@ -244,20 +226,22 @@ app.get("/order/list", (req, res) => {
 app.post("/order/single", (req, res) => {
   // return single orders
   console.log("Recieved order to retrieve");
+
   let orderId = req.body.orderId
+
   console.log(orderId);
   Order.findOne({ _id: orderId }).exec((err, order) => {
     if (err) {
       console.log("error finding order " + orderId)
-      res.status(400).send("Unable to retrieve order");
+      res.status(200).send({order: {}, msg: "No orders with that ID found"});
     } else {
       // check to verify email is correct
       if (req.body.email == order.email) {
-        console.log(order);
-        res.status(200).send(order);
+        console.log("found order " + orderId);
+        res.status(200).send({order: order, msg: "Order found"});
       } else {
         console.log("Email did not match orderid entered")
-        res.status(400).send("Unable to verify order");
+        res.status(200).send({order: {}, msg: "Incorrect credentials"});
       }
     }
   })

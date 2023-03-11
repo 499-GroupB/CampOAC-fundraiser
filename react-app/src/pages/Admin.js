@@ -29,20 +29,33 @@ const Admin = () => {
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
+        var adminUser = sessionStorage.getItem("adminUser");
+
+        if(adminUser){
+            setAdminUser(adminUser)
+        }else{
+            setAdminUser('');
+        }
+
+        console.log(adminUser);
 
         if (isLoggedIn == null) {
             isLoggedIn = "false";
             setLoginState(0);
+            setAdminUser('');
         } else if (isLoggedIn == "true") {
             setLoginState(1);
             getAllOrders();
             getAllLocations();
             getAllAdmins();
+            setAdminUser(adminUser);
         } else if (isLoggedIn == "false") {
             setLoginState(0);
+            setAdminUser('');
         }
-
+    
         console.log(isLoggedIn);
+        console.log(adminUser);
 
     }, [])
 
@@ -105,6 +118,7 @@ const Admin = () => {
                     }
                     setLoginState(response.data.status);
                     setAdminUser(response.data.user);
+                    sessionStorage.setItem("adminUser", response.data.user);
                 })
                 // Catching axios error
                 // Currently outputs to browser console (not  good)
@@ -121,7 +135,9 @@ const Admin = () => {
 
     const logout = () => {
         sessionStorage.setItem("isLoggedIn", "false");
+        sessionStorage.setItem("adminUser", '')
         setLoginState(0);
+        setAdminUser('');
     }
 
     switch (loginState) {
