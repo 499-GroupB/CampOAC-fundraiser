@@ -9,6 +9,7 @@ import axios from 'axios';
 const OrderInfo = () => {
 
   const [order, setOrder] = useState({});
+  const [message, setMessage] = useState('');
 
   const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/single`;
 
@@ -22,9 +23,10 @@ const OrderInfo = () => {
         }
       })
       .then(function (response) {
-        const retrievedOrder = response.data;
+        const retrievedOrder = response.data.order;
+        const retrievedMessage = response.data.msg;
         setOrder(retrievedOrder);
-        console.log(order);
+        setMessage(retrievedMessage);
       })
 
       // Catching axios error
@@ -92,7 +94,7 @@ const OrderInfo = () => {
         </Form>
       </Formik>
       <br />
-      <UserOrderView order={order} />
+      <UserOrderView order={order} message={message} />
     </div>
   );
 };
