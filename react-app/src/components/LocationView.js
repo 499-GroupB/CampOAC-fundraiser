@@ -190,6 +190,7 @@ export default function LocationView(props) {
                             name: '',
                             stock: '1',
                             contact: '',
+                            adminId: '63ed171ec90de8ee9d90ba6c',
     
                         }}
                         validationSchema={Yup.object({
