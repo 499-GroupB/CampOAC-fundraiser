@@ -252,8 +252,13 @@ app.post("/order/single", (req, res) => {
       res.status(400).send("Unable to retrieve order");
     }else{
       // check to verify email is correct
-      console.log(order);
-      res.status(200).send(order);
+      if(req.body.email == order.email){
+        console.log(order);
+        res.status(200).send(order);
+      }else{
+        console.log("Email did not match orderid entered")
+        res.status(400).send("Unable to verify order");
+      }
     }
   })
 })

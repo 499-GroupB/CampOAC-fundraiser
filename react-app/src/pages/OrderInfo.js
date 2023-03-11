@@ -44,6 +44,7 @@ const OrderInfo = () => {
         // Formik requires intial values to be set
         // This is also how the variables appear in the api response
         initialValues={{
+          email: '',
           orderId: ''
         }}
 
@@ -51,6 +52,10 @@ const OrderInfo = () => {
         // Use this to define what will cause the Formik errors to generate
         // per input. Also puts hards limits on inputs
         validationSchema={Yup.object({
+          email: Yup.string()
+          .email('Invalid email address')
+          .max(50, 'Must be 50 characters or less')
+          .required('Required'),
           orderId: Yup.string()
             .max(25, 'Must be a valid OrderID')
             .required('Required'),
@@ -66,6 +71,14 @@ const OrderInfo = () => {
       }}
       >
         <Form>
+        <MyTextInput
+            //NAME ENTRY
+            label="Email: "
+            name="email"
+            type="text"
+            placeholder="Email adress"
+          />
+          <br></br>
           <MyTextInput
             //NAME ENTRY
             label="Order ID: "
@@ -73,9 +86,7 @@ const OrderInfo = () => {
             type="text"
             placeholder="24 Character Order ID"
           />
-
           <br></br>
-
           <button type="submit">Submit</button>
           
         </Form>
