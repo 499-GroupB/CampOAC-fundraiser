@@ -241,17 +241,21 @@ app.get("/order/list", (req, res) => {
 })
 
 // retrieve order by orderID
-app.get("/order/single", (req, res) => {
+app.post("/order/single", (req, res) => {
   // return single orders
   console.log("Recieved order to retrieve");
-  console.log(req.body);
-  Order.findOne({ _id: req.body.data })
-    .then(data => {
-      console.log("Data sent.")
-    })
-    .catch(err => {
-      res.status(400).send("Unable to find order:" + req.body.data);
-    });
+  let orderId = req.body.orderId
+  console.log(orderId);
+  Order.findOne({ _id: orderId }).exec((err, order) => {
+    if(err){
+      console.log("error finding order " + orderId)
+      res.status(400).send("Unable to retrieve order");
+    }else{
+      // check to verify email is correct
+      console.log(order);
+      res.status(200).send(order);
+    }
+  })
 })
 
 app.get("/location/list", (req, res) => {

@@ -2,18 +2,18 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { MyTextInput } from '../components/Inputs';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UserOrderView from '../components/UserOrderVIew';
 import axios from 'axios';
 
 const OrderInfo = () => {
 
-  const [order, getOrder] = useState('');
+  const [order, setOrder] = useState({});
 
   const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/single`;
 
   const findOrder = (orderId) => {
-    axios.get(apiEnd, { data: orderId },
+    axios.post(apiEnd, orderId,
       {
         headers: {
           "Content-Type": "application/json",
@@ -22,9 +22,9 @@ const OrderInfo = () => {
         }
       })
       .then(function (response) {
-        console.log(response);
         const retrievedOrder = response.data;
-        getOrder(retrievedOrder);
+        setOrder(retrievedOrder);
+        console.log(order);
       })
 
       // Catching axios error
@@ -33,7 +33,7 @@ const OrderInfo = () => {
         console.log(error);
       });
 
-    window.location.reload(false);
+    //window.location.reload(false);
   }
 
   return (
@@ -62,7 +62,6 @@ const OrderInfo = () => {
           setTimeout(() => {
               findOrder(values);
               setSubmitting(false);
-              window.location.reload(false);
           }, 400);
       }}
       >
