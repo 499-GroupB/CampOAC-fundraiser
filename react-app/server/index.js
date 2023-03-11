@@ -75,7 +75,7 @@ app.post("/order/submit", (req, res) => {
   newOrder.save()
     // If succesful (Code 200))
     .then(item => {
-      if(req.body.sms=='isSMS'){
+      if (req.body.sms == 'isSMS') {
         /*client.messages
           .create({
           body: smsTemplate(item),
@@ -85,7 +85,7 @@ app.post("/order/submit", (req, res) => {
         .then(message => console.log(message.sid));*/
       }
       //Create invoice pdf
-      else{
+      else {
         let pdfName = item.lastName + "-" + item._id + ".pdf";
         pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
           if (err) {
@@ -162,23 +162,23 @@ app.post("/login/auth", (req, res) => {
   // Output details of request
   console.log(req.body);
 
-  Admin.findOne({email: req.body.email}).exec((err, admin) => {
-    if(err){
-      res.send({ status: -1}) // status -1 for failure
+  Admin.findOne({ email: req.body.email }).exec((err, admin) => {
+    if (err) {
+      res.send({ status: -1 }) // status -1 for failure
     }
 
-    if(admin){
-      if(admin.password == req.body.password){
-        if(admin.isSuper){
-          res.send({ status: 1, user: admin})
+    if (admin) {
+      if (admin.password == req.body.password) {
+        if (admin.isSuper) {
+          res.send({ status: 1, user: admin })
           console.log("logged in as super user");
-        }else{
-          res.send({ status: 2, user: admin}) // status 2 for login
+        } else {
+          res.send({ status: 2, user: admin }) // status 2 for login
         }
-      }else{
-        res.send({ status: -1}) // status -1 for failure
+      } else {
+        res.send({ status: -1 }) // status -1 for failure
       }
-    }else{
+    } else {
       res.send({ status: -1 })
     }
   })
@@ -241,17 +241,26 @@ app.get("/order/list", (req, res) => {
 })
 
 // retrieve order by orderID
-app.get("/order/single", (req, res) => {
+app.post("/order/single", (req, res) => {
   // return single orders
   console.log("Recieved order to retrieve");
-  console.log(req.body);
-  Order.findOne({ _id: req.body.data })
-    .then(data => {
-      console.log("Data sent.")
-    })
-    .catch(err => {
-      res.status(400).send("Unable to find order:" + req.body.data);
-    });
+  let orderId = req.body.orderId
+  console.log(orderId);
+  Order.findOne({ _id: orderId }).exec((err, order) => {
+    if (err) {
+      console.log("error finding order " + orderId)
+      res.status(400).send("Unable to retrieve order");
+    } else {
+      // check to verify email is correct
+      if (req.body.email == order.email) {
+        console.log(order);
+        res.status(200).send(order);
+      } else {
+        console.log("Email did not match orderid entered")
+        res.status(400).send("Unable to verify order");
+      }
+    }
+  })
 })
 
 app.get("/location/list", (req, res) => {
@@ -265,6 +274,22 @@ app.get("/location/list", (req, res) => {
     .catch(err => {
       res.status(400).send("Unable to retrieve from database");
     });
+})
+
+// WORKING ON 
+app.post("/location/single", (req, res) => {
+  // return single orders
+  let locationId = req.body.locationId
+  console.log(locationId);
+  Location.findOne({ _id: locationId }).exec((err, location) => {
+    if (err) {
+      console.log("error finding location " + locationId)
+      res.status(400).send("Unable to retrieve location");
+    } else {
+      console.log(location);
+      res.status(200).send(order);
+    }
+  })
 })
 
 // Location add
@@ -355,10 +380,11 @@ app.post("/admin/delete", (req, res) => {
 app.post("/admin/modify", (req, res) => {
   console.log("Recieved location to modify");
   console.log(req.body);
-  Admin.findOneAndUpdate({ _id: req.body.data.id }, 
-    { firstName: req.body.data.firstName, 
-      lastName: req.body.data.lastName, 
-      phone: req.body.data.phone, 
+  Admin.findOneAndUpdate({ _id: req.body.data.id },
+    {
+      firstName: req.body.data.firstName,
+      lastName: req.body.data.lastName,
+      phone: req.body.data.phone,
       email: req.body.data.email,
       password: req.body.data.password
     })
