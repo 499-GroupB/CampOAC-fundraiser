@@ -104,8 +104,8 @@ export default function AdminView(props) {
                                         email: Yup.string().required('Required'),
                                         password: Yup.string().required('Required'),
                                         phone: Yup.string()
-                                        .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
-                                        .required('Required'),
+                                            .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
+                                            .required('Required'),
                                     })}
 
                                     // Form submission event.
@@ -199,9 +199,9 @@ export default function AdminView(props) {
                         firstName: Yup.string().required('Required'),
                         lastName: Yup.string().required('Required'),
                         email: Yup.string()
-                        .email('Invalid email address')
-                        .max(50, 'Must be 50 characters or less')
-                        .required('Required'),
+                            .email('Invalid email address')
+                            .max(50, 'Must be 50 characters or less')
+                            .required('Required'),
                         phone: Yup.string()
                             .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                             .required('Required'),

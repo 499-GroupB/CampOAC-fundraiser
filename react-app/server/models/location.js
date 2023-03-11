@@ -8,6 +8,7 @@ const LocationSchema = new Schema({
   name: { type: String, required: true, maxLength: 100 },
   stock: { type: Number, required: true, min: [0, 'Too few wood'], max: 1000 },
   contact: { type: String, required: true, maxLength: 20},
+  adminId: { type: String, required: true, maxLength: 100},
 });
 
 // Export model

@@ -86,12 +86,12 @@ label {
 
 .select-input {
     width: 50vh;
-    padding: 16px 20px;
+    padding: 1vh;
     border: none;
-    border-radius: 4px;
+    border-radius: 1vh;
     background-color: #f1f1f1;
-    margin: 1em;
-    font-size: 1em;
+    margin: 2.5vh 4vh;
+    font-size: 2.5vh;
 }
 
 button {
@@ -222,6 +222,8 @@ a:visited {
 }
 
 .bodylink:link {
+    font-weight: bold;
+    text-decoration: underline;
     color: #2c4356;
 }
 
@@ -231,6 +233,14 @@ a:visited {
 
 * {
     box-sizing: border-box;
+}
+
+.fb-share-button {
+    font-size: 3vh;
+    padding: 0.25vh 0.5vh;
+    background-color: #4267B2;
+    border: 0.1vh solid white;
+    border-radius: 1.5vh;
 }
 
 .column {
@@ -262,8 +272,7 @@ a:visited {
 }
 
 .paymentImage {
-    width: 100px;
-    height: 65px;
+    height: 11vh;
 }
 
 .payy {
@@ -343,8 +352,9 @@ a:visited {
     margin-left: 40vw;
     margin-right: 40vw;
 }
+
 #orderbtn:hover {
-    cursor:default;
+    cursor: default;
 }
 
 .row::after {
@@ -418,4 +428,14 @@ a:visited {
     justify-content: center;
     align-content: center;
     height: 100vh;
-  }
+}
+
+.socials {
+    margin-bottom: 2vh;
+}
+
+input[type=radio] {
+    accent-color: #2c4356;
+    height: 2.5vh;
+    width: 2.5vh;
+}

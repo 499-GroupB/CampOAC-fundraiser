@@ -89,7 +89,7 @@ export default function LocationView(props) {
             return (
                 admins.map((admin, index) => {
                     return (
-                        <option key={admin._id} label={admin.firstName} value={admin._id}></option>
+                        <option key={admin._id} label={admin.firstName + " " + admin.lastName} value={admin._id}></option>
                     )
             }))
         } else {
@@ -115,14 +115,14 @@ export default function LocationView(props) {
                                         id: location._id,
                                         stock: location.stock,
                                         contact: location.contact,
-                                        admin: "test",
+                                        adminId: location.adminId,
                                     }}
                                     validationSchema={Yup.object({
                                         stock: Yup.number().min(0, 'You cannot have negative stock').max(10000, 'Too much stock!'),
                                         contact: Yup.string()
                                             .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                                             .required('Required'),
-                                        admin: Yup.string().required('Locations need an admin'),
+                                        adminId: Yup.string().required('Locations need an admin'),
                                     })}
 
                                     // Form submission event.
@@ -151,9 +151,9 @@ export default function LocationView(props) {
                                             placeholder={location.contact}
                                         />
                                         <br></br>
-                                        <label>Admin</label>
-                                        <select name="admin" className="select-input">
-                                            <option value="" label="Select an admin">Select an admin</option>
+                                        <label>Admin:</label>
+                                        <select name="adminId" className="select-input">
+                                            <option value={location.adminId} label="Admin">Select an admin</option>
                                             {generateAdminOptions(props)}
                                         </select>
                                         <br></br>
@@ -190,6 +190,7 @@ export default function LocationView(props) {
                             name: '',
                             stock: '1',
                             contact: '',
+                            adminId: '63ed171ec90de8ee9d90ba6c',
     
                         }}
                         validationSchema={Yup.object({

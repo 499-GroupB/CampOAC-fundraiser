@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import axios from "axios";
+
 // About page
 
 function modd(srcc, altt) {
@@ -11,6 +14,44 @@ function close() {
 }
 
 const About = () => {
+
+  const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
+
+  const [locations, getLocations] = useState('');
+
+  useEffect(() => {
+    getAllLocations();
+  }, [])
+
+  const getAllLocations = () => {
+    axios.get(locationsApi)
+      .then(response => {
+        const allLocations = response.data;
+        getLocations(allLocations);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  const displayLocations = (locations) => {
+    if (locations.length > 0) {
+      return (
+        locations.map((location, index) => {
+          return (
+            <>
+              <pre>{location.name} | Phone: {location.contact}</pre>
+            </>
+          )
+        })
+      )
+    } else {
+      return (
+        <h3>Unable to retrieve location data</h3>
+      )
+    }
+  }
+
   return (
     <>
       <div class="row">
@@ -50,18 +91,21 @@ const About = () => {
       </div>
       <br />
       <h2 class="bearhug">rotary club of kelowna ogopogo</h2>
-      <p>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members. <a class="bodylink" href="https://my.rotary.org/en/"><b><u>More information is available here.</u></b></a></p>
+      <p>We accomplish service projects in the local community and internationally through the fellowship and efforts of our club members. <a class="bodylink" href="https://my.rotary.org/en/">More information is available here.</a></p>
       <br />
       <h2 class="bearhug">camp oac</h2>
-      <p>Camp OAC is a children's summer camp located just north of Kelowna on Okanagan lake. <a class="bodylink" href="https://www.campoac.com/"><b><u>More information is available here.</u></b></a></p>
+      <p>Camp OAC is a children's summer camp located just north of Kelowna on Okanagan lake. <a class="bodylink" href="https://www.campoac.com/">More information is available here.</a></p>
       <br />
       <h2 class="bearhug">contact us</h2>
       <p>Please contact us about any concerns you may have or if you need to cancel an order.
         <br /><br />
-        <a href = "tel:5558675309">Phone: 555-867-5309</a>
+        <a class="bodylink" href="tel:5558675309">Phone: 555-867-5309</a>
         <br />
-        <a href = "mailto: firewood@example.com">Email: firewood@example.com</a>
-        </p>
+        <a class="bodylink" href="mailto: firewood@example.com">Email: firewood@example.com</a>
+      </p>
+      <p>Location specific contact information: </p>
+      {displayLocations(locations)}
+      <br></br>
     </>
   );
 };

@@ -416,6 +416,7 @@ app.post("/admin/single", (req, res) => {
   })
 })
 
+
 // Square Payments
 const { paymentsApi } = new Client({
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
@@ -435,6 +436,7 @@ app.post("/square/pay", async (request, reply) => {
       reply.send(response)
   })
 });
+
 
 
 // Express Middleware

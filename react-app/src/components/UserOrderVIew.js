@@ -1,11 +1,18 @@
 import "../css/Style.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {useEffect} from 'react'
 
 export default function UserOrderView(props) {
     const order = props;
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
+    const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/single`;
+
+    useEffect(() => {
+        // retrieve admin location based on order names
+        
+    }, [])
 
     // allow user to delete order
     const deleteOrder = (orderId) => {
@@ -33,18 +40,32 @@ export default function UserOrderView(props) {
     }
 
     const displayOrder = (props) => {
-        if (order = null) {
+        if (!props.order._id) {
             return (
+                <>
+                <pre></pre>
                 <h2>No order found</h2>
+                </>
             )
         } else {
-            <h2>Order Found</h2>
+            return (
+                <>
+                <h2>Order Found</h2>
+                <pre>ID: {props.order._id}</pre>
+                <pre>Name: {props.order.firstName  + " " + props.order.lastName}</pre>
+                <pre>Email: {props.order.email}</pre>
+                <pre>Location: {props.order.pickUp}</pre>
+                <pre>Date: {props.order.date}</pre>
+                <p>Contact for concerns, including cancellations or questions: </p>
+                <br></br>
+                </>
+            )
         }
     }
 
     return (
-        <>
-            Order would be returned here.
-        </>
+        <div id="singleOrderWrapper">
+            {displayOrder(props)}
+        </div>
     )
 }

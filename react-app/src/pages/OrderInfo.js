@@ -2,18 +2,18 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { MyTextInput } from '../components/Inputs';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UserOrderView from '../components/UserOrderVIew';
 import axios from 'axios';
 
 const OrderInfo = () => {
 
-  const [order, getOrder] = useState('');
+  const [order, setOrder] = useState({});
 
   const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/single`;
 
   const findOrder = (orderId) => {
-    axios.get(apiEnd, { data: orderId },
+    axios.post(apiEnd, orderId,
       {
         headers: {
           "Content-Type": "application/json",
@@ -22,9 +22,9 @@ const OrderInfo = () => {
         }
       })
       .then(function (response) {
-        console.log(response);
         const retrievedOrder = response.data;
-        getOrder(retrievedOrder);
+        setOrder(retrievedOrder);
+        console.log(order);
       })
 
       // Catching axios error
@@ -33,7 +33,7 @@ const OrderInfo = () => {
         console.log(error);
       });
 
-    window.location.reload(false);
+    //window.location.reload(false);
   }
 
   return (
@@ -44,6 +44,7 @@ const OrderInfo = () => {
         // Formik requires intial values to be set
         // This is also how the variables appear in the api response
         initialValues={{
+          email: '',
           orderId: ''
         }}
 
@@ -51,6 +52,10 @@ const OrderInfo = () => {
         // Use this to define what will cause the Formik errors to generate
         // per input. Also puts hards limits on inputs
         validationSchema={Yup.object({
+          email: Yup.string()
+          .email('Invalid email address')
+          .max(50, 'Must be 50 characters or less')
+          .required('Required'),
           orderId: Yup.string()
             .max(25, 'Must be a valid OrderID')
             .required('Required'),
@@ -62,11 +67,18 @@ const OrderInfo = () => {
           setTimeout(() => {
               findOrder(values);
               setSubmitting(false);
-              window.location.reload(false);
           }, 400);
       }}
       >
         <Form>
+        <MyTextInput
+            //NAME ENTRY
+            label="Email: "
+            name="email"
+            type="text"
+            placeholder="Email adress"
+          />
+          <br></br>
           <MyTextInput
             //NAME ENTRY
             label="Order ID: "
@@ -74,9 +86,7 @@ const OrderInfo = () => {
             type="text"
             placeholder="24 Character Order ID"
           />
-
           <br></br>
-
           <button type="submit">Submit</button>
           
         </Form>

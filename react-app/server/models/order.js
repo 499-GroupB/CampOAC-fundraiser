@@ -10,6 +10,7 @@ const OrderSchema = new Schema({
   email: { type: String, required: true, maxLength: 100 },
   phone: { type: String, required: true, maxLength: 100 },
   pickUp: { type: String, required: true, maxLength: 100 },
+  locationId: { type: String, required: false, maxLength: 24},
   numBags: { type: String, required: true, maxLength: 100 },
   payment: { type: String, required: true, maxLength: 100 },
   date: { type: String, required: false, maxLength: 100 },

@@ -36,6 +36,7 @@ const OrderForm = (props) => {
                     phone: '',
                     sms: '',
                     pickUp: location.name,
+                    locationId: location._id,
                     numBags: '1',
                     payment: '',
                     date: currDate,
