@@ -251,12 +251,28 @@ Team Meeting Minutes
 
 - Discussed about further tasks
 
+<hr>
+
 <h3>
 <b>
 2023/03/07 14:00-14:30 (everyone attended)
 </h3>
 </b>
 
-- Worked on list of usability task 2 
+- Worked on list of usability task 2
+
+<hr>
+
+<h3>
+<b>
+2023/03/12 14:00-14:30 (everyone attended)
+</h3>
+</b>
+
+- Weekly scrum meeting
+
+- Discussed about peer testing 2
+
+- Discussed about prototype video
 
 
