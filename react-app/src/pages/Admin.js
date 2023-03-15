@@ -32,12 +32,10 @@ const Admin = () => {
         var adminUser = sessionStorage.getItem("adminUser");
 
         if(adminUser){
-            setAdminUser(adminUser)
+            setAdminUser(adminUser)            
         }else{
-            setAdminUser('');
+            setAdminUser('')
         }
-
-        console.log(adminUser);
 
         if (isLoggedIn == null) {
             isLoggedIn = "false";
@@ -54,8 +52,8 @@ const Admin = () => {
             setAdminUser('');
         }
     
-        console.log(isLoggedIn);
-        console.log(adminUser);
+        console.log("is logged in: " + isLoggedIn);
+        console.log("Admin user: " + adminUser);
 
     }, [])
 
@@ -111,14 +109,14 @@ const Admin = () => {
                         getAllLocations();
                         getAllAdmins();
                     }else if(response.data.status == 2) {
-                        sessionStorage.setItem("isLoggedin", "true")
+                        sessionStorage.setItem("isLoggedIn", "true")
                         getAllOrders();
                         getAllLocations();
                         getAllAdmins();
                     }
                     setLoginState(response.data.status);
-                    setAdminUser(response.data.user);
-                    sessionStorage.setItem("adminUser", response.data.user);
+                    setAdminUser(response.data.user.firstName + " " + response.data.user.lastName);
+                    sessionStorage.setItem("adminUser", response.data.user.firstName + " " + response.data.user.lastName);
                 })
                 // Catching axios error
                 // Currently outputs to browser console (not  good)
@@ -145,24 +143,24 @@ const Admin = () => {
         case (1):
             return (
                 <div className="admin-panel">
-                    <h1>
-                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
-                    </h1>
+                    <span class="admin-header">
+                    <h2 id="admin-name">Welcome, {adminUser}</h2>
                     <button class="important" onClick={logout}>Log Out</button>
+                    </span>
                     <br></br>
                     <div className="dashboard">
                         <span class="dashboard-items">
-                        <h1>locations and stock</h1>
+                        <h1>locations and stock |</h1>
                         <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
                         </span >
                         {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
                         <span class="dashboard-items">
-                        <h1>administrative users</h1>
+                        <h1>administrative users |</h1>
                         <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
                         </span>
                         {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null}
                         <span class="dashboard-items">
-                        <h1>orders</h1>
+                        <h1>orders |</h1>
                         <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
                         </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
@@ -181,19 +179,23 @@ const Admin = () => {
             );
         // login as non super
         case (2):
-            return (
+            return ( 
                 <div className="admin-panel">
-                    <h1>
-                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
-                    </h1>
+                    <span class="admin-header">
+                    <h2 id="admin-name">Welcome, {adminUser}</h2>
                     <button class="important" onClick={logout}>Log Out</button>
+                    </span>
                     <br></br>
                     <div className="dashboard">
-                        <h1>locations and stock</h1>
+                        <span class="dashboard-items">
+                        <h1>locations and stock |</h1>
                         <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={false}/></div> : null}
-                        <h1>orders</h1>
+                        </span >
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
+                        <span class="dashboard-items">
+                        <h1>orders |</h1>
                         <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>

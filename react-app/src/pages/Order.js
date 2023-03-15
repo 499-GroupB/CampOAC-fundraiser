@@ -4,6 +4,7 @@ import axios from 'axios';
 import OrderForm from '../components/OrderForm';
 import LocationForm from '../components/LocationForm';
 import StepMeter from '../components/StepMeter';
+import Payment from '../components/Payment';
 
 
 // Order form
@@ -16,6 +17,8 @@ const Order = (props) => {
   const [location, setLocation] = useState("");
   // OrderId state
   const [id, setId] = useState("");
+  // Order Payment required state
+  const [payment, setPayment] = useState(false);
 
   // function for handling location submission
   const locationSelect = (values, { setSubmitting }) => {
@@ -50,9 +53,15 @@ const Order = (props) => {
             }
           })
           .then(function (response) {
-            setId(response.data);
-            setStep(3);
-            finishy(4);
+            setId(response.data.id);
+            setPayment(response.data.payment)
+            console.log(payment);
+            if(response.data.payment == false){
+              setStep(3); //setStep(3)
+              finishy(4); 
+            }else{
+              setStep(5);
+            }
           })
           // Catching axios error
           // Currently outputs to browser console (not  good)
@@ -101,6 +110,19 @@ const Order = (props) => {
           <h3>Your order number is {id}.</h3>
 
           <h4>Your order details and receipt will be sent to your email.</h4>
+        </>
+      );
+
+      case (5):
+      return (
+        <>
+          <StepMeter step={step} />
+          <h3>Your order number is {id}.</h3>
+          <br></br>
+          <h4>All that's left now is to enter your payment information.</h4>
+          <br></br>
+          <Payment></Payment>
+          <br />
         </>
       );
       

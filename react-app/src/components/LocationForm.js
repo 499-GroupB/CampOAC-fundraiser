@@ -55,7 +55,7 @@ export default function LocationForm(props) {
             )
         } else {
             return (
-                <h3>Unable to retrieve locations</h3>
+                <h3>Looking for locations...</h3>
             )
         }
     }

@@ -190,8 +190,8 @@ export default function AdminView(props) {
                         lastName: '',
                         email: '',
                         phone: '',
-                        location: 'NO ASSIGNED LOCATION',
-                        password: 'DEFAULT PASSWORD',
+                        locationId: 'NO ASSIGNED LOCATION',
+                        password: '',
                         isSuper: false,
 
                     }}
@@ -248,6 +248,14 @@ export default function AdminView(props) {
                             name="phone"
                             type="text"
                             placeholder="1234567890"
+                        />
+                        <br></br>
+                        <MyTextInput
+                            //Password
+                            label="Password: "
+                            name="password"
+                            type="text"
+                            placeholder="Password"
                         />
                         <br></br>
                         <br></br>

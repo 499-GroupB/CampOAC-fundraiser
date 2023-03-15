@@ -1,13 +1,16 @@
 import "../css/Style.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function OrderView(props) {
     const { orders } = props;
+    //const orderClone = orders.slice();
+    const [orderState, setOrderState] = useState(orders);
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
 
-    const deleteOrder = (orderId) => {
+    const deleteOrder = (orderId, index) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
             axios.post(apiEnd, { data: orderId },
                 {
@@ -19,13 +22,15 @@ export default function OrderView(props) {
                 })
                 .then(function (response) {
                     console.log(response);
+                    delete props.orders[index]; //wtf.js
+                    var ordercopy = props.orders.slice();
+                    setOrderState(ordercopy);
                 })
                 // Catching axios error
                 // Currently outputs to browser console (not  good)
                 .catch(function (error) {
                     console.log(error);
                 });
-            window.location.reload(false);
         }
     }
 
@@ -41,7 +46,7 @@ export default function OrderView(props) {
         var csv = [];
         for (var i = 0; i < rows.length; i++) {
             var row = [], cols = rows[i].querySelectorAll('td, th');
-            for (var j = 0; j < cols.length-1; j++) {
+            for (var j = 0; j < cols.length - 1; j++) {
                 // Clean innertext to remove multiple spaces and jumpline (break csv)
                 var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
                 // Escape double-quote with double-double-quote (see https://stackoverflow.com/questions/17808511/properly-escape-a-double-quote-in-csv)
@@ -64,11 +69,11 @@ export default function OrderView(props) {
         document.body.removeChild(link);
     }
 
-    const displayOrders = (props) => {
-        if (orders.length > 0) {
+    const displayOrders = () => {
+        if (orderState.length > 0) {
             return (
-                orders.map((order, index) => {
-                    return (     
+                orderState.map((order, index) => {
+                    return (
                         <tr>
                             <td>{order._id}</td>
                             <td>{order.pickUp}</td>
@@ -81,7 +86,7 @@ export default function OrderView(props) {
                                 {order.payment}
                             </button></td>
                             <td>
-                                <button class="important" type="submit" onClick={() => deleteOrder(order._id)} >
+                                <button class="important" type="submit" onClick={() => deleteOrder(order._id, index)} >
                                     Close order
                                 </button>
                             </td>
@@ -97,25 +102,25 @@ export default function OrderView(props) {
     }
     return (
         <>
-        <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
-        <table id="order-table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Order Location</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Number ordered</th>
-                    <th>Date Ordered</th>
-                    <th>Payment Type</th>
-                    <th>Delete Order</th>
-                </tr>
-            </thead>
-            <tbody>
-                {displayOrders(props)}
-            </tbody>
-        </table>
+            <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
+            <table id="order-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Location</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Number ordered</th>
+                        <th>Date Ordered</th>
+                        <th>Payment Type</th>
+                        <th>Delete Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {displayOrders()}
+                </tbody>
+            </table>
         </>
     )
 }

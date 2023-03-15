@@ -9,7 +9,7 @@ const AdminSchema = new Schema({
   lastName: { type: String, required: true, maxLength: 100 },
   email: { type: String, required: true, maxLength: 100 },
   phone: { type: String, required: true, maxLength: 100 },
-  location: { type: String, required: true, maxLength: 100 },
+  locationId: { type: String, required: true, maxLength: 100 },
   password: { type: String, required: true, maxLength: 100 },
   isSuper: { type: Boolean, required: true},
 });

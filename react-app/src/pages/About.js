@@ -40,7 +40,7 @@ const About = () => {
         locations.map((location, index) => {
           return (
             <>
-              <pre>{location.name} | Phone: {location.contact}</pre>
+              <p>{location.name} | Phone: {location.contact}</p>
             </>
           )
         })
@@ -103,7 +103,8 @@ const About = () => {
         <br />
         <a class="bodylink" href="mailto: firewood@example.com">Email: firewood@example.com</a>
       </p>
-      <p>Location specific contact information: </p>
+      <h2>Location specific contact information: </h2>
+      <p>Contact specific locations if you have concerns about your order</p>
       {displayLocations(locations)}
       <br></br>
     </>
