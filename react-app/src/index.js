@@ -13,8 +13,7 @@ import About from "./pages/About";
 import Order from "./pages/Order";
 import NoPage from "./pages/NoPage";
 import Admin from "./pages/Admin";
-import OrderInfo from "./pages/OrderInfo";
-import Login from "./components/LoginForm";
+import OrderInfo from "./pages/OrderInfo"
 
 //          <Route path="dashboard" element={<Admin />} />
 

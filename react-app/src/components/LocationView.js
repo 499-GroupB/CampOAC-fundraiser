@@ -2,7 +2,7 @@ import "../css/Style.css";
 import axios from 'axios';
 import * as Yup from 'yup';
 import { MyTextInput } from "./Inputs";
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useEffect } from "react";
 
 export default function LocationView(props) {
@@ -125,6 +125,7 @@ export default function LocationView(props) {
         }
     }
 
+    
     const displayLocations = (props) => {
         if (locations.length > 0) {
             return (
@@ -161,7 +162,7 @@ export default function LocationView(props) {
                                         }, 400);
                                     }}
                                 >
-                                    <Form>
+                                    <Form id={location._id}>
                                         <MyTextInput
                                             //BAG NUMBER SELECTION 
                                             label="Stock: "
@@ -179,15 +180,13 @@ export default function LocationView(props) {
                                         />
                                         <br></br>
                                         <label>Admin:</label>
-                                        <select name="adminId" className="select-input">
+                                        <Field as="select" name="adminId" className="select-input" id={location._id}>
                                             <option value={location.adminId} label="Current Admin"></option>
                                             {generateAdminOptions(props)}
-                                        </select>
+                                        </Field>
                                         <br></br>
                                         <button type="submit">Update Location</button>
-                                        <button className="important" type="button" onClick={() => deleteLocation(location._id)} >
-                                            Delete Location
-                                        </button>
+                                        {canEdit ? <button className="important" type="button" onClick={() => deleteLocation(location._id)} >Delete Location</button> : null }
                                     </Form>
                                 </Formik>
                             </div>

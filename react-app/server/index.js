@@ -138,9 +138,9 @@ app.post("/order/submit", (req, res) => {
 
       // return new order id
       if(item.payment == 'credit'){
-        res.status(200).send({id: newOrder._id, payment: true})
+        res.status(200).send({newOrder: newOrder, payment: true})
       }else{
-        res.status(200).send({id: newOrder._id, payment: false});
+        res.status(200).send({newOrder: newOrder, payment: false});
       }
     })
     // If something goes wrong (Code 400)
