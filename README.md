@@ -61,5 +61,5 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 |--|--|--|
 | Requirements Completed | Decided on project requirements, ready to begin development | ✔️|
 | Peer Testing #1 | Site is prepared and backend is running, minimal backend interaction | ✔️|
-| Peer Testing #2 | Storefront taking shape / mobile friendly. Complete back end integration (API endpoints) Fully functional database | ❌|
+| Peer Testing #2 | Storefront taking shape / mobile friendly. Complete back end integration (API endpoints) Fully functional database | ✔️|
 | Deliverable / Handoff | Invoice creation, payment processing, payment security scrutiny| ❌|

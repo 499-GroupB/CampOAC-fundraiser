@@ -26,6 +26,7 @@
     "react-square-web-payments-sdk": "^3.2.1",
     "square": "^25.1.0",
     "styled-components": "^5.3.6",
+    "uuid4": "^2.0.3",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

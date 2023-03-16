@@ -13,14 +13,14 @@ const Burger = () => {
         <ul id="split4">
           <Link class="bearhug" to="/about"><li>about</li></Link>
           <Link class="bearhug" to="/order"><li>order</li></Link>
-          <Link class="bearhug" to="/orderInfo"><li>view order</li></Link>
+          <Link class="bearhug" to="/orderInfo"><li>track order</li></Link>
           <Link class="bearhug" to="/admin"><li>admin</li></Link>
         </ul>
       </label>
       <ul>
           <Link class="bearhug" to="/about"><li>about</li></Link>
           <Link class="bearhug" to="/order"><li>order</li></Link>
-          <Link class="bearhug" to="/orderInfo"><li>view order</li></Link>
+          <Link class="bearhug" to="/orderInfo"><li>track order</li></Link>
           <Link class="bearhug" to="/admin"><li>admin</li></Link>
       </ul>
     </>
