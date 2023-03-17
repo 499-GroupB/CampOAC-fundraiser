@@ -37,7 +37,7 @@ const OrderForm = (props) => {
     return (
         <div className='order-form'>
             <h1>ordering from {location.name.toLowerCase()}</h1>
-            <h3>All</h3>
+            <h3>Enter your information below</h3>
             <Formik
                 // Formik requires intial values to be set
                 // This is also how the variables appear in the api response
