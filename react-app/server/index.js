@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const { Client, Environment } = require("square");
-const uuidv4 = require('uuid4');
+const uuidv4 = require('uuidv4');
 
 const pdf = require('html-pdf');
 
