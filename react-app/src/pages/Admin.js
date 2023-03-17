@@ -14,7 +14,7 @@ const Admin = () => {
     const [orders, getOrders] = useState('');
     const [locations, getLocations] = useState('');
     const [admins, getAdmins] = useState('');
-    const [adminUser, setAdminUser] = useState('');
+    const [adminUser, setAdminUser] = useState({});
 
     const [locationHide, setLocationHide] = useState(false);
     const [adminHide, setAdminHide] = useState(false);
@@ -29,33 +29,31 @@ const Admin = () => {
 
         // check if user is already logged in
         var isLoggedIn = sessionStorage.getItem("isLoggedIn");
-        var adminUser = sessionStorage.getItem("adminUser");
+        var loggedAdmin = sessionStorage.getItem("adminUser");
 
-        if(adminUser){
-            setAdminUser(adminUser)
-        }else{
-            setAdminUser('');
+        if (loggedAdmin != {}) {
+            var parsedAdmin = JSON.parse(loggedAdmin);
+            setAdminUser(parsedAdmin);
+        } else {
+            setAdminUser({})
         }
-
-        console.log(adminUser);
 
         if (isLoggedIn == null) {
             isLoggedIn = "false";
             setLoginState(0);
-            setAdminUser('');
+            setAdminUser({});
         } else if (isLoggedIn == "true") {
             setLoginState(1);
             getAllOrders();
             getAllLocations();
             getAllAdmins();
-            setAdminUser(adminUser);
         } else if (isLoggedIn == "false") {
             setLoginState(0);
-            setAdminUser('');
+            setAdminUser({});
         }
-    
-        console.log(isLoggedIn);
-        console.log(adminUser);
+
+        console.log("is logged in: " + isLoggedIn);
+        console.log("Admin user: " + adminUser);
 
     }, [])
 
@@ -110,15 +108,16 @@ const Admin = () => {
                         getAllOrders();
                         getAllLocations();
                         getAllAdmins();
-                    }else if(response.data.status == 2) {
-                        sessionStorage.setItem("isLoggedin", "true")
+                    } else if (response.data.status == 2) {
+                        sessionStorage.setItem("isLoggedIn", "true")
+                        //getSpecifics(response.data.user._id) -> should be able to return matching locations / thus orders for that location
                         getAllOrders();
                         getAllLocations();
                         getAllAdmins();
                     }
                     setLoginState(response.data.status);
                     setAdminUser(response.data.user);
-                    sessionStorage.setItem("adminUser", response.data.user);
+                    sessionStorage.setItem("adminUser", JSON.stringify(response.data.user));
                 })
                 // Catching axios error
                 // Currently outputs to browser console (not  good)
@@ -135,81 +134,82 @@ const Admin = () => {
 
     const logout = () => {
         sessionStorage.setItem("isLoggedIn", "false");
-        sessionStorage.setItem("adminUser", '')
+        sessionStorage.setItem("adminUser", {})
         setLoginState(0);
-        setAdminUser('');
+        setAdminUser({});
     }
 
-    switch (loginState) {
-        // user logged in as SUPER USER
-        case (1):
+    if (loginState == 1 || loginState == 2) {
+        if (adminUser.isSuper) {
             return (
                 <div className="admin-panel">
-                    <h1>
-                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
-                    </h1>
-                    <button class="important" onClick={logout}>Log Out</button>
+                    <span class="admin-header">
+                        <h2 id="admin-name">Welcome, {adminUser.firstName + " " + adminUser.lastName}</h2>
+                        <button class="important" onClick={logout}>Log Out</button>
+                    </span>
                     <br></br>
                     <div className="dashboard">
                         <span class="dashboard-items">
-                        <h1>locations and stock</h1>
-                        <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
+                            <h1>locations and stock |</h1>
+                            <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
                         </span >
                         {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
                         <span class="dashboard-items">
-                        <h1>administrative users</h1>
-                        <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
+                            <h1>administrative users |</h1>
+                            <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
                         </span>
                         {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null}
                         <span class="dashboard-items">
-                        <h1>orders</h1>
-                        <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                            <h1>orders |</h1>
+                            <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
                         </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
                 </div>
             );
-        // login failure
-        case (-1):
-            return (
-                <>
-                    <LoginForm onSubmit={loginSubmission} />
-                    <h3>Login failed</h3>
-                    <br></br>
-                </>
-            );
-        // login as non super
-        case (2):
+        } else {
             return (
                 <div className="admin-panel">
-                    <h1>
-                    Welcome, {adminUser.firstName + " " + adminUser.lastName}
-                    </h1>
-                    <button class="important" onClick={logout}>Log Out</button>
+                    <span class="admin-header">
+                        <h2 id="admin-name">Welcome, {adminUser.firstName + " " + adminUser.lastName}</h2>
+                        <button class="important" onClick={logout}>Log Out</button>
+                    </span>
                     <br></br>
                     <div className="dashboard">
-                        <h1>locations and stock</h1>
-                        <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={false}/></div> : null}
-                        <h1>orders</h1>
-                        <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        <span class="dashboard-items">
+                            <h1>locations and stock |</h1>
+                            <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
+                        </span >
+                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={false} /></div> : null}
+                        <span class="dashboard-items">
+                            <h1>orders |</h1>
+                            <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
+                        </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
                 </div>
-            );
-        // not logged in
-        case (0):
-            return (
-                <>
-                    <LoginForm onSubmit={loginSubmission} />
-                </>
-            );
-        default:
-            return (
+            )
+        }
+    } else if (loginState == -1) { // Failed login
+        return (
+            <>
                 <LoginForm onSubmit={loginSubmission} />
-            );
+                <h3>Login failed</h3>
+                <br></br>
+            </>
+        );
+    } else if (loginState == 0) {  // login page
+        return (
+            <>
+                <LoginForm onSubmit={loginSubmission} />
+            </>
+        );
+    } else {                      // Default
+        return (
+            <LoginForm onSubmit={loginSubmission} />
+        );
     }
 };
 

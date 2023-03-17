@@ -140,7 +140,11 @@ app.post("/order/submit", (req, res) => {
         });
 
       // return new order id
-      res.status(200).send(newOrder._id);
+      if(item.payment == 'credit'){
+        res.status(200).send({newOrder: newOrder, payment: true})
+      }else{
+        res.status(200).send({newOrder: newOrder, payment: false});
+      }
     })
     // If something goes wrong (Code 400)
     .catch(err => {
@@ -388,7 +392,7 @@ app.post("/admin/modify", (req, res) => {
 app.post("/admin/single", (req, res) => {
   // return single admin
   let adminId = req.body.adminId
-  console.log(adminId);
+  console.log("Admin ID: " + adminId);
   Admin.findOne({ _id: adminId }).exec((err, admin) => {
     if (err) {
       console.log("error finding admin " + adminId)
@@ -398,6 +402,27 @@ app.post("/admin/single", (req, res) => {
       res.status(200).send(admin);
     }
   })
+})
+
+// used to resolve admin names from id (useful for locations)
+app.post("/admin/name", (req, res) => {
+  console.log(req.body);
+  let adminId = req.body.adminId
+  Admin.findOne({_id: adminId}).exec((err, admin) => {
+    if(err) {
+      console.log("error getting name from: " + adminId);
+      res.status(200).send({firstName: "unknown", lastName: "unknown"});
+    }else{
+      //console.log("Recieved name: " + admin.firstName + " " + admin.lastName);
+      res.status(200).send({firstName: /*admin.firstName*/"unknown", lastName: "unknown"/*admin.lastName*/});
+    }
+  });
+})
+
+app.post("/payment/pay", (req, res) => {
+  console.log(req.body);
+  console.log("paid");
+  res.status(200).send({state: 1, msg: "Good job"})
 })
 
 

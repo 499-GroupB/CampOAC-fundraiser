@@ -2,7 +2,7 @@ import "../css/Style.css";
 import axios from 'axios';
 import * as Yup from 'yup';
 import { MyTextInput } from "./Inputs";
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useEffect } from "react";
 
 export default function LocationView(props) {
@@ -13,6 +13,7 @@ export default function LocationView(props) {
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/location/add`
     const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/location/delete`
+    const apiEnd4 = `${process.env.REACT_APP_BACKEND_URL}/admin/name`
 
     useEffect(() => {
         console.log(generateAdminOptions(props));
@@ -38,6 +39,31 @@ export default function LocationView(props) {
                 });
             window.location.reload(false);
         }
+    }
+
+    const getAdminName = (adminId) => {
+        axios.post(apiEnd4, {adminId: adminId},
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                    "Access-Control-Allow-Credentials": "true",
+                }
+            })
+            .then(function (response) {
+                console.log(response);
+                return "name";
+            })
+            // Catching axios error
+            // Currently outputs to browser console (not  good)
+            .catch(function (error) {
+                console.log(error);
+                return "unknown";
+            });
+    }
+    
+    const getTestName = () => {
+        return "test";
     }
 
     const addLocation = (locationData) => {
@@ -80,8 +106,8 @@ export default function LocationView(props) {
                 .catch(function (error) {
                     console.log(error);
                 });
-            window.location.reload(false);
         }
+        window.location.reload(false);
     }
 
     const generateAdminOptions = (props) => {
@@ -99,6 +125,7 @@ export default function LocationView(props) {
         }
     }
 
+    
     const displayLocations = (props) => {
         if (locations.length > 0) {
             return (
@@ -108,6 +135,7 @@ export default function LocationView(props) {
                             <div className="location" key={location._id}>
                                 <h3 className="location_name">{location.name}</h3>
                                 <h3 className="location_stock">Current Stock: {location.stock}</h3>
+                                <h3 className="location_admin">Current Admin: {location.adminId}</h3>
                                 <Formik
                                     // Formik requires intial values to be set
                                     // This is also how the variables appear in the api response
@@ -134,7 +162,7 @@ export default function LocationView(props) {
                                         }, 400);
                                     }}
                                 >
-                                    <Form>
+                                    <Form id={location._id}>
                                         <MyTextInput
                                             //BAG NUMBER SELECTION 
                                             label="Stock: "
@@ -152,15 +180,13 @@ export default function LocationView(props) {
                                         />
                                         <br></br>
                                         <label>Admin:</label>
-                                        <select name="adminId" className="select-input">
-                                            <option value={location.adminId} label="Admin">Select an admin</option>
+                                        <Field as="select" name="adminId" className="select-input" id={location._id}>
+                                            <option value={location.adminId} label="Current Admin"></option>
                                             {generateAdminOptions(props)}
-                                        </select>
+                                        </Field>
                                         <br></br>
                                         <button type="submit">Update Location</button>
-                                        <button className="important" type="button" onClick={() => deleteLocation(location._id)} >
-                                            Delete Location
-                                        </button>
+                                        {canEdit ? <button className="important" type="button" onClick={() => deleteLocation(location._id)} >Delete Location</button> : null }
                                     </Form>
                                 </Formik>
                             </div>

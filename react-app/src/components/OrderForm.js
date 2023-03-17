@@ -12,20 +12,32 @@ const OrderForm = (props) => {
 
     // access a location via prop
     const { location, onSubmit } = props;
+    const [payNow, setPayNow] = useState(false);
+    const [orderTotal, setOrderTotal] = useState(9)
+    const [numBags, setNumBags] = useState(1);
     const currDate = getCurrentDate();
     // Api endpoint for order submission
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/submit`;
 
+    const togglePay = (value) => {
+        setPayNow(value);
+        console.log(payNow);
+    }
 
-
-
-
-    // this state is used for the order id sent from the api
+    const updateOrder = (value) => {
+        var price = 8; // price
+        var total = 8 * value; // numBags
+        setNumBags(value)
+        setOrderTotal(total);
+        console.log(total);
+        console.log(orderTotal);
+    }
 
     // conditional check if the state has been updated
     return (
         <div className='order-form'>
             <h1>ordering from {location.name.toLowerCase()}</h1>
+            <h3>Enter your information below</h3>
             <Formik
                 // Formik requires intial values to be set
                 // This is also how the variables appear in the api response
@@ -118,25 +130,25 @@ const OrderForm = (props) => {
                         name="numBags"
                         type="number"
                         placeholder="1"
-                    // value={this.state.number}
+                        value={numBags}
+                        onChange={(event) => updateOrder(event.target.value)}
                     />
                     <p>
-                        <b>Price per bag: $8.99</b>
-                    </p>
-                    <p>
+                        <b>Order Total: ${orderTotal}</b>
+                        <br></br>
                         The quantity of wood in each bag is xxx pounds approx.
                     </p>
                     <br></br><br></br>
                     <div class="payy">
                         <div>
                             <img class="paymentImage" src="credit-card-payment-icon.png" alt="Pay now with credit card"/>
-                            <MyRadio name="payment" value="credit">
+                            <MyRadio name="payment" value="credit" onClick={() => setPayNow(true)}>
                                 &nbsp;Pay now with credit card
                             </MyRadio>
                         </div>
                         <div>
                             <img class="paymentImage" src="payment-icon.png" alt="Pay with cash upon pick up"/>
-                            <MyRadio name="payment" value="cash">
+                            <MyRadio name="payment" value="cash" onClick={() => setPayNow(false)}>
                                 &nbsp;Pay with cash upon pick up
                             </MyRadio>
                         </div>
