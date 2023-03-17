@@ -87,23 +87,14 @@ app.post("/order/submit", (req, res) => {
         })
         .then(message => console.log(message.sid));*/
       }
-      //Create invoice pdf
-      else {
-        let pdfName = item.lastName + "-" + item._id + ".pdf";
-        pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
-          if (err) {
-            return console.log('error creating invoice');
-          }
-        });
-      }
+      
 
       //Email invoice pdf
       /*var mailOptions = {
         from: '"OACGroupB" <capstone499.groupb@gmail.com>',
         to: req.body.email,
         subject: 'Firewood Invoice',
-        text: 'Thank you for your purchase! Please find your invoice attached',
-        attachments: {filename: pdfName, path: __dirname + '/invoices/' + pdfName},
+        html: {invoiceTemplate(item)}
       };
   
       let info = transporter.sendMail(mailOptions, function(error, info){

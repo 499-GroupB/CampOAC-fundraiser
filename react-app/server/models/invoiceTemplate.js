@@ -1,6 +1,5 @@
-module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, _id }) => {
-    const price = 8.99;
-    const total = (numBags*price).toFixed(2); //temporary hardcoded price
+module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, _id, orderTotal }) => {
+    
     var address;
     var adminName = 'temp';
     var adminPhone = 'temp'; 
@@ -58,8 +57,8 @@ module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, 
                         <p>Customer Phone: ${phone} </p>
                     </div>
                     <div id='total' class='invoiceLineItem'>
-                        <p>Number of Bags: ${numBags} Price: 8.99<p>
-                        <p>Total: ${total}</p>
+                        <p>Number of Bags: ${numBags} Price: 8.00<p>
+                        <p>Total: ${orderTotal}</p>
                         <p>Payment type: ${payment}</p>
                         <p style='text-align:center'>If paid by cash customer must present invoice at time of pick up</p>
                     </div>
