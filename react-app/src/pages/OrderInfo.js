@@ -40,7 +40,7 @@ const OrderInfo = () => {
 
   return (
     <div className='order-form'>
-      <h1>view an order you have placed</h1>
+      <h1>Track an order you have placed</h1>
       <p>Here you can view information on an order you've placed and cancel it, if necessary.</p>
       <Formik
         // Formik requires intial values to be set
