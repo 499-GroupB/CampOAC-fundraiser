@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const { Client, Environment } = require("square");
-const uuidv4 = require('uuid4');
+const uuidv4 = require('uuidv4');
 
 const pdf = require('html-pdf');
 
@@ -38,12 +38,9 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //SMS Auth Info
-//var TWILIO_ACCOUNT_SID = smsAuth.twilSID;
-//var TWILIO_AUTH_TOKEN = smsAuth.twilTok;
-
 /*const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);*/
+const sms_client = require('twilio')(accountSid, authToken);*/
 
 
 
@@ -55,10 +52,10 @@ const client = require('twilio')(accountSid, authToken);*/
     auth: {
       type: "OAuth2",
       user: "capstone499.groupb@gmail.com",
-      clientId: emailAuth.gmailClientID,
-      clientSecret: emailAuth.gmailClientSecret,
-      refreshToken: emailAuth.gmailRefresh,
-      accessToken: emailAuth.gmailAccess,
+      clientId: process.env.GMAIL_CLIENT_ID,
+      clientSecret: process.env.GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+      accessToken: process.env.GMAIL_ACCESS_TOKEN,
     },
 });*/
 
@@ -79,7 +76,7 @@ app.post("/order/submit", (req, res) => {
     // If succesful (Code 200))
     .then(item => {
       if (req.body.sms == 'isSMS') {
-        /*client.messages
+        /*sms_client.messages
           .create({
           body: smsTemplate(item),
           from: +16693483413,
@@ -87,23 +84,14 @@ app.post("/order/submit", (req, res) => {
         })
         .then(message => console.log(message.sid));*/
       }
-      //Create invoice pdf
-      else {
-        let pdfName = item.lastName + "-" + item._id + ".pdf";
-        pdf.create(invoiceTemplate(item), {}).toFile(__dirname + '/invoices/' + pdfName, (err) => {
-          if (err) {
-            return console.log('error creating invoice');
-          }
-        });
-      }
+      
 
       //Email invoice pdf
       /*var mailOptions = {
         from: '"OACGroupB" <capstone499.groupb@gmail.com>',
         to: req.body.email,
         subject: 'Firewood Invoice',
-        text: 'Thank you for your purchase! Please find your invoice attached',
-        attachments: {filename: pdfName, path: __dirname + '/invoices/' + pdfName},
+        html: {invoiceTemplate(item)}
       };
   
       let info = transporter.sendMail(mailOptions, function(error, info){
@@ -118,7 +106,7 @@ app.post("/order/submit", (req, res) => {
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
-          // Location.findOne({ name: item,pickUp}, "stock", (err, stock) =>{
+          // Location.findOne({ name: item.pickUp}, "stock", (err, stock) =>{
           //   if (err) return handleError(err);
           //   if(stock.toObject()<=10){
           //     Admin.find("phone", (err, phones) =>{
