@@ -6,6 +6,7 @@ import LocationForm from '../components/LocationForm';
 import SquareForm from '../components/SquareForm';
 import StepMeter from '../components/StepMeter';
 import Payment from '../components/Payment';
+import { Link } from 'react-router-dom';
 
 
 // Order form
