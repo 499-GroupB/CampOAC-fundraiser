@@ -275,4 +275,16 @@ Team Meeting Minutes
 
 - Discussed about prototype video
 
+<hr>
 
+<h3>
+<b>
+2023/03/19 14:00-14:30 (everyone attended)
+</h3>
+</b>
+
+- Weekly scrum meeting
+
+- Discussed about the issues from peer testing 2
+
+- Discussed about peer testing 2 report
