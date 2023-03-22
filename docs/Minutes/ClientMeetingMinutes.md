@@ -14,7 +14,7 @@ Client Meeting Minutes
 
 - Set a weekly meeting time
 
----
+<hr>
 
 <h3>
 <b>
@@ -26,7 +26,8 @@ Client Meeting Minutes
 
 - Follow-up inquiries
 
----
+<hr>
+
 <h3>
 <b>
 17/10/2022 14:00-14:15
@@ -39,7 +40,8 @@ Client Meeting Minutes
 
 - Modified meeting schedule
 
----
+<hr>
+
 <h3>
 <b>
 28/11/2022 14:00-14:45
@@ -52,7 +54,7 @@ Client Meeting Minutes
 
 - Discussion of future development direction
 
----
+<hr>
 
 <h3>
 <b>
@@ -69,7 +71,8 @@ Client Meeting Minutes
 
 - Scheduled a time for in-person meeting
 
----
+<hr>
+
 <h3>
 <b>
 06/02/2023 14:30-15:45
@@ -77,4 +80,17 @@ Client Meeting Minutes
 </b>
 
 - In-person demo
+
 - Acquired feedback
+
+<hr>
+
+<h3>
+<b>
+20/03/2023 14:30-15:30
+</h3>
+</b>
+
+- Demonstrating where we are in the project
+
+- General questions
