@@ -77,4 +77,17 @@ Client Meeting Minutes
 </b>
 
 - In-person demo
+
 - Acquired feedback
+
+
+---
+<h3>
+<b>
+20/03/2023 14:30-15:30
+</h3>
+</b>
+
+- Demonstrating where we are in the project
+
+- General questions
