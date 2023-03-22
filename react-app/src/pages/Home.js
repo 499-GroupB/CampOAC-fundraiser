@@ -49,8 +49,9 @@ const Home = () => {
       </div>
 
       <div id="myModal" class="modal">
+        <span class="modalbackground" onClick={() => close()}/>
         <span class="close" onClick={() => close()}>&times;</span>
-        <img class="modal-content" id="img01" />
+        <img class="modal-content" id="img01"/>
         <div id="caption"></div>
       </div>
       <h1>welcome to the camp oac <b>&times;</b> rotary club ogopogo firewood fundraiser</h1>
