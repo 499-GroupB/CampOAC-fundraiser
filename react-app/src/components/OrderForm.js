@@ -10,11 +10,14 @@ import getCurrentDate from '../components/CurrentDate';
 // Order form
 const OrderForm = (props) => {
 
+    // bag price
+    // make this changeable somewhere
+    const price = 8;
+
     // access a location via prop
     const { location, onSubmit } = props;
     const [payNow, setPayNow] = useState(false);
-    const [orderTotal, setOrderTotal] = useState(9)
-    const [numBags, setNumBags] = useState(1);
+    //const [numBags, setNumBags] = useState(1);
     const currDate = getCurrentDate();
     // Api endpoint for order submission
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/submit`;
@@ -24,21 +27,13 @@ const OrderForm = (props) => {
         console.log(payNow);
     }
 
-    const updateOrder = (value) => {
-        var price = 8; // price
-        var total = 8 * value; // numBags
-        setNumBags(value)
-        setOrderTotal(total);
-        console.log(total);
-        console.log(orderTotal);
-    }
-
     // conditional check if the state has been updated
     return (
         <div className='order-form'>
             <h1>ordering from {location.name.toLowerCase()}</h1>
             <h3>Enter your information below</h3>
             <Formik
+                enableReinitialize={true}
                 // Formik requires intial values to be set
                 // This is also how the variables appear in the api response
                 initialValues={{
@@ -49,7 +44,7 @@ const OrderForm = (props) => {
                     sms: '',
                     pickUp: location.name,
                     locationId: location._id,
-                    numBags: '1',
+                    numBags: 1,
                     payment: '',
                     date: currDate,
                 }}
@@ -72,6 +67,7 @@ const OrderForm = (props) => {
                         .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid phone number')
                         .required('Required'),
                     numBags: Yup.number()
+                        .typeError('Amount must be a number')
                         .integer("Invalid number of bags")
                         .max(location.stock, "Maximum amount available is " + location.stock + ".")
                         .min(1, "Minimum 1")
@@ -84,7 +80,9 @@ const OrderForm = (props) => {
                 // Form submission event.
                 // it is asinine that this works :o
                 onSubmit={onSubmit}
-            >
+            >{({
+                values,
+              }) => (
                 <Form>
                     <MyTextInput
                         //NAME ENTRY
@@ -129,14 +127,14 @@ const OrderForm = (props) => {
                         label="Number of Bags: "
                         name="numBags"
                         type="number"
-                        placeholder="1"
-                        value={numBags}
-                        onChange={(event) => updateOrder(event.target.value)}
+                        placeholder='1'
                     />
                     <p>
-                        <b>Order Total: ${orderTotal}</b>
+                        <b>Order Total: ${values.numBags * price}</b>
                         <br></br>
                         The quantity of wood in each bag is xxx pounds approx.
+                        <br></br>
+                        <i>Note tax is not included in the listed price</i>
                     </p>
                     <br></br><br></br>
                     <div class="payy">
@@ -156,6 +154,7 @@ const OrderForm = (props) => {
                     <br></br><br></br>
                     <button type="submit">Submit</button>
                 </Form>
+              )}
             </Formik>
             <br />
         </div>
