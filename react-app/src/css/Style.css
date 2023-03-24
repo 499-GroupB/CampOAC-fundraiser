@@ -340,7 +340,7 @@ a:visited {
 
 #caption {
     margin: auto;
-    display: block;
+    display: flex;
     max-width: 90%;
     text-align: center;
     color: white;
@@ -365,20 +365,32 @@ a:visited {
     }
 }
 
-.close {
+#close {
     position: absolute;
-    z-index: 32;
     top: 1%;
     right: 3%;
-    color: white;
     font-size: 10vh;
+}
+
+#imageleft {
+    flex: 1;
+    font-size: 5vh;
+}
+#imageright {
+    flex: 1;
+    font-size: 5vh;
+}
+
+.imagesymbols {
+    z-index: 32;
+    color: white;
     font-weight: bold;
     transition: 0.3s;
     text-shadow: 0.6vh 0.6vh #2c4356;
 }
 
-.close:hover,
-.close:focus {
+.imagesymbols:hover,
+.imagesymbols:focus {
     color: darkgray;
     text-decoration: none;
     cursor: pointer;
