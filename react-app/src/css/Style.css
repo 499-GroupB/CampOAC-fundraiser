@@ -143,9 +143,12 @@ button:hover {
     color: white;
     text-align: center;
     padding: 5vh 0;
-    display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.widefoot {
+    display: flex;
 }
 
 .bottomlogos {
@@ -155,6 +158,17 @@ button:hover {
 .logo {
     height: 12vw;
     padding: 1vw;
+}
+
+.logo2 {
+    max-height: 30vh;
+    height: 35vw;
+    padding: 2vw;
+    margin-top: 5vw;
+}
+
+#lowerlogos {
+    display: none;
 }
 
 #footerText {
@@ -442,7 +456,17 @@ a:visited {
         margin-right: 28vw;
     }
 
+    #campoac1 {
+        display: none;
+    }
 
+    #rotary1 {
+        display: none;
+    }
+
+    #lowerlogos {
+        display: flex;
+    }
 }
 
 .squareForm {
