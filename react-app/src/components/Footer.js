@@ -34,7 +34,6 @@ const Footer = () => {
                     <a href="https://portal.clubrunner.ca/824"><img class="logo2" src="officialclublogo_rotary.png"></img></a>
                 </div>
             </div>
-
         </footer>
     );
 }
