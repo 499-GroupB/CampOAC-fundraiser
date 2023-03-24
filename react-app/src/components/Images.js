@@ -73,9 +73,9 @@ const Images = () => {
         <span id="close" class="imagesymbols" onClick={() => close()}>&times;</span>
         <img class="modal-content" id="img01"/>
         <div id="caption">
-          <span id="imageleft" class="imagesymbols" onClick={() => changeimage(curimage, true)}>&lt;</span>
+          <span class="imagesymbols moveimages" onClick={() => changeimage(curimage, true)}>&lt;</span>
           <span id="truecaption"/>
-          <span id="imageright" class="imagesymbols" onClick={() => changeimage(curimage, false)}>&gt;</span>
+          <span class="imagesymbols moveimages" onClick={() => changeimage(curimage, false)}>&gt;</span>
         </div>
       </div>
     </>
