@@ -393,6 +393,10 @@ a:visited {
     cursor: default;
 }
 
+.rounded {
+    border-radius: 2vh;
+}
+
 .row::after {
     content: "";
     clear: both;
