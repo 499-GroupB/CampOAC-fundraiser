@@ -16,6 +16,8 @@ const Admin = () => {
     const [admins, getAdmins] = useState('');
     const [adminUser, setAdminUser] = useState({});
 
+    const [showScroll, setShowScroll] = useState(false);
+
     const [locationHide, setLocationHide] = useState(false);
     const [adminHide, setAdminHide] = useState(false);
     const [orderHide, setOrderHide] = useState(false);
@@ -52,8 +54,14 @@ const Admin = () => {
             setAdminUser({});
         }
 
-        console.log("is logged in: " + isLoggedIn);
-        console.log("Admin user: " + adminUser);
+        const scrollVisibility = () => {
+            window.pageYOffset > 300 ? setShowScroll(true) : setShowScroll(false);
+        }
+
+        window.addEventListener('scroll', scrollVisibility);
+        return () => {
+            window.removeEventListener('scroll', scrollVisibility);
+        }
 
     }, [])
 
@@ -139,6 +147,10 @@ const Admin = () => {
         setAdminUser({});
     }
 
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     if (loginState == 1 || loginState == 2) {
         if (adminUser.isSuper) {
             return (
@@ -166,6 +178,9 @@ const Admin = () => {
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
+                    {showScroll && (
+                        <button onClick={scrollToTop} id="top">Scroll to top</button>
+                    )}
                 </div>
             );
         } else {
@@ -189,6 +204,9 @@ const Admin = () => {
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
+                    {showScroll && (
+                        <button onClick={scrollToTop} id="top">Scroll to top</button>
+                    )}
                 </div>
             )
         }
