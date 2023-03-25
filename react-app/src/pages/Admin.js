@@ -8,6 +8,8 @@ import LocationView from "../components/LocationView";
 import "../css/Style.css";
 import LoginForm from '../components/LoginForm';
 import AdminView from '../components/AdminView';
+import AddAdmin from '../components/AddAdmin';
+import AddLocation from '../components/AddLocation';
 
 const Admin = () => {
     const [loginState, setLoginState] = useState('');
@@ -16,9 +18,14 @@ const Admin = () => {
     const [admins, getAdmins] = useState('');
     const [adminUser, setAdminUser] = useState({});
 
+    const [showScroll, setShowScroll] = useState(false);
+
     const [locationHide, setLocationHide] = useState(false);
     const [adminHide, setAdminHide] = useState(false);
     const [orderHide, setOrderHide] = useState(false);
+
+    const [showAddAdmin, setShowAddAdmin] = useState(false);
+    const [showAddLocation, setShowAddLocation] = useState(false);
 
     const orderApi = `${process.env.REACT_APP_BACKEND_URL}/order/list`;
     const locationsApi = `${process.env.REACT_APP_BACKEND_URL}/location/list`;
@@ -52,8 +59,14 @@ const Admin = () => {
             setAdminUser({});
         }
 
-        console.log("is logged in: " + isLoggedIn);
-        console.log("Admin user: " + adminUser);
+        const scrollVisibility = () => {
+            window.pageYOffset > 300 ? setShowScroll(true) : setShowScroll(false);
+        }
+
+        window.addEventListener('scroll', scrollVisibility);
+        return () => {
+            window.removeEventListener('scroll', scrollVisibility);
+        }
 
     }, [])
 
@@ -132,11 +145,18 @@ const Admin = () => {
     const toggleAdmins = () => { setAdminHide(!adminHide) }
     const toggleOrders = () => { setOrderHide(!orderHide) }
 
+    const toggleShowAddAdmin = () => { setShowAddAdmin(!showAddAdmin)}
+    const toggleShowAddLocation = () => { setShowAddLocation(!showAddLocation)}
+
     const logout = () => {
         sessionStorage.setItem("isLoggedIn", "false");
         sessionStorage.setItem("adminUser", {})
         setLoginState(0);
         setAdminUser({});
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     if (loginState == 1 || loginState == 2) {
@@ -152,13 +172,17 @@ const Admin = () => {
                         <span class="dashboard-items">
                             <h1>locations and stock |</h1>
                             <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
+                            <button onClick={toggleShowAddLocation}>{showAddLocation ? "Close" : "Add location"}</button>
                         </span >
                         {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
+                        {showAddLocation ? <AddLocation></AddLocation> : null}
                         <span class="dashboard-items">
                             <h1>administrative users |</h1>
                             <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
+                            <button onClick={toggleShowAddAdmin}>{showAddAdmin ? "Close" : "Add Admin"}</button>
                         </span>
-                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins} /></div> : null}
+                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins}/></div> : null}
+                        {showAddAdmin ? <AddAdmin></AddAdmin> : null} 
                         <span class="dashboard-items">
                             <h1>orders |</h1>
                             <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
@@ -166,6 +190,9 @@ const Admin = () => {
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
+                    {showScroll && (
+                        <button onClick={scrollToTop} id="top">Scroll to top</button>
+                    )}
                 </div>
             );
         } else {
@@ -189,6 +216,9 @@ const Admin = () => {
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
+                    {showScroll && (
+                        <button onClick={scrollToTop} id="top">Scroll to top</button>
+                    )}
                 </div>
             )
         }
