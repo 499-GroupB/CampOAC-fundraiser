@@ -1,23 +1,14 @@
 module.exports = ({ firstName, lastName, phone, pickUp, numBags, payment, date, _id, orderTotal }) => {
+    var adminPhone;
+    var adminName;
+    var address = 'temp';
+    Location.findOne({ name: pickUp}, 'contact adminId', (err, location) =>{ //add address field once implemented in location model
+        adminPhone = location.contact;
+        Admin.findbyId(location.adminId, 'firstName lastName', (err, admin) =>{
+            adminName = admin.firstName+' '+admin.lastName;
+        });
+    });
     
-    var address;
-    var adminName = 'temp';
-    var adminPhone = 'temp'; 
-    
-    switch(pickUp){
-        case 'north': 
-            address = 'North Address';
-            break;
-        case 'east':
-            address = 'East Address';
-            break;
-        case 'south':
-            address = 'South Address';
-            break;
-        case 'west':
-            address = 'West Address';
-            break;
-    }
     return `
         <!doctype html>
         <html>
