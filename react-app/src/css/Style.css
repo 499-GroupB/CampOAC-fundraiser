@@ -505,3 +505,14 @@ input[type=radio] {
     justify-items: center;
     align-content: space-between;
 }
+
+#top {
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 25%;
+    margin-bottom: 12px;
+  }
