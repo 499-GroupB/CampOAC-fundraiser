@@ -170,28 +170,32 @@ const Admin = () => {
                     <br></br>
                     <div className="dashboard">
                         <span class="dashboard-items">
-                            <h1>locations and stock |</h1>
+                            <h1>locations and stock <span class="desktopAdmin">|</span></h1>
                             <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
                             <button onClick={toggleShowAddLocation}>{showAddLocation ? "Close" : "Add location"}</button>
                         </span >
-                        {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={true} /></div> : null}
+                        <div className="location-wrapper">
                         {showAddLocation ? <AddLocation></AddLocation> : null}
+                        {locationHide ? <LocationView locations={locations} admins={admins} canEdit={true} /> : null}
+                        </div>
                         <span class="dashboard-items">
-                            <h1>administrative users |</h1>
+                            <h1>administrative users <span class="desktopAdmin">|</span></h1>
                             <button onClick={toggleAdmins}>{adminHide ? "Hide Users" : "Show Users"}</button>
                             <button onClick={toggleShowAddAdmin}>{showAddAdmin ? "Close" : "Add Admin"}</button>
                         </span>
-                        {adminHide ? <div className="admin-wrapper"><AdminView admins={admins}/></div> : null}
-                        {showAddAdmin ? <AddAdmin></AddAdmin> : null} 
+                        <div className="admin-wrapper">
+                        {showAddAdmin ? <AddAdmin></AddAdmin> : null}
+                        {adminHide ? <AdminView admins={admins}/> : null}
+                        </div>
                         <span class="dashboard-items">
-                            <h1>orders |</h1>
+                            <h1>orders <span class="desktopAdmin">|</span></h1>
                             <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
                         </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}
                     </div>
                     <br></br>
                     {showScroll && (
-                        <button onClick={scrollToTop} id="top">Scroll to top</button>
+                        <button onClick={scrollToTop} class="top rounded">Scroll to top</button>
                     )}
                 </div>
             );
@@ -205,12 +209,12 @@ const Admin = () => {
                     <br></br>
                     <div className="dashboard">
                         <span class="dashboard-items">
-                            <h1>locations and stock |</h1>
+                            <h1>locations and stock <span class="desktopAdmin">|</span></h1>
                             <button onClick={toggleLocations}>{locationHide ? "Hide Locations" : "Show Locations"}</button>
                         </span >
                         {locationHide ? <div className="location-wrapper"><LocationView locations={locations} admins={admins} canEdit={false} /></div> : null}
                         <span class="dashboard-items">
-                            <h1>orders |</h1>
+                            <h1>orders <span class="desktopAdmin">|</span></h1>
                             <button onClick={toggleOrders}>{orderHide ? "Hide Orders" : "Show Orders"}</button>
                         </span>
                         {orderHide ? <div className="order-wrapper"><OrderView orders={orders} /></div> : null}

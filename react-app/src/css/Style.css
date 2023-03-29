@@ -63,7 +63,6 @@ p {
 label {
     width: 10%;
     display: inline-block;
-    padding: 1%;
 }
 
 #form {
@@ -79,19 +78,21 @@ label {
     border-bottom: 0.4vh solid gray;
     border-radius: 0.6vh;
     padding: 1.4vh 3vh;
-    margin: 3.5vh;
+    margin: 2.5vh 0vh 2.5vh 5vh;
     font-size: 2.5vh;
     font-family: "Roboto";
 }
 
 .select-input {
     width: 50vh;
+    max-width: 60%;
     padding: 1vh;
     border: none;
     border-radius: 1vh;
     background-color: #f1f1f1;
-    margin: 2.5vh 4vh;
+    margin: 2.5vh 0vh 2.5vh 5vh;
     font-size: 2.5vh;
+    font-family: "Roboto";
 }
 
 button {
@@ -189,7 +190,7 @@ button:hover {
     margin-bottom: 2vh;
 }
 
-.location-wrapper {
+.location-wrapper, .admin-wrapper {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -198,27 +199,12 @@ button:hover {
     margin-bottom: 4vh;
 }
 
-.location {
-    padding: 2vh;
+.location, .admin {
+    padding: 2vh 0vh;
     margin: 1vh;
     border-radius: 4vh;
     border: 0.4vh solid #2c4356;
-}
-
-.admin-wrapper {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-bottom: 4vh;
-}
-
-.admin {
-    padding: 2vh;
-    margin: 1vh;
-    border-radius: 4vh;
-    border: 0.4vh solid #2c4356;
+    max-width: 100%;
 }
 
 .admin-header {
@@ -479,6 +465,14 @@ a:visited {
     #lowerlogos {
         display: flex;
     }
+
+    .desktopAdmin {
+        display: none;
+    }
+
+    .dashboard-items {
+        display: block;
+    }
 }
 
 .squareForm {
@@ -506,13 +500,15 @@ input[type=radio] {
     align-content: space-between;
 }
 
-#top {
+.top {
+    background-color: #926d4c;
     position: fixed;
-    bottom: 0;
+    top: 1vh;
     z-index: 9999;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 25%;
-    margin-bottom: 12px;
-  }
+    right: 1vh;
+    width: 30vh;
+}
+
+.top:hover {
+    background-color: #644c37;
+}
