@@ -288,3 +288,18 @@ Team Meeting Minutes
 - Discussed about the issues from peer testing 2
 
 - Discussed about peer testing 2 report
+
+
+
+<hr>
+
+<h3>
+<b>
+2023/03/26 14:00-14:30 (everyone attended)
+</h3>
+</b>
+
+- Weekly scrum meeting
+
+- Discussed about further implementations
+
