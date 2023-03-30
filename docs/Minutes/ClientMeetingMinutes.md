@@ -1,12 +1,7 @@
-<h1 align="center">
-Client Meeting Minutes
-</h1>
 
-<h3>
-<b>
-20/09/2022 14:00-14:20
-</b>
-</h3>
+# Client Meeting Minutes
+
+### **20/09/2022 14:00-14:20**
 
 - Introductions
 
@@ -14,25 +9,17 @@ Client Meeting Minutes
 
 - Set a weekly meeting time
 
-<hr>
+---
 
-<h3>
-<b>
-26/09/2022 14:00-14:15
-</b>
-</h3>
+### **26/09/2022 14:00-14:15**
 
 - Additional information on requirements
 
 - Follow-up inquiries
 
-<hr>
+---
 
-<h3>
-<b>
-17/10/2022 14:00-14:15
-</h3>
-</b>
+### **17/10/2022 14:00-14:15**
 
 - Additional information on how to handle cash purchases
 
@@ -40,13 +27,9 @@ Client Meeting Minutes
 
 - Modified meeting schedule
 
-<hr>
+---
 
-<h3>
-<b>
-28/11/2022 14:00-14:45
-</h3>
-</b>
+### **28/11/2022 14:00-14:45**
 
 - All teams demonstrated their current prototype builds
 
@@ -54,13 +37,9 @@ Client Meeting Minutes
 
 - Discussion of future development direction
 
-<hr>
+---
 
-<h3>
-<b>
-28/11/2022 14:30-15:00
-</h3>
-</b>
+### **28/11/2022 14:30-15:00**
 
 - Talked about further requirements
 
@@ -71,25 +50,17 @@ Client Meeting Minutes
 
 - Scheduled a time for in-person meeting
 
-<hr>
+---
 
-<h3>
-<b>
-06/02/2023 14:30-15:45
-</h3>
-</b>
+### **06/02/2023 14:30-15:45**
 
 - In-person demo
 
 - Acquired feedback
 
-<hr>
+---
 
-<h3>
-<b>
-20/03/2023 14:30-15:30
-</h3>
-</b>
+### **20/03/2023 14:30-15:30**
 
 - Demonstrating where we are in the project
 
