@@ -6,7 +6,7 @@ import '../css/Nav.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/"><p id="logo"><img id="topleftlogo" src="RotaryWhite.png"></img>&nbsp;camp oac <b>&times;</b> rotary club firewood</p></Link>
+      <Link to="/"><p id="logo"><img class="topleftlogo tllshown" src="RotaryWhite.png"/><img class="topleftlogo tllhide" src="RotatingRotary.gif"/>&nbsp;camp oac <b>&times;</b> rotary club firewood</p></Link>
       <Burger />
     </nav>
   )
