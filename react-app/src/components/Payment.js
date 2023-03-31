@@ -28,7 +28,7 @@ export default function Payment(props) {
     switch (state) {
         case (-1):
             return (
-                <h1>Something wen't tragically wrong</h1>
+                <h1>something went tragically wrong</h1>
             )
         case (0):
             return (
@@ -78,13 +78,13 @@ export default function Payment(props) {
         case (1):
             return (
                 <>
-                <h1>Success, we've recieved your payment</h1>
-                <Link id="orderbtn" to="/"><button>Return Home</button></Link>
+                <h1>payment has been recieved</h1>
+                <Link id="orderbtn" to="/"><button class="rounded">Return Home</button></Link>
                 </>
             )
         default:
             return (
-                <h1>I honestly don't know why I'm here</h1>
+                <h1>something went wrong</h1>
             )
     }
 }
