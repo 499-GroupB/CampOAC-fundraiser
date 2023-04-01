@@ -295,6 +295,12 @@ a:visited {
     column-gap: 50;
 }
 
+.sms {
+    display: flex;
+    justify-content: center;
+    column-gap: 50;
+}
+
 .modal {
     display: none;
     position: fixed;

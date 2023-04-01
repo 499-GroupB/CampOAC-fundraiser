@@ -72,6 +72,9 @@ const OrderForm = (props) => {
                         .max(location.stock, "Maximum amount available is " + location.stock + ".")
                         .min(1, "Minimum 1")
                         .required('Required'),
+                    sms: Yup.string()
+                        .oneOf(['true', 'false'], 'You must select a notification option')
+                        .required('Required'),
                     payment: Yup.string()
                         .oneOf(['credit', 'cash'], 'You must select a payment option')
                         .required('Required'),
@@ -116,14 +119,22 @@ const OrderForm = (props) => {
                         placeholder="123-123-1234"
                     />
                     <br></br>
-
-                    <MyRadio name="sms" value="isSMS">
-                        &nbsp;Check to receive invoice by SMS messaging
-                    </MyRadio>
                     <br></br>
-
+                    <div class="sms">
+                    <div>
+                        <MyRadio name="sms" value="true">
+                            &nbsp;SMS notifications
+                        </MyRadio>
+                    </div>
+                    <div>
+                        <MyRadio name="sms" value="false">
+                            &nbsp;Only email notifications
+                        </MyRadio>
+                    </div>
+                    </div>
+                    <br></br>
                     <MyTextInput
-                        //BAG NUMBER SELECTION 
+                        //BAG NUMBER SELECTION  
                         label="Number of Bags: "
                         name="numBags"
                         type="number"

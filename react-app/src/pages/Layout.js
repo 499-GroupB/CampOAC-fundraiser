@@ -5,7 +5,6 @@
 import Navbar from '../components/Nav.js';
 import Footer from '../components/Footer.js';
 import { Outlet } from "react-router-dom";
-import collection from 'easter-egg-collection'
 
 const Layout = () => {
 
