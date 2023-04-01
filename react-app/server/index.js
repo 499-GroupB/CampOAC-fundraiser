@@ -16,8 +16,7 @@ const Order = require('./models/order');
 const Location = require('./models/location');
 const Admin = require('./models/admin');
 const auth = require('./credentials');
-//const smsAuth = require('./smsCredentials');
-//const emailAuth = require('./emailCredentials');
+
 
 
 const invoiceTemplate = require('./models/invoiceTemplate');
@@ -38,14 +37,14 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //SMS Auth Info
-/*const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const sms_client = require('twilio')(accountSid, authToken);*/
+const sms_client = require('twilio')(accountSid, authToken);
 
 
 
 // intialize reusable transporter for sending client invoices
-/*const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
@@ -57,7 +56,7 @@ const sms_client = require('twilio')(accountSid, authToken);*/
       refreshToken: process.env.GMAIL_REFRESH_TOKEN,
       accessToken: process.env.GMAIL_ACCESS_TOKEN,
     },
-});*/
+});
 
 // Express Middleware
 // Use JSON to be able to parse POST requests from form submissions
@@ -76,18 +75,18 @@ app.post("/order/submit", (req, res) => {
     // If succesful (Code 200))
     .then(item => {
       if (req.body.sms == 'isSMS') {
-        /*sms_client.messages
+        sms_client.messages
           .create({
           body: smsTemplate(item),
           from: +16693483413,
           to: req.body.phone,
         })
-        .then(message => console.log(message.sid));*/
+        .then(message => console.log(message.sid));
       }
       
 
       //Email invoice pdf
-      /*var mailOptions = {
+      var mailOptions = {
         from: '"OACGroupB" <capstone499.groupb@gmail.com>',
         to: req.body.email,
         subject: 'Firewood Invoice',
@@ -100,28 +99,28 @@ app.post("/order/submit", (req, res) => {
         } else {
           console.log('Email sent: ' + info.response);
         }
-      });*/
+      });
 
       // Update stock based on new order
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
-          // Location.findOne({ name: item.pickUp}, "stock", (err, stock) =>{
-          //   if (err) return handleError(err);
-          //   if(stock.toObject()<=10){
-          //     Admin.find("phone", (err, phones) =>{
-          //       if (err) return handleError(err);
-          //       for(phone in phones){
-          //         client.messages.create({
-          //           body: `Low stock alert. Only ${stock} bags remain at ${item.pickUp}`,
-          //           from: +16693483413,
-          //           to: phone.toObject(),
-          //         })
-          //         .then(message => console.log(message.sid));
-          //       };
-          //     });
-          //   };
-          // });
+          Location.findOne({ name: item.pickUp}, "stock", (err, stock) =>{
+            if (err) return handleError(err);
+            if(stock.toObject()<=10){
+              Admin.find("phone", (err, phones) =>{
+                if (err) return handleError(err);
+                for(phone in phones){
+                  client.messages.create({
+                    body: `Low stock alert. Only ${stock} bags remain at ${item.pickUp}`,
+                    from: +16693483413,
+                    to: phone.toObject(),
+                  })
+                  .then(message => console.log(message.sid));
+                };
+              });
+            };
+          });
         })
         .catch(err => {
           console.log("undable to modify stock on location")
