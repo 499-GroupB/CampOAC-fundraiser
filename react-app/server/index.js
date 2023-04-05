@@ -78,7 +78,7 @@ app.post("/order/submit", (req, res) => {
         sms_client.messages
           .create({
           body: smsTemplate(item),
-          from: +16693483413,
+          from: '+16693483413',
           to: req.body.phone,
         })
         .then(message => console.log(message.sid));
@@ -90,7 +90,7 @@ app.post("/order/submit", (req, res) => {
         from: '"OACGroupB" <capstone499.groupb@gmail.com>',
         to: req.body.email,
         subject: 'Firewood Invoice',
-        html: {invoiceTemplate(item)}
+        html: invoiceTemplate(item)
       };
   
       let info = transporter.sendMail(mailOptions, function(error, info){
