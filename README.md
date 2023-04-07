@@ -22,8 +22,6 @@ Sai Rohith Enumala
 
 ## About
 
- 🚧 **Under Construction** 🚧 <br />
-
 We are developing a mobile-friendly website to help the general public obtain
 campfire wood. The user will select the location (from a list of available locations)
 and the desired number of bags of firewood on the website. Then, they will receive an email
@@ -34,7 +32,7 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 
 ## TO DO
 
-## Tech Stack
+### Tech Stack
 
 **Backend**
 | NAME | LATEST VERSION | PURPOSE |
@@ -55,7 +53,7 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 | React-dom | [18.0.2](https://www.npmjs.com/package/react-dom) | Rendering the website |
 | Square Web Payments SDK | [3.23](https://github.com/square/web-payments-quickstart) | Client side payment information handling |
 
-## Status
+### Status
 
 | Milestone | Requirements | Status|
 |--|--|--|
