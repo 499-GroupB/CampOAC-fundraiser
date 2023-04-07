@@ -1,7 +1,7 @@
 
 # Team Meeting Minutes
 
-### **2022/09/18 16:00-17:00 (everyone attended)**
+### **2022/09/18  16:00-17:00 (everyone attended)**
 
 - Client meeting scheduled
 
@@ -13,7 +13,7 @@
   
 ---
 
-### **2022/09/25 14:40-16:30 (everyone attended)**
+### **2022/09/25  14:40-16:30 (everyone attended)**
 
 - Breakdown of Requirements
 
@@ -43,7 +43,7 @@
 
 ---
 
-### **2022/10/09 14:00-15:00 (Michael did not attend)**
+### **2022/10/09  14:00-15:00 (Michael did not attend)**
 
 - Worked on the requirements presentation (slides)
 
@@ -210,3 +210,15 @@
 - Weekly scrum meeting
 
 - Discussed about further implementations
+
+### **2023/04/04 14:00-14:30 (everyone attended)**
+
+- Weekly scrum meeting
+
+- Discussed about further implementations
+
+- Discussed about final report
+
+- Discussed about slides
+
+- Discussed about final presentation
