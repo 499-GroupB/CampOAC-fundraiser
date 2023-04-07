@@ -1,7 +1,7 @@
 
 # Team Meeting Minutes
 
- ### **2022/09/18  16:00-17:00 (everyone attended)**
+### **2022/09/18  16:00-17:00 (everyone attended)**
 
 - Client meeting scheduled
 
@@ -13,7 +13,7 @@
   
 ---
 
- ### **2022/09/25  14:40-16:30 (everyone attended)**
+### **2022/09/25  14:40-16:30 (everyone attended)**
 
 - Breakdown of Requirements
 
@@ -23,7 +23,7 @@
   
 ---
 
- ### **2022/09/30  11:00-11:30  (everyone attended)**
+### **2022/09/30  11:00-11:30  (everyone attended)**
 
 - IP Agreement discussions
 
@@ -35,7 +35,7 @@
   
 ---
 
- ### **2022/10/02  14:00-15:00  (everyone attended)**
+### **2022/10/02  14:00-15:00  (everyone attended)**
 
 - Discussed a tentative timeline
 
@@ -43,13 +43,13 @@
 
 ---
 
- ### **2022/10/09  14:00-15:00 (Michael did not attend)**
+### **2022/10/09  14:00-15:00 (Michael did not attend)**
 
 - Worked on the requirements presentation (slides)
 
 ---
 
- ### **2022/10/11  17:15-17:45  (everyone attended)**
+### **2022/10/11  17:15-17:45  (everyone attended)**
 
 - Finalized requirements presentation slides
 
@@ -57,7 +57,7 @@
 
 ---
 
- ### **2022/10/23 14:00-15:00 (everyone attended)**
+### **2022/10/23 14:00-15:00 (everyone attended)**
 
 - Cleaned up the repository
 
@@ -69,7 +69,7 @@
 
 ---
 
- ### **2022/10/30 14:00-15:15 (everyone attended)**
+### **2022/10/30 14:00-15:15 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -83,7 +83,7 @@
 
 ---
 
- ### **2022/11/06 12:00-12:30 (everyone attended)**
+### **2022/11/06 12:00-12:30 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -93,7 +93,7 @@
 
 ---
 
- ### **2022/11/12 14:00-15:00 (everyone attended)**
+### **2022/11/12 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -103,7 +103,7 @@
 
 ---
 
- ### **2022/11/20 14:00-15:00 (everyone attended)**
+### **2022/11/20 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -113,7 +113,7 @@
 
 ---
 
- ### **2022/11/27 14:00-15:00 (everyone attended)**
+### **2022/11/27 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -121,7 +121,7 @@
 
 ---
 
- ### **2023/01/15 14:00-15:00 (everyone attended)**
+### **2023/01/15 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -131,7 +131,7 @@
 
 ---
 
- ### **2023/01/22 14:00-15:00 (everyone attended)**
+### **2023/01/22 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -143,7 +143,7 @@
 
 ---
 
- ### **2023/01/29 14:00-15:00 (everyone attended)**
+### **2023/01/29 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -153,7 +153,7 @@
 
 ---
 
- ### **2023/02/05 14:00-15:00 (everyone attended)**
+### **2023/02/05 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -161,7 +161,7 @@
 
 ---
 
- ### **2023/02/12 14:00-15:00 (everyone attended)**
+### **2023/02/12 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -169,7 +169,7 @@
 
 ---
 
- ### **2023/03/05 14:00-15:00 (everyone attended)**
+### **2023/03/05 14:00-15:00 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -179,13 +179,13 @@
 
 ---
 
- ### **2023/03/07 14:00-14:30 (everyone attended)**
+### **2023/03/07 14:00-14:30 (everyone attended)**
 
 - Worked on list of usability task 2
 
 ---
 
- ### **2023/03/12 14:00-14:30 (everyone attended)**
+### **2023/03/12 14:00-14:30 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -195,7 +195,7 @@
 
 ---
 
- ### **2023/03/19 14:00-14:30 (everyone attended)**
+### **2023/03/19 14:00-14:30 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -205,7 +205,7 @@
 
 ---
 
- ### **2023/03/26 14:00-14:30 (everyone attended)**
+### **2023/03/26 14:00-14:30 (everyone attended)**
 
 - Weekly scrum meeting
 
@@ -222,4 +222,3 @@
 - Discussed about slides
 
 - Discussed about final presentation
-
