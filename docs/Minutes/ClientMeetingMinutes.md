@@ -1,7 +1,7 @@
 
-# Client Meeting Minutes
+ # Client Meeting Minutes
 
-### **20/09/2022 - 14:00-14:20**
+ ### **20/09/2022  14:00-14:20**
 
 - Introductions
 
@@ -11,7 +11,7 @@
 
 ---
 
-### **26/09/2022 - 14:00-14:15**
+ ### **26/09/2022  14:00-14:15**
 
 - Additional information on requirements
 
@@ -19,7 +19,7 @@
 
 ---
 
-### **17/10/2022 - 14:00-14:15**
+ ### **17/10/2022  14:00-14:15**
 
 - Additional information on how to handle cash purchases
 
@@ -29,7 +29,7 @@
 
 ---
 
-### **28/11/2022 - 14:00-14:45**
+ ### **28/11/2022  14:00-14:45**
 
 - All teams demonstrated their current prototype builds
 
@@ -39,7 +39,7 @@
 
 ---
 
-### **28/11/2022 - 14:30-15:00**
+ ### **28/11/2022  14:30-15:00**
 
 - Talked about further requirements
 
@@ -52,7 +52,7 @@
 
 ---
 
-### **06/02/2023 - 14:30-15:45**
+ ### **06/02/2023  14:30-15:45**
 
 - In-person demo
 
@@ -60,7 +60,7 @@
 
 ---
 
-### **20/03/2023 - 14:30-15:30**
+ ### **20/03/2023  14:30-15:30**
 
 - Demonstrating where we are in the project
 
