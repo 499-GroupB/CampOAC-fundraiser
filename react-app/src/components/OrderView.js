@@ -1,7 +1,7 @@
 import "../css/Style.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 export default function OrderView(props) {
     const { orders } = props;
@@ -9,6 +9,35 @@ export default function OrderView(props) {
     const [orderState, setOrderState] = useState(orders);
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
+
+    useEffect(() => { 
+        var search = document.getElementById("orderSearch");
+        var table = document.getElementById("order-table");
+
+        search.addEventListener("keyup", function() {
+            // Declare variables
+            var filter = search.value.toLowerCase();
+            var rows = table.getElementsByTagName("tr");
+          
+            // Loop through all table rows, and hide those who don't match the search query
+            for (var i = 0; i < rows.length; i++) {
+              var id = rows[i].getElementsByTagName("td")[0];
+              var pickUp = rows[i].getElementsByTagName("td")[1];
+              var name = rows[i].getElementsByTagName("td")[2];
+              var email = rows[i].getElementsByTagName("td")[3];
+              var phone = rows[i].getElementsByTagName("td")[4];
+              var numBags = rows[i].getElementsByTagName("td")[5];
+              var date = rows[i].getElementsByTagName("td")[6];
+              if (name || pickUp || email || phone) {
+                if (name.innerHTML.toLowerCase().indexOf(filter) > -1 || pickUp.innerHTML.toLowerCase().indexOf(filter) > -1 || email.innerHTML.toLowerCase().indexOf(filter) > -1|| phone.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                  rows[i].style.display = "";
+                } else {
+                  rows[i].style.display = "none";
+                }
+              }
+            }
+          });
+    },[]);
 
     const deleteOrder = (orderId, index) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
@@ -103,6 +132,7 @@ export default function OrderView(props) {
     return (
         <>
             <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
+            <input class="text-input" name="orderSearch" type="text" id="orderSearch" placeholder="Search for values"></input>
             <table id="order-table">
                 <thead>
                     <tr>
