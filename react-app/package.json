@@ -27,6 +27,7 @@
     "react-square-web-payments-sdk": "^3.2.1",
     "square": "^25.1.0",
     "styled-components": "^5.3.6",
+    "twilio": "^4.10.0",
     "uuid4": "^2.0.3",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4",

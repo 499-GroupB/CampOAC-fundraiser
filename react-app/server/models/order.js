@@ -14,6 +14,7 @@ const OrderSchema = new Schema({
   numBags: { type: String, required: true, maxLength: 100 },
   payment: { type: String, required: true, maxLength: 100 },
   date: { type: String, required: false, maxLength: 100 },
+  fulfilled: {type: Boolean, required: true}
 });
 
 // Export model

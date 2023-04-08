@@ -27,7 +27,7 @@ const PORT = 3000;
 
 // Database configuration
 // Initalize mongoDB connection string for MongoDB Atlas
-const mongoDB = "mongodb+srv://" + auth + "@wooddb.m6hauwo.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://" + auth.mongo + "@wooddb.m6hauwo.mongodb.net/?retryWrites=true&w=majority";
 
 // Use mongoose to connect to the URL and pass parameters
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -37,9 +37,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //SMS Auth Info
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const sms_client = require('twilio')(accountSid, authToken);
+const sms_client = require('twilio')(auth.twilioSid, auth.twilioAuth);
 
 
 
@@ -51,10 +49,10 @@ const transporter = nodemailer.createTransport({
     auth: {
       type: "OAuth2",
       user: "capstone499.groupb@gmail.com",
-      clientId: process.env.GMAIL_CLIENT_ID,
-      clientSecret: process.env.GMAIL_CLIENT_SECRET,
-      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-      accessToken: process.env.GMAIL_ACCESS_TOKEN,
+      clientId: auth.gmailClientId,
+      clientSecret: auth.gmailClientSecret,
+      refreshToken: auth.gmailRefreshToken,
+      accessToken: auth.gmailAccessToken,
     },
 });
 
@@ -138,6 +136,20 @@ app.post("/order/submit", (req, res) => {
       res.status(400).send("Unable to save to database");
     });
 });
+
+app.post("/order/fulfill", (req, res) => {
+   // return all orders
+   console.log("Recieved order to fulfill");
+   console.log(req.body);
+    Order.findOneAndUpdate({ _id: req.body.data }, { fulfilled: true})
+    .then(() => {
+      console.log("succesfully found order");
+      res.status(200).send("Succesfully fulfilled order from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to fulfill order");
+    });
+})
 
 // Login Authentication
 // POST API endpoint
@@ -409,6 +421,15 @@ app.post("/admin/name", (req, res) => {
 app.post("/payment/pay", (req, res) => {
   console.log(req.body);
   console.log("paid");
+  // ORDER FULFILL
+  Order.findOneAndUpdate({ _id: req.body.orderId }, { fulfilled: true})
+    .then(() => {
+      console.log("succesfully found order");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to fulfill order");
+    });
+
   res.status(200).send({state: 1, msg: "Good job"})
 })
 

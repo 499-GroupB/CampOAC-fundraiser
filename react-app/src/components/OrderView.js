@@ -1,7 +1,13 @@
 import "../css/Style.css";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
+
+/*
+                            <td ><button type="submit" onClick={() => viewPayment(order._id)} >
+                                {order.payment}
+                            </button></td>
+*/
 
 export default function OrderView(props) {
     const { orders } = props;
@@ -9,6 +15,36 @@ export default function OrderView(props) {
     const [orderState, setOrderState] = useState(orders);
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
+    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/order/fulfill`
+
+    useEffect(() => { 
+        var search = document.getElementById("orderSearch");
+        var table = document.getElementById("order-table");
+
+        search.addEventListener("keyup", function() {
+            // Declare variables
+            var filter = search.value.toLowerCase();
+            var rows = table.getElementsByTagName("tr");
+          
+            // Loop through all table rows, and hide those who don't match the search query
+            for (var i = 0; i < rows.length; i++) {
+              var id = rows[i].getElementsByTagName("td")[0];
+              var pickUp = rows[i].getElementsByTagName("td")[1];
+              var name = rows[i].getElementsByTagName("td")[2];
+              var email = rows[i].getElementsByTagName("td")[3];
+              var phone = rows[i].getElementsByTagName("td")[4];
+              var numBags = rows[i].getElementsByTagName("td")[5];
+              var date = rows[i].getElementsByTagName("td")[6];
+              if (name || pickUp || email || phone) {
+                if (name.innerHTML.toLowerCase().indexOf(filter) > -1 || pickUp.innerHTML.toLowerCase().indexOf(filter) > -1 || email.innerHTML.toLowerCase().indexOf(filter) > -1|| phone.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                  rows[i].style.display = "";
+                } else {
+                  rows[i].style.display = "none";
+                }
+              }
+            }
+          });
+    },[]);
 
     const deleteOrder = (orderId, index) => {
         if (window.confirm("Are you sure you want to delete this order?")) {
@@ -23,6 +59,30 @@ export default function OrderView(props) {
                 .then(function (response) {
                     console.log(response);
                     delete props.orders[index]; //wtf.js
+                    var ordercopy = props.orders.slice();
+                    setOrderState(ordercopy);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+
+    const fulfillOrder = (orderId, index) => {
+        if (window.confirm("Are you sure you want to fulfill this order?")) {
+            axios.post(apiEnd2, { data: orderId },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    props.orders[index].fulfilled = true; //wtf.js
                     var ordercopy = props.orders.slice();
                     setOrderState(ordercopy);
                 })
@@ -74,7 +134,7 @@ export default function OrderView(props) {
             return (
                 orderState.map((order, index) => {
                     return (
-                        <tr>
+                        <tr class={order.fulfilled ? "order-fulfilled" : "order-unfulfilled"}>
                             <td>{order._id}</td>
                             <td>{order.pickUp}</td>
                             <td>{order.firstName} {order.lastName}</td>
@@ -82,13 +142,16 @@ export default function OrderView(props) {
                             <td>{order.phone}</td>
                             <td>{order.numBags}</td>
                             <td>{order.date}</td>
-                            <td ><button type="submit" onClick={() => viewPayment(order._id)} >
-                                {order.payment}
-                            </button></td>
-                            <td>
+                            <td>Type: {order.payment}</td>
+                            <td>{order.fulfilled ? "Paid" : "Unpaid"}</td>
+                            <td>{order.fulfilled ? 
                                 <button class="important" type="submit" onClick={() => deleteOrder(order._id, index)} >
-                                    Close order
+                                    Delete
+                                </button> :
+                                <button class="important" type="submit" onClick={() => fulfillOrder(order._id, index)}>
+                                    Complete
                                 </button>
+                            }    
                             </td>
                         </tr>
                     )
@@ -103,6 +166,7 @@ export default function OrderView(props) {
     return (
         <>
             <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
+            <input class="text-input" name="orderSearch" type="text" id="orderSearch" placeholder="Search for values"></input>
             <table id="order-table">
                 <thead>
                     <tr>
@@ -114,7 +178,8 @@ export default function OrderView(props) {
                         <th>Number ordered</th>
                         <th>Date Ordered</th>
                         <th>Payment Type</th>
-                        <th>Delete Order</th>
+                        <th>Status</th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
