@@ -409,9 +409,9 @@ a:visited {
     width: 100%;
 }
 
-#order-table tr:nth-child(even) {
+/*#order-table tr:nth-child(even) {
     background-color: #f2f2f2;
-}
+}*/
 
 #order-table th {
     padding: 2vh;
@@ -517,4 +517,12 @@ input[type=radio] {
 
 .top:hover {
     background-color: #644c37;
+}
+
+.order-fulfilled {
+    background-color: #7ab884;
+}
+
+.order-unfulfilled {
+    background-color: #df8484;
 }

@@ -42,7 +42,7 @@ export default function Payment(props) {
                         console.log('verifiedBuyer:', verifiedBuyer);
                         //
                         // call to payment api endpoint
-                        axios.post(apiEnd, { data: token.token },
+                        axios.post(apiEnd, { data: token.token, orderId: props.order._id },
                             {
                                 headers: {
                                     "Content-Type": "application/json",

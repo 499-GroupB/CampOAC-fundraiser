@@ -137,6 +137,20 @@ app.post("/order/submit", (req, res) => {
     });
 });
 
+app.post("/order/fulfill", (req, res) => {
+   // return all orders
+   console.log("Recieved order to fulfill");
+   console.log(req.body);
+    Order.findOneAndUpdate({ _id: req.body.data }, { fulfilled: true})
+    .then(() => {
+      console.log("succesfully found order");
+      res.status(200).send("Succesfully fulfilled order from database");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to fulfill order");
+    });
+})
+
 // Login Authentication
 // POST API endpoint
 app.post("/login/auth", (req, res) => {
@@ -407,6 +421,15 @@ app.post("/admin/name", (req, res) => {
 app.post("/payment/pay", (req, res) => {
   console.log(req.body);
   console.log("paid");
+  // ORDER FULFILL
+  Order.findOneAndUpdate({ _id: req.body.orderId }, { fulfilled: true})
+    .then(() => {
+      console.log("succesfully found order");
+    })
+    .catch(err => {
+      res.status(400).send("Unable to fulfill order");
+    });
+
   res.status(200).send({state: 1, msg: "Good job"})
 })
 

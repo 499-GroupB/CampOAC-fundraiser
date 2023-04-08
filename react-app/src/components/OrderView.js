@@ -3,12 +3,19 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 
+/*
+                            <td ><button type="submit" onClick={() => viewPayment(order._id)} >
+                                {order.payment}
+                            </button></td>
+*/
+
 export default function OrderView(props) {
     const { orders } = props;
     //const orderClone = orders.slice();
     const [orderState, setOrderState] = useState(orders);
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
+    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/order/fulfill`
 
     useEffect(() => { 
         var search = document.getElementById("orderSearch");
@@ -63,6 +70,30 @@ export default function OrderView(props) {
         }
     }
 
+    const fulfillOrder = (orderId, index) => {
+        if (window.confirm("Are you sure you want to fulfill this order?")) {
+            axios.post(apiEnd2, { data: orderId },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    props.orders[index].fulfilled = true; //wtf.js
+                    var ordercopy = props.orders.slice();
+                    setOrderState(ordercopy);
+                })
+                // Catching axios error
+                // Currently outputs to browser console (not  good)
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+
     const viewPayment = (orderId) => {
         console.log(orderId);
     }
@@ -103,7 +134,7 @@ export default function OrderView(props) {
             return (
                 orderState.map((order, index) => {
                     return (
-                        <tr>
+                        <tr class={order.fulfilled ? "order-fulfilled" : "order-unfulfilled"}>
                             <td>{order._id}</td>
                             <td>{order.pickUp}</td>
                             <td>{order.firstName} {order.lastName}</td>
@@ -111,13 +142,16 @@ export default function OrderView(props) {
                             <td>{order.phone}</td>
                             <td>{order.numBags}</td>
                             <td>{order.date}</td>
-                            <td ><button type="submit" onClick={() => viewPayment(order._id)} >
-                                {order.payment}
-                            </button></td>
-                            <td>
+                            <td>Type: {order.payment}</td>
+                            <td>{order.fulfilled ? "Paid" : "Unpaid"}</td>
+                            <td>{order.fulfilled ? 
                                 <button class="important" type="submit" onClick={() => deleteOrder(order._id, index)} >
-                                    Close order
+                                    Delete
+                                </button> :
+                                <button class="important" type="submit" onClick={() => fulfillOrder(order._id, index)}>
+                                    Complete
                                 </button>
+                            }    
                             </td>
                         </tr>
                     )
@@ -144,7 +178,8 @@ export default function OrderView(props) {
                         <th>Number ordered</th>
                         <th>Date Ordered</th>
                         <th>Payment Type</th>
-                        <th>Delete Order</th>
+                        <th>Status</th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
