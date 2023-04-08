@@ -72,7 +72,7 @@ app.post("/order/submit", (req, res) => {
   newOrder.save()
     // If succesful (Code 200))
     .then(item => {
-      if (req.body.sms == 'isSMS') {
+      /*if (req.body.sms == 'isSMS') {
         sms_client.messages
           .create({
           body: smsTemplate(item),
@@ -97,13 +97,13 @@ app.post("/order/submit", (req, res) => {
         } else {
           console.log('Email sent: ' + info.response);
         }
-      });
+      });*/
 
-      // Update stock based on new order
+      // Update stock based on new  order
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
           console.log("succesfully updated stock to reflect new order");
-          Location.findOne({ name: item.pickUp}, "stock", (err, stock) =>{
+          /*Location.findOne({ name: item.pickUp}, "stock", (err, stock) =>{
             if (err) return handleError(err);
             if(stock.toObject()<=10){
               Admin.find("phone", (err, phones) =>{
@@ -119,19 +119,20 @@ app.post("/order/submit", (req, res) => {
               });
             };
           });
-        })
+        })*/
+      })
         .catch(err => {
           console.log("undable to modify stock on location")
         });
-
+    //});
       // return new order id
       if(item.payment == 'credit'){
         res.status(200).send({newOrder: newOrder, payment: true})
       }else{
         res.status(200).send({newOrder: newOrder, payment: false});
       }
-    })
     // If something goes wrong (Code 400)
+    })
     .catch(err => {
       res.status(400).send("Unable to save to database");
     });
