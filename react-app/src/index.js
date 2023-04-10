@@ -14,6 +14,7 @@ import Order from "./pages/Order";
 import NoPage from "./pages/NoPage";
 import Admin from "./pages/Admin";
 import OrderInfo from "./pages/OrderInfo"
+import Contact from "./pages/Contact"
 
 //          <Route path="dashboard" element={<Admin />} />
 
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="order" element={<Order />} />
           <Route path="orderInfo" element={<OrderInfo />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="contact" element={<Contact/>} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

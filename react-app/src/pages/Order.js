@@ -103,7 +103,6 @@ const Order = (props) => {
           <img class="loading" src="loading.gif" />
           <br />
         </>
-        //<SquareForm />
       );
 
     case (4):
@@ -116,7 +115,9 @@ const Order = (props) => {
           <h3>Your order ID is {newOrder._id}.</h3>
 
           <h4>Your order details and receipt will be sent to your email.</h4>
+          <br></br>
           <Link id="orderbtn" to="/"><button>Return Home</button></Link>
+          <br></br>
         </>
       );
 
