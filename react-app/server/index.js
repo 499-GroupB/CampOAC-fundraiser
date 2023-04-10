@@ -250,9 +250,11 @@ app.post("/order/single", (req, res) => {
       res.status(200).send({ order: {}, msg: "No orders with that ID found" });
     } else {
       // check to verify email is correct
-      if (req.body.email == order.email) {
+      if (req.body.email) {
+        if(req.body.email == order.email){
         console.log("found order " + orderId);
         res.status(200).send({ order: order, msg: "Order found" });
+        }
       } else {
         console.log("Email did not match orderid entered")
         res.status(200).send({ order: {}, msg: "Incorrect credentials" });
@@ -278,15 +280,14 @@ app.get("/location/list", (req, res) => {
 app.post("/location/single", (req, res) => {
   // return single location
   let locationId = req.body.locationId
-  console.log(locationId);
+  console.log("Location ID: " + locationId);
   Location.findOne({ _id: locationId }).exec((err, location) => {
     if (err) {
       console.log("error finding location " + locationId)
       res.status(400).send("Unable to retrieve location");
-    } else {
-      console.log(location);
-      res.status(200).send(location);
     }
+    console.log(location);
+    res.status(200).send(location);
   })
 })
 
