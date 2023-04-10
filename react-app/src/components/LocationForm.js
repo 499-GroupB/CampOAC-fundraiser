@@ -46,7 +46,7 @@ export default function LocationForm(props) {
                                 onSubmit={onSubmit}
                             >
                                 <Form>
-                                    <button type="submit">Select Location</button>
+                                    {location.stock > 0 ? <button type="submit">Select Location</button> : <button disabled>Unavailable</button>}
                                 </Form>
                             </Formik>
                         </div>

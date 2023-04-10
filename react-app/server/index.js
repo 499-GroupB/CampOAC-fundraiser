@@ -3,12 +3,10 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
-
-const { Client, Environment } = require("square");
-const uuidv4 = require('uuidv4');
-
+const { Client, ApiError } = require("square");
+const { uuid } = require('uuidv4');
+const { randomUUID } = require("crypto");
 const pdf = require('html-pdf');
-
 const nodemailer = require("nodemailer");
 
 // local requisites
@@ -16,18 +14,20 @@ const Order = require('./models/order');
 const Location = require('./models/location');
 const Admin = require('./models/admin');
 const auth = require('./credentials');
-
-
-
 const invoiceTemplate = require('./models/invoiceTemplate');
 const smsTemplate = require('./models/smsInvoice');
+const smsClient = require('twilio')(auth.twilioSid, auth.twilioAuth);
 
 // conf
 const PORT = 3000;
-
-// Database configuration
-// Initalize mongoDB connection string for MongoDB Atlas
+// Database conf
 const mongoDB = "mongodb+srv://" + auth.mongo + "@wooddb.m6hauwo.mongodb.net/?retryWrites=true&w=majority";
+
+// Square payments api
+const { paymentsApi } = new Client({
+  accessToken: auth.squareToken,
+  environment: 'sandbox'
+});
 
 // Use mongoose to connect to the URL and pass parameters
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -36,25 +36,37 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-//SMS Auth Info
-const sms_client = require('twilio')(auth.twilioSid, auth.twilioAuth);
-
-
-
-// intialize reusable transporter for sending client invoices
-const transporter = nodemailer.createTransport({
+// Function to send mail
+async function sendMail(mailOptions) {
+  console.log("Attempting to send email ...")
+  transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
       type: "OAuth2",
-      user: "capstone499.groupb@gmail.com",
       clientId: auth.gmailClientId,
       clientSecret: auth.gmailClientSecret,
-      refreshToken: auth.gmailRefreshToken,
-      accessToken: auth.gmailAccessToken,
     },
-});
+  });
+  await transporter.sendMail(mailOptions, (err, info) => {
+    console.log(err);
+    console.log(info);
+  })
+  return null;
+}
+
+// function to send SMS
+function sendSMS(content, to) {
+  console.log("Attempting to send sms ...")
+  smsClient.messages
+    .create({ body: content, from: "+15076836220", to: to})
+    .then(message => console.log("Sent a message: " + message.sid))
+    .catch((error) => {
+      // twilio error
+      console.log(error);
+    })
+}
 
 // Express Middleware
 // Use JSON to be able to parse POST requests from form submissions
@@ -72,33 +84,28 @@ app.post("/order/submit", (req, res) => {
   newOrder.save()
     // If succesful (Code 200))
     .then(item => {
-      /*if (req.body.sms == 'isSMS') {
-        sms_client.messages
-          .create({
-          body: smsTemplate(item),
-          from: '+16693483413',
-          to: req.body.phone,
-        })
-        .then(message => console.log(message.sid));
-      }
-      
 
-      //Email invoice pdf
-      var mailOptions = {
-        from: '"OACGroupB" <capstone499.groupb@gmail.com>',
+      // sende email
+      let mailOptions = {
+        from: "Rotary x CampOAC Wood fundraiser",
         to: req.body.email,
-        subject: 'Firewood Invoice',
-        html: invoiceTemplate(item)
-      };
-  
-      let info = transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
+        subject: "Rotary x CampOAC Firewood Invoice",
+        text: "Thanks for your order, order id is: " + item._id,
+        auth: {
+          user: "capstone499.groupb@gmail.com",
+          refreshToken: auth.gmailRefreshToken,
+          accessToken: auth.gmailAccessToken,
+          expires: 1484314697598,
         }
-      });*/
+      }
+      sendMail(mailOptions);
 
+      // send sms
+      //if(item.sms === 'true'){
+        let message = "Thank you " + item.firstName + " " + item.lastName + " for your purchase of " + item.numBags + " bags of firewood on " + item.date + ".\n\nOrder number: " + item._id
+        sendSMS(message, item.phone);
+      //}
+    
       // Update stock based on new  order
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })
         .then(() => {
@@ -120,18 +127,18 @@ app.post("/order/submit", (req, res) => {
             };
           });
         })*/
-      })
+        })
         .catch(err => {
           console.log("undable to modify stock on location")
         });
-    //});
+      //});
       // return new order id
-      if(item.payment == 'credit'){
-        res.status(200).send({newOrder: newOrder, payment: true})
-      }else{
-        res.status(200).send({newOrder: newOrder, payment: false});
+      if (item.payment == 'credit') {
+        res.status(200).send({ newOrder: newOrder, payment: true })
+      } else {
+        res.status(200).send({ newOrder: newOrder, payment: false });
       }
-    // If something goes wrong (Code 400)
+      // If something goes wrong (Code 400)
     })
     .catch(err => {
       res.status(400).send("Unable to save to database");
@@ -139,10 +146,10 @@ app.post("/order/submit", (req, res) => {
 });
 
 app.post("/order/fulfill", (req, res) => {
-   // return all orders
-   console.log("Recieved order to fulfill");
-   console.log(req.body);
-    Order.findOneAndUpdate({ _id: req.body.data }, { fulfilled: true})
+  // return all orders
+  console.log("Recieved order to fulfill");
+  console.log(req.body);
+  Order.findOneAndUpdate({ _id: req.body.data }, { fulfilled: true })
     .then(() => {
       console.log("succesfully found order");
       res.status(200).send("Succesfully fulfilled order from database");
@@ -240,15 +247,15 @@ app.post("/order/single", (req, res) => {
   Order.findOne({ _id: orderId }).exec((err, order) => {
     if (err) {
       console.log("error finding order " + orderId)
-      res.status(200).send({order: {}, msg: "No orders with that ID found"});
+      res.status(200).send({ order: {}, msg: "No orders with that ID found" });
     } else {
       // check to verify email is correct
       if (req.body.email == order.email) {
         console.log("found order " + orderId);
-        res.status(200).send({order: order, msg: "Order found"});
+        res.status(200).send({ order: order, msg: "Order found" });
       } else {
         console.log("Email did not match orderid entered")
-        res.status(200).send({order: {}, msg: "Incorrect credentials"});
+        res.status(200).send({ order: {}, msg: "Incorrect credentials" });
       }
     }
   })
@@ -408,22 +415,31 @@ app.post("/admin/single", (req, res) => {
 app.post("/admin/name", (req, res) => {
   console.log(req.body);
   let adminId = req.body.adminId
-  Admin.findOne({_id: adminId}).exec((err, admin) => {
-    if(err) {
+  Admin.findOne({ _id: adminId }).exec((err, admin) => {
+    if (err) {
       console.log("error getting name from: " + adminId);
-      res.status(200).send({firstName: "unknown", lastName: "unknown"});
-    }else{
+      res.status(200).send({ firstName: "unknown", lastName: "unknown" });
+    } else {
       //console.log("Recieved name: " + admin.firstName + " " + admin.lastName);
-      res.status(200).send({firstName: /*admin.firstName*/"unknown", lastName: "unknown"/*admin.lastName*/});
+      res.status(200).send({ firstName: /*admin.firstName*/"unknown", lastName: "unknown"/*admin.lastName*/ });
     }
   });
 })
 
-app.post("/payment/pay", (req, res) => {
-  console.log(req.body);
+// SQUARE API END point
+app.post("/payment/pay", async (req, res) => {
+  const { result } = await paymentsApi.createPayment({
+    idempotencyKey: uuid(),
+    sourceId: req.body.data,
+    amountMoney: {
+      currency: 'CAD',
+      amount: req.body.orderTotal
+    }
+  })
+  console.log(result);
   console.log("paid");
   // ORDER FULFILL
-  Order.findOneAndUpdate({ _id: req.body.orderId }, { fulfilled: true})
+  Order.findOneAndUpdate({ _id: req.body.orderId }, { fulfilled: true })
     .then(() => {
       console.log("succesfully found order");
     })
@@ -431,29 +447,8 @@ app.post("/payment/pay", (req, res) => {
       res.status(400).send("Unable to fulfill order");
     });
 
-  res.status(200).send({state: 1, msg: "Good job"})
+  res.status(200).send({ state: 1, msg: "Good job" })
 })
-
-
-// Square Payments
-const { paymentsApi } = new Client({
-  accessToken: process.env.SQUARE_ACCESS_TOKEN,
-  environment: 'sandbox'
-});
-// POST API endpoint
-app.post("/square/pay", async (request, reply) => {
-  let body = request.body;
-  body.idempotencyKey = uuidv4();
-  body.amountMoney = {
-      amount: 100,
-      currency: 'CAD',
-  };
-  let paymentResponse = paymentsApi.createPayment(body);
-  paymentResponse.then((response) => {
-      console.log(response)
-      reply.send(response)
-  })
-});
 
 
 

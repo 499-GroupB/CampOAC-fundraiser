@@ -112,6 +112,7 @@ export default function LocationView(props) {
                             <div className="location" key={location._id}>
                                 <h3 className="location_name">{location.name}</h3>
                                 <h3 className="location_stock">Current Stock: {location.stock}</h3>
+                                {location.stock < 10 ? <p style={{color:"red"}}>Warning: Low stock</p> : null}
                                 <h3 className="location_admin">Current Admin: {location.adminId}</h3>
                                 <Formik
                                     // Formik requires intial values to be set

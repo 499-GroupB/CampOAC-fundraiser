@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 
+// view payment button
+// intended on opening invoices
 /*
                             <td ><button type="submit" onClick={() => viewPayment(order._id)} >
                                 {order.payment}
@@ -33,10 +35,12 @@ export default function OrderView(props) {
               var name = rows[i].getElementsByTagName("td")[2];
               var email = rows[i].getElementsByTagName("td")[3];
               var phone = rows[i].getElementsByTagName("td")[4];
-              var numBags = rows[i].getElementsByTagName("td")[5];
-              var date = rows[i].getElementsByTagName("td")[6];
               if (name || pickUp || email || phone) {
-                if (name.innerHTML.toLowerCase().indexOf(filter) > -1 || pickUp.innerHTML.toLowerCase().indexOf(filter) > -1 || email.innerHTML.toLowerCase().indexOf(filter) > -1|| phone.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                if (name.innerHTML.toLowerCase().indexOf(filter) > -1 || 
+                    pickUp.innerHTML.toLowerCase().indexOf(filter) > -1 || 
+                    email.innerHTML.toLowerCase().indexOf(filter) > -1 || 
+                    phone.innerHTML.toLowerCase().indexOf(filter) > -1 ||
+                    id.innerHTML.toLowerCase().indexOf(filter) > -1){
                   rows[i].style.display = "";
                 } else {
                   rows[i].style.display = "none";
