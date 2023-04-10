@@ -28,6 +28,7 @@ export default function LocationForm(props) {
         if (locations.length > 0) {
             return (
                 locations.map((location, index) => {
+                    if(location.stock > 0)
                     return (
                         <div id={location._id} className="location" key={location._id}>
                             <h3 className="location_name">{location.name}</h3>

@@ -303,7 +303,7 @@ app.post("/location/add", (req, res) => {
     // If succesful (Code 200))
     .then(item => {
       // return new order id
-      res.status(200).send(newLocation._id);
+      res.status(200).send(item._id);
     })
     // If something goes wrong (Code 400)
     .catch(err => {
