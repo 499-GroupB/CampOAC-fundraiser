@@ -130,9 +130,9 @@ const OrderForm = (props) => {
                             &nbsp;Only email notifications
                         </MyRadio>
                     </div>
+                    </div>
                     <br></br>
                     <p><i>Invoice email will be sent regardless</i></p>
-                    </div>
                     <br></br>
                     <MyTextInput
                         //BAG NUMBER SELECTION  
