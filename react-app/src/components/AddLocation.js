@@ -9,28 +9,6 @@ export default function addLocation() {
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/add`;
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/admin/single`;
 
-    /*const addLocation = (locationData) => {
-        if (window.confirm("Are you sure you want to add this location?")) {
-            axios.post(apiEnd, { locationData },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                        "Access-Control-Allow-Credentials": "true",
-                    }
-                })
-                .then(function (response) {
-                    console.log(response);
-                })
-                // Catching axios error
-                // Currently outputs to browser console (not good)
-                .catch(function (error) {
-                    console.log(error)
-                });
-            window.location.reload(false);
-        }
-    }*/
-
     const addLocation = (locationData) => {
         axios.post(apiEnd2, { adminId: locationData.adminId },
             {
