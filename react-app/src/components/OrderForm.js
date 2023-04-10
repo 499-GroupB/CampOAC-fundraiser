@@ -19,9 +19,7 @@ const OrderForm = (props) => {
     const [payNow, setPayNow] = useState(false);
     //const [numBags, setNumBags] = useState(1);
     const currDate = getCurrentDate();
-    // Api endpoint for order submission
-    const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/submit`;
-
+    
     const togglePay = (value) => {
         setPayNow(value);
         console.log(payNow);
@@ -47,7 +45,7 @@ const OrderForm = (props) => {
                     numBags: 1,
                     payment: '',
                     date: currDate,
-                    fulfilled: false
+                    fulfilled: false,
                 }}
 
                 // Validation schema via https://www.npmjs.com/package/yup
@@ -132,6 +130,8 @@ const OrderForm = (props) => {
                             &nbsp;Only email notifications
                         </MyRadio>
                     </div>
+                    <br></br>
+                    <p><i>Invoice email will be sent regardless</i></p>
                     </div>
                     <br></br>
                     <MyTextInput
