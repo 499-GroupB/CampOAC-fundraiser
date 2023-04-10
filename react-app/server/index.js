@@ -211,7 +211,7 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId })
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId, admin: req.body.admin })
     .then(() => {
       console.log("succesfully found location");
       res.status(200).send("Succesfully modified from database");
@@ -228,7 +228,7 @@ app.get("/order/list", (req, res) => {
   console.log("Someone is accessing order records")
   Order.find()
     .then(data => {
-      console.log("Data sent.")
+      console.log("Order data sent.")
       res.status(200).send(data);
     })
     .catch(err => {
@@ -404,10 +404,9 @@ app.post("/admin/single", (req, res) => {
     if (err) {
       console.log("error finding admin " + adminId)
       res.status(400).send("Unable to retrieve admin");
-    } else {
-      console.log(admin);
-      res.status(200).send(admin);
     }
+    console.log(admin);
+    res.status(200).send(admin);
   })
 })
 

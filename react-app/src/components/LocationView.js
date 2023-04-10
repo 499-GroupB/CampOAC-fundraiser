@@ -3,7 +3,6 @@ import axios from 'axios';
 import * as Yup from 'yup';
 import { MyTextInput } from "./Inputs";
 import { Formik, Form, Field } from 'formik';
-import { useEffect } from "react";
 
 export default function LocationView(props) {
     const { locations } = props;
@@ -11,38 +10,11 @@ export default function LocationView(props) {
     const { canEdit } = props;
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/modify`
-    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/location/add`
     const apiEnd3 = `${process.env.REACT_APP_BACKEND_URL}/location/delete`
-    const apiEnd4 = `${process.env.REACT_APP_BACKEND_URL}/admin/name`
-
-    useEffect(() => {
-        console.log(generateAdminOptions(props));
-    }, [])
+    const apiEnd4 = `${process.env.REACT_APP_BACKEND_URL}/admin/single`
 
     const modifyLocation = (locationData) => {
-        if (window.confirm("Are you sure you want to modify this location?")) {
-            axios.post(apiEnd, { data: locationData },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
-                        "Access-Control-Allow-Credentials": "true",
-                    }
-                })
-                .then(function (response) {
-                    console.log(response);
-                })
-                // Catching axios error
-                // Currently outputs to browser console (not  good)
-                .catch(function (error) {
-                    console.log(error);
-                });
-            window.location.reload(false);
-        }
-    }
-
-    const getAdminName = (adminId) => {
-        axios.post(apiEnd4, {adminId: adminId},
+        axios.post(apiEnd4, { adminId: locationData.adminId },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -51,19 +23,24 @@ export default function LocationView(props) {
                 }
             })
             .then(function (response) {
-                console.log(response);
-                return "name";
+                axios.post(apiEnd, { data: locationData, admin: response.data},
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then((response) => {
+                    window.location.reload(false);
+                })
             })
             // Catching axios error
             // Currently outputs to browser console (not  good)
             .catch(function (error) {
                 console.log(error);
-                return "unknown";
             });
-    }
-    
-    const getTestName = () => {
-        return "test";
+        return null;
     }
 
     const deleteLocation = (locationId) => {
@@ -95,14 +72,14 @@ export default function LocationView(props) {
                     return (
                         <option key={admin._id} label={admin.firstName + " " + admin.lastName} value={admin._id}></option>
                     )
-            }))
+                }))
         } else {
             return (
                 <option value="" label="Unable to retrieve admins"></option>
             )
         }
     }
-    
+
     const displayLocations = (props) => {
         if (locations.length > 0) {
             return (
@@ -112,8 +89,8 @@ export default function LocationView(props) {
                             <div className="location" key={location._id}>
                                 <h3 className="location_name">{location.name}</h3>
                                 <h3 className="location_stock">Current Stock: {location.stock}</h3>
-                                {location.stock < 10 ? <p style={{color:"red"}}>Warning: Low stock</p> : null}
-                                <h3 className="location_admin">Current Admin: {location.adminId}</h3>
+                                {location.stock < 10 ? <p style={{ color: "red" }}>Warning: Low stock</p> : null}
+                                <h3 className="location_admin">Current Admin: {location.admin.firstName + " " + location.admin.lastName}</h3>
                                 <Formik
                                     // Formik requires intial values to be set
                                     // This is also how the variables appear in the api response
@@ -122,6 +99,7 @@ export default function LocationView(props) {
                                         stock: location.stock,
                                         contact: location.contact,
                                         adminId: location.adminId,
+                                        admin: {},
                                     }}
                                     validationSchema={Yup.object({
                                         stock: Yup.number().min(0, 'You cannot have negative stock').max(10000, 'Too much stock!'),
@@ -136,7 +114,6 @@ export default function LocationView(props) {
                                         setTimeout(() => {
                                             modifyLocation(values);
                                             setSubmitting(false);
-                                            window.location.reload(false);
                                         }, 400);
                                     }}
                                 >
@@ -155,16 +132,17 @@ export default function LocationView(props) {
                                             name="contact"
                                             type="text"
                                             placeholder={location.contact}
+                                            //readonly="readonly"
                                         />
                                         <br></br>
-                                        <label>Admin:</label>
+                                        {canEdit ? <><label>Admin:</label>
                                         <Field as="select" name="adminId" className="select-input" id={location._id}>
                                             <option value={location.adminId} label="Current Admin"></option>
                                             {generateAdminOptions(props)}
-                                        </Field>
+                                        </Field></> : null}
                                         <br></br>
                                         <button type="submit">Update Location</button>
-                                        {canEdit ? <button className="important" type="button" onClick={() => deleteLocation(location._id)} >Delete Location</button> : null }
+                                        {canEdit ? <button className="important" type="button" onClick={() => deleteLocation(location._id)} >Delete Location</button> : null}
                                     </Form>
                                 </Formik>
                             </div>
@@ -183,8 +161,8 @@ export default function LocationView(props) {
 
     return (
         <>
-        {displayLocations(props)}
+            {displayLocations(props)}
         </>
     )
-    
+
 }

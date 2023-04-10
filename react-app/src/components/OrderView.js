@@ -16,6 +16,9 @@ export default function OrderView(props) {
     //const orderClone = orders.slice();
     const [orderState, setOrderState] = useState(orders);
 
+    // variable to control what orders get displayed [0-all 1-unfulfilled 2-fulfilled]
+    const [orderViewState, setOrderViewState] = useState(0);
+
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/order/delete`
     const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/order/fulfill`
 
@@ -137,6 +140,15 @@ export default function OrderView(props) {
         if (orderState.length > 0) {
             return (
                 orderState.map((order, index) => {
+                    var condition = order.fulfilled
+                    if(orderViewState == 1){
+                        condition = false;
+                    }else if(orderViewState == 2){
+                        condition = true;
+                    }else{
+                        condition = order.fulfilled
+                    }
+                    if(order.fulfilled == condition)
                     return (
                         <tr class={order.fulfilled ? "order-fulfilled" : "order-unfulfilled"}>
                             <td>{order._id}</td>
@@ -171,6 +183,9 @@ export default function OrderView(props) {
         <>
             <button type="submit" onClick={() => download_table_as_csv('order-table')}>Export as CSV</button>
             <input class="text-input" name="orderSearch" type="text" id="orderSearch" placeholder="Search for values"></input>
+            <button type="submit" onClick={() => setOrderViewState(0)}>All</button>
+            <button type="submit" onClick={() => setOrderViewState(1)}>Unpaid</button>
+            <button type="submit" onClick={() => setOrderViewState(2)}>Paid</button>
             <table id="order-table">
                 <thead>
                     <tr>
