@@ -16,7 +16,7 @@ const Order = (props) => {
   // Step 1: Set location, Step 2: Fill out order form, Step 3: payment processing
   const [step, setStep] = useState(1);
   // Location state
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState({});
   // OrderId state
   const [newOrder, setNewOrder] = useState({});
   // Order Payment required state
@@ -24,12 +24,19 @@ const Order = (props) => {
 
   // function for handling location submission
   const locationSelect = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      // Location is set as an array of the entire location object {_id, name, stock}
-      setLocation(values)
-      setStep(2)
-      setSubmitting(false);
-    }, 400);
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/location/single`, { locationId: values.id },
+      {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+              "Access-Control-Allow-Credentials": "true",
+          }
+      })
+      .then(function (response) {
+        setLocation(response.data)
+        setStep(2)
+        setSubmitting(false);
+      })
   }
 
   // Try not to question this too much.
