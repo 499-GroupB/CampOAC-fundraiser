@@ -50,6 +50,8 @@ p {
 
 .step-header {
     padding: 2.5vh;
+    font-family: "Bearhug";
+    font-size: 5vh;
 }
 
 .loading {
@@ -62,6 +64,7 @@ p {
 
 .radio-input {
     width: auto;
+    padding: 2.5vh
 }
 
 label {

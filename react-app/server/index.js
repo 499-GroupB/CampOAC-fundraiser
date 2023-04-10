@@ -101,10 +101,10 @@ app.post("/order/submit", (req, res) => {
       sendMail(mailOptions);
 
       // send sms
-      //if(item.sms === 'true'){
+      if(item.sms === 'true'){
         let message = "Thank you " + item.firstName + " " + item.lastName + " for your purchase of " + item.numBags + " bags of firewood on " + item.date + ".\n\nOrder number: " + item._id
-        sendSMS(message, item.phone);
-      //}
+        //sendSMS(message, item.phone);
+      }
     
       // Update stock based on new  order
       Location.findOneAndUpdate({ name: item.pickUp }, { $inc: { stock: -item.numBags } })

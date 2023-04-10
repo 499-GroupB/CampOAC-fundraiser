@@ -17,7 +17,7 @@ const StepMeter = (props) => {
         case (2):
             return (
                 <div className="step-meter">
-                    <h2>Enter contact information</h2>
+                    <h2 className="step-header">enter contact information</h2>
                     <p class="step-bar">
                         <progress value="50" max="100"></progress>
                     </p>
@@ -26,7 +26,7 @@ const StepMeter = (props) => {
         case (3):
             return (
                 <div className="step-meter">
-                    <h2>Please wait...</h2>
+                    <h2 className="step-header">please wait...</h2>
                     <p class="step-bar">
                         <progress max="100"></progress>
                     </p>
@@ -35,7 +35,7 @@ const StepMeter = (props) => {
         case (4):
             return (
                 <div className="step-meter">
-                    <h2>Thank you!</h2>
+                    <h2 className="step-header">thank you!</h2>
                     <p class="step-bar">
                         <progress value="100" max="100"></progress>
                     </p>
@@ -44,7 +44,7 @@ const StepMeter = (props) => {
         case (5):
             return (
                 <div className="step-meter">
-                    <h2>Enter payment information</h2>
+                    <h2 className="step-header">enter payment information</h2>
                     <p class="step-bar">
                         <progress value="75" max="100"></progress>
                     </p>
@@ -53,7 +53,7 @@ const StepMeter = (props) => {
         default:
             return (
                 <div className="step-meter">
-                    <h2>Figuring stuff out</h2>
+                    <h2 className="step-header">figuring stuff out</h2>
                     <p class="step-bar">
                         <progress max="100"></progress>
                     </p>

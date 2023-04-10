@@ -1,4 +1,5 @@
 // 404 page to appear when no discernable route was found
+import '../css/Style.css';
 
 const NoPage = () => {
   return (
