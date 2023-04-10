@@ -100,6 +100,7 @@ export default function LocationView(props) {
                                         stock: location.stock,
                                         contact: location.contact,
                                         adminId: location.adminId,
+                                        address: location.address,
                                         admin: {},
                                     }}
                                     validationSchema={Yup.object({
@@ -134,6 +135,14 @@ export default function LocationView(props) {
                                             type="text"
                                             placeholder={location.contact}
                                             //readonly="readonly"
+                                        />
+                                        <br></br>
+                                        <MyTextInput
+                                            //ADDRESS
+                                            label="Address "
+                                            name="address"
+                                            type="text"
+                                            placeholder={location.address}
                                         />
                                         <br></br>
                                         {canEdit ? <><label>Admin:</label>

@@ -211,7 +211,7 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId, admin: req.body.admin })
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId, address: req.body.data.address, admin: req.body.admin })
     .then(() => {
       console.log("succesfully found location");
       res.status(200).send("Succesfully modified from database");
