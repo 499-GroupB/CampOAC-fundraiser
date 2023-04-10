@@ -65,10 +65,11 @@ export default function LocationView(props) {
         window.location.reload(false);
     }
 
-    const generateAdminOptions = (props) => {
+    const generateAdminOptions = (props, i) => {
         if (admins.length > 0) {
             return (
                 admins.map((admin, index) => {
+                    if(admin.firstName != props.locations[i].admin.firstName)
                     return (
                         <option key={admin._id} label={admin.firstName + " " + admin.lastName} value={admin._id}></option>
                     )
@@ -137,8 +138,8 @@ export default function LocationView(props) {
                                         <br></br>
                                         {canEdit ? <><label>Admin:</label>
                                         <Field as="select" name="adminId" className="select-input" id={location._id}>
-                                            <option value={location.adminId} label="Current Admin"></option>
-                                            {generateAdminOptions(props)}
+                                            <option value={location.adminId} label={location.admin.firstName + " " + location.admin.lastName}></option>
+                                            {generateAdminOptions(props, index)}
                                         </Field></> : null}
                                         <br></br>
                                         <button type="submit">Update Location</button>
