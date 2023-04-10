@@ -132,13 +132,14 @@ export default function LocationView(props) {
                                             name="contact"
                                             type="text"
                                             placeholder={location.contact}
+                                            //readonly="readonly"
                                         />
                                         <br></br>
-                                        <label>Admin:</label>
+                                        {canEdit ? <><label>Admin:</label>
                                         <Field as="select" name="adminId" className="select-input" id={location._id}>
                                             <option value={location.adminId} label="Current Admin"></option>
                                             {generateAdminOptions(props)}
-                                        </Field>
+                                        </Field></> : null}
                                         <br></br>
                                         <button type="submit">Update Location</button>
                                         {canEdit ? <button className="important" type="button" onClick={() => deleteLocation(location._id)} >Delete Location</button> : null}

@@ -48,6 +48,10 @@ p {
     accent-color: #2c4356;
 }
 
+.step-header {
+    padding: 2.5vh;
+}
+
 .loading {
     margin-left: auto;
     margin-right: auto;
