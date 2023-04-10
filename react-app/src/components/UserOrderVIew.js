@@ -54,15 +54,23 @@ export default function UserOrderView(props) {
                 )
             }
         } else {
+            if(!props.order.location){
+                props.order.location = {}
+            }
             return (
                 <>
                     <h2>Order Found</h2>
-                    <pre>ID: {props.order._id}</pre>
+                    <pre><i>ID: {props.order._id}</i></pre>
                     <pre>Name: {props.order.firstName + " " + props.order.lastName}</pre>
                     <pre>Email: {props.order.email}</pre>
-                    <pre>Location: {props.order.pickUp}</pre>
                     <pre>Date: {props.order.date}</pre>
-                    <p>Contact for concerns, including cancellations or questions: </p>
+                    <pre>Number of bags: {props.order.numBags}</pre>
+                    <br/>
+                    <h2>Pickup information</h2>
+                    <pre>Location: {props.order.location.name}</pre>
+                    <pre>{props.order.location.address}</pre>
+                    <pre>Site administrator: {props.order.location.admin.firstName} {props.order.location.admin.lastName}</pre>
+                    <p>Contact for concerns, including cancellations or questions: <pre>{props.order.location.contact}</pre></p>
                 </>
             )
         }

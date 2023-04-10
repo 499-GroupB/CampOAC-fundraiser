@@ -46,6 +46,7 @@ const OrderForm = (props) => {
                     payment: '',
                     date: currDate,
                     fulfilled: false,
+                    location: location,
                 }}
 
                 // Validation schema via https://www.npmjs.com/package/yup
