@@ -211,7 +211,7 @@ app.post("/location/modify", (req, res) => {
   // return all orders
   console.log("Recieved location to modify");
   console.log(req.body);
-  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId })
+  Location.findOneAndUpdate({ _id: req.body.data.id }, { stock: req.body.data.stock, contact: req.body.data.contact, adminId: req.body.data.adminId, address: req.body.data.address, admin: req.body.admin })
     .then(() => {
       console.log("succesfully found location");
       res.status(200).send("Succesfully modified from database");
@@ -228,7 +228,7 @@ app.get("/order/list", (req, res) => {
   console.log("Someone is accessing order records")
   Order.find()
     .then(data => {
-      console.log("Data sent.")
+      console.log("Order data sent.")
       res.status(200).send(data);
     })
     .catch(err => {
@@ -250,9 +250,11 @@ app.post("/order/single", (req, res) => {
       res.status(200).send({ order: {}, msg: "No orders with that ID found" });
     } else {
       // check to verify email is correct
-      if (req.body.email == order.email) {
+      if (req.body.email) {
+        if(req.body.email == order.email){
         console.log("found order " + orderId);
         res.status(200).send({ order: order, msg: "Order found" });
+        }
       } else {
         console.log("Email did not match orderid entered")
         res.status(200).send({ order: {}, msg: "Incorrect credentials" });
@@ -278,15 +280,14 @@ app.get("/location/list", (req, res) => {
 app.post("/location/single", (req, res) => {
   // return single location
   let locationId = req.body.locationId
-  console.log(locationId);
+  console.log("Location ID: " + locationId);
   Location.findOne({ _id: locationId }).exec((err, location) => {
     if (err) {
       console.log("error finding location " + locationId)
       res.status(400).send("Unable to retrieve location");
-    } else {
-      console.log(location);
-      res.status(200).send(location);
     }
+    console.log(location);
+    res.status(200).send(location);
   })
 })
 
@@ -302,7 +303,7 @@ app.post("/location/add", (req, res) => {
     // If succesful (Code 200))
     .then(item => {
       // return new order id
-      res.status(200).send(newLocation._id);
+      res.status(200).send(item._id);
     })
     // If something goes wrong (Code 400)
     .catch(err => {
@@ -404,10 +405,9 @@ app.post("/admin/single", (req, res) => {
     if (err) {
       console.log("error finding admin " + adminId)
       res.status(400).send("Unable to retrieve admin");
-    } else {
-      console.log(admin);
-      res.status(200).send(admin);
     }
+    console.log(admin);
+    res.status(200).send(admin);
   })
 })
 

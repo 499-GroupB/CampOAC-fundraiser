@@ -230,7 +230,8 @@ const Admin = () => {
         return (
             <>
                 <LoginForm onSubmit={loginSubmission} />
-                <h3>Login failed</h3>
+                <br></br>
+                <h3 style={{color:"red"}}>Login failed</h3>
                 <br></br>
             </>
         );

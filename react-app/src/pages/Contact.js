@@ -31,7 +31,7 @@ const Contact = () => {
         locations.map((location, index) => {
           return (
             <>
-              <p><b>{location.name}</b> | Contact: {location.admin.firstName} {location.admin.lastName} | Phone: {location.contact}</p>
+              <p><b>{location.name}</b> | {location.address} | Contact: {location.admin.firstName} {location.admin.lastName} | Phone: {location.contact}</p>
             </>
           )
         })

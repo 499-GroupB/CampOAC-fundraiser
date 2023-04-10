@@ -28,11 +28,15 @@ export default function LocationForm(props) {
         if (locations.length > 0) {
             return (
                 locations.map((location, index) => {
+                    if(location.stock > 0)
                     return (
                         <div id={location._id} className="location" key={location._id}>
                             <h3 className="location_name">{location.name}</h3>
                             <h3 className="location_stock">Current Stock: {location.stock}</h3>
-                            <p>Contact this location: {location.contact}</p>
+                            <p>
+                            {location.address}<br/>
+                            {location.contact}
+                            </p>
                             <Formik
                                 // Formik requires intial values to be set
                                 // This is also how the variables appear in the api response

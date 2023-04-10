@@ -15,7 +15,8 @@ const OrderSchema = new Schema({
   payment: { type: String, required: true, maxLength: 100 },
   date: { type: String, required: false, maxLength: 100 },
   fulfilled: {type: Boolean, required: true},
-  sms: {type: String, required: false, maxLength: 5}
+  sms: {type: String, required: false, maxLength: 5},
+  location: { type: Object, required: false}
 });
 
 // Export model
