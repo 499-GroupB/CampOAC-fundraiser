@@ -32,7 +32,7 @@ const About = () => {
         locations.map((location, index) => {
           return (
             <>
-              <p>{location.name} | Phone: {location.contact}</p>
+              <p><b>{location.name}</b> | Contact: {location.admin.firstName} {location.admin.lastName} | Phone: {location.contact}</p>
             </>
           )
         })

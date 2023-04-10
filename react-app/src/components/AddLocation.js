@@ -7,8 +7,9 @@ import { MyTextInput } from './Inputs';
 export default function addLocation() {
 
     const apiEnd = `${process.env.REACT_APP_BACKEND_URL}/location/add`;
+    const apiEnd2 = `${process.env.REACT_APP_BACKEND_URL}/admin/single`;
 
-    const addLocation = (locationData) => {
+    /*const addLocation = (locationData) => {
         if (window.confirm("Are you sure you want to add this location?")) {
             axios.post(apiEnd, { locationData },
                 {
@@ -28,6 +29,37 @@ export default function addLocation() {
                 });
             window.location.reload(false);
         }
+    }*/
+
+    const addLocation = (locationData) => {
+        axios.post(apiEnd2, { adminId: locationData.adminId },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                    "Access-Control-Allow-Credentials": "true",
+                }
+            })
+            .then(function (response) {
+                locationData.admin = response.data
+                axios.post(apiEnd, {locationData},
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": `${process.env.REACT_APP_BACKEND_URL}`,
+                        "Access-Control-Allow-Credentials": "true",
+                    }
+                })
+                .then((response) => {
+                    window.location.reload(false);
+                })
+            })
+            // Catching axios error
+            // Currently outputs to browser console (not  good)
+            .catch(function (error) {
+                console.log(error);
+            });
+        return null;
     }
         return (
             <>
@@ -41,7 +73,6 @@ export default function addLocation() {
                             stock: '1',
                             contact: '',
                             adminId: '63ed171ec90de8ee9d90ba6c',
-
                         }}
                         validationSchema={Yup.object({
                             name: Yup.string().required('Required'),
@@ -56,7 +87,6 @@ export default function addLocation() {
                             setTimeout(() => {
                                 addLocation(values);
                                 setSubmitting(false);
-                                window.location.reload(false);
                             }, 400);
                         }}
                     >
