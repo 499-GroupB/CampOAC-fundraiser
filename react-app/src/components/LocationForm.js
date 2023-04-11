@@ -34,7 +34,6 @@ export default function LocationForm(props) {
                             <h3 className="location_name">{location.name}</h3>
                             <h3 className="location_stock">Current Stock: {location.stock}</h3>
                             <p>
-                            {location.address}<br/>
                             {location.contact}
                             </p>
                             <Formik
