@@ -57,17 +57,17 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 
 Entire program located in <b>react-app</b> folder
 
-Font and graphics elements located in build and public folders
+Font and graphics elements located in <b>build</b> and <b>public</b> folders
 
-Main application broken into two parts: server and src
+Main application broken into two parts: <b>server</b> and <b>src</b>
 
-src contains frontend functionality:  
-  -Display pages located in pages folder and functions  
-  -Styling information in css folder  
-  -index.js manages display and navigatio
+<b>src</b> contains frontend functionality:  
+  -Display pages located in <b>pages</b> folder and functions  
+  -Styling information in <b>css</b> folder  
+  -index.js manages display and navigation
   
-server contains backend functionality:  
-  -models folder contains database schema for mongoDB  
+<b>server</b> contains backend functionality:  
+  -<b>models</b> folder contains database schema for mongoDB  
   -index.js has endpoints to handle all API calls and server communication  
 
 Frontend page functionalities such as placing orders or viewing databases make API call from frontend which is then received in appropriate handler in backend server/index.js
