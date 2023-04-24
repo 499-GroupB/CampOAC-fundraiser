@@ -59,11 +59,13 @@ Entire program located in react-app folder
 
 Font and graphics elements located in build and public folders
 
-Main application broken into two parts: server and src  
+Main application broken into two parts: server and src
+
 src contains frontend functionality:  
   -Display pages located in pages folder and functions  
   -Styling information in css folder  
-  -index.js manages display and navigation  
+  -index.js manages display and navigatio
+  
 server contains backend functionality:  
   -models folder contains database schema for mongoDB  
   -index.js has endpoints to handle all API calls and server communication  
