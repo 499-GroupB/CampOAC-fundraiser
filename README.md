@@ -55,7 +55,7 @@ as for larger orders people would be more likely to turn to a bulk supplier.
 
 ### Documentation Manual
 
-Entire program located in react-app folder
+Entire program located in <b>react-app</b> folder
 
 Font and graphics elements located in build and public folders
 
