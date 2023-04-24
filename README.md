@@ -70,12 +70,12 @@ server contains backend functionality:
 
 Frontend page functionalities such as placing orders or viewing databases make API call from frontend which is then received in appropriate handler in backend server/index.js
 
-Example workflow for placing order with credit payment:
-  -User lands on home page and navigates to order page (handled by src/index.js)
-  -Order page makes API call to view current locations
-  -API call received by server/index.js which communicates with database server and returns location info
-  -order page displays LocationForm to let user view locations and select one
-  -user selects location
+Example workflow for placing order with credit payment:  
+  -User lands on home page and navigates to order page (handled by src/index.js)  
+  -Order page makes API call to view current locations  
+  -API call received by server/index.js which communicates with database server and returns location info  
+  -order page displays LocationForm to let user view locations and select one  
+  -user selects location  
   -location selection passed to OrderForm component
   -order page changes display to OrderForm component to let user enter info and place order
   -user enters info and places order
