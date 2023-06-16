@@ -1,5 +1,5 @@
 ﻿<h1 align="center">
-CampOAC - Group B
+CampOAC - Fundraiser website
 </h1>
 
 ![Version - 0.0.1](https://img.shields.io/badge/version-pending-lightgrey?style=for-the-badge)
